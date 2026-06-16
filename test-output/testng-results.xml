@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-16T01:37:36 EDT" name="Suite" finished-at="2026-06-16T01:45:08 EDT" duration-ms="452269">
+    <groups>
+    </groups>
+    <test started-at="2026-06-16T01:37:36 EDT" name="TC_Job_Creation1" finished-at="2026-06-16T01:45:08 EDT" duration-ms="452269">
+      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:37:36 EDT" name="setUp" finished-at="2026-06-16T01:37:46 EDT" duration-ms="10648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:37:46 EDT" name="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp" finished-at="2026-06-16T01:39:13 EDT" duration-ms="86850" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_IncommingAndOutgoingCallsWithTwilioVoiceApp -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:39:13 EDT" name="creatingReport" finished-at="2026-06-16T01:39:13 EDT" duration-ms="163" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_IncommingAndOutgoingCallsWithTwilioVoiceApp status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method signature="verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:39:13 EDT" name="verify_ColdTransferFunctionality" finished-at="2026-06-16T01:40:39 EDT" duration-ms="85880" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ColdTransferFunctionality -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:40:39 EDT" name="creatingReport" finished-at="2026-06-16T01:40:39 EDT" duration-ms="118" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_ColdTransferFunctionality status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method signature="verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:40:39 EDT" name="verify_WarmCallTransferFunctionality" finished-at="2026-06-16T01:41:44 EDT" duration-ms="64721" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_WarmCallTransferFunctionality -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:41:44 EDT" name="creatingReport" finished-at="2026-06-16T01:41:44 EDT" duration-ms="207" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_WarmCallTransferFunctionality status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method signature="verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:41:44 EDT" name="verify_OutgoingAndIncommingMessages" finished-at="2026-06-16T01:43:04 EDT" duration-ms="79866" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_OutgoingAndIncommingMessages -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:43:04 EDT" name="creatingReport" finished-at="2026-06-16T01:43:04 EDT" duration-ms="145" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMessages status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method signature="verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:43:04 EDT" name="verify_OutgoingAndIncommingMMS" finished-at="2026-06-16T01:44:54 EDT" duration-ms="110045" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_OutgoingAndIncommingMMS -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:44:55 EDT" name="creatingReport" finished-at="2026-06-16T01:44:55 EDT" duration-ms="125" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMMS status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method is-config="true" signature="sendFinalReport()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:44:55 EDT" name="sendFinalReport" finished-at="2026-06-16T01:45:08 EDT" duration-ms="13391" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendFinalReport -->
+        <test-method is-config="true" signature="closeBrowsers()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@40dd3977]" started-at="2026-06-16T01:45:08 EDT" name="closeBrowsers" finished-at="2026-06-16T01:45:10 EDT" duration-ms="1871" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowsers -->
+      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
+    </test> <!-- TC_Job_Creation1 -->
+  </suite> <!-- Suite -->
+</testng-results>
