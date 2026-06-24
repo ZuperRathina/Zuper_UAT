@@ -23,7 +23,7 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
         zuperConnectPageFactory= new ZuperConnectPageFactory();
     	Non_WebDriver_Util.initReport();
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verifying Incomming and Outgoing MMS functionality with " +prop.getProperty("company_Name") +" account");
+				.createTest("Verifying Incoming and Outgoing MMS functionality with " +prop.getProperty("company_Name") +" account");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
 		dashboardPageFactory.popup_clear(getDriver());
@@ -53,16 +53,16 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(getDriver());	
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
 		zuperConnectPageFactory.checkTheIncommingMMSMessageInAdminUser(getDriver());
-		logger.info("<<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>");
+		logger.info("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
-				"Incomming and Outgoing MMS functionality is working as expected.");
+				"Incoming and Outgoing MMS functionality is working as expected.");
 		Non_WebDriver_Util.extent.flush();	
     }
 
     @AfterMethod
     public void sendReportToSlack() {
     	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0);
+		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Incoming and Outgoing MMS");
 		CompanyPageFactory.incognitoDriver.quit();
 		getDriver().quit();
     }

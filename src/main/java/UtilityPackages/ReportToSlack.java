@@ -51,7 +51,7 @@ public class ReportToSlack extends Baseclass {
 			StringBuilder responseStr = new StringBuilder();
 
 			while ((line = reader.readLine()) != null) {
-			    responseStr.append(line);
+				responseStr.append(line);
 			}
 
 			System.out.println("Step1 Response: " + responseStr.toString());
@@ -71,7 +71,7 @@ public class ReportToSlack extends Baseclass {
 			uploadConn.setDoOutput(true);
 			uploadConn.setRequestMethod("POST");
 			uploadConn.setRequestProperty("Content-Type", "application/octet-stream");
-			
+
 			FileInputStream fis = new FileInputStream(file);
 			OutputStream out = uploadConn.getOutputStream();
 
@@ -101,15 +101,12 @@ public class ReportToSlack extends Baseclass {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 			LocalDate today = LocalDate.now();
 			String formattedDate = today.format(formatter);
-			String executionTime = (minutes > 0 || seconds > 0) 
-			        ? "*Execution Time:* " + minutes + "m " + seconds + "s\n\n" 
-			        : "";
-			String comment = "*Zuper Connect – Sanity Test Execution Completed (Web)*\n\n"
-			        + "*Date:* " + formattedDate + "\n"
-			        + "*Environment:* " + environment + "\n"
-			        + "*Account Used:* " + account + "\n"
-			        + executionTime
-			        + "For a detailed report, please download and view the attached file.";
+			String executionTime = (minutes > 0 || seconds > 0)
+					? "*Execution Time:* " + minutes + "m " + seconds + "s\n\n"
+					: "";
+			String comment = "*Zuper Connect – Sanity Test Execution Completed (Web)*\n\n" + "*Date:* " + formattedDate
+					+ "\n" + "*Environment:* " + environment + "\n" + "*Account Used:* " + account + "\n"
+					+ executionTime + "For a detailed report, please download and view the attached file.";
 
 			String payload = "{" + "\"files\":[{\"id\":\"" + fileId + "\",\"title\":\"Sanity Test Report\"}],"
 					+ "\"channel_id\":\"" + channelId + "\"," + "\"initial_comment\":\"" + comment.replace("\n", "\\n")

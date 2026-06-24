@@ -17,7 +17,6 @@ import PageObjectRep.ZuperConnectPageFactory;
 import PageObjectRep.ZuperTwilioVoicePageFactory;
 import UtilityPackages.Non_WebDriver_Util;
 
-@Listeners(RunnerClass.FailureListener.class)
 public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 
 	private CompanyPageFactory companyPageFactory;
@@ -155,9 +154,9 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	@Test(priority = 4, alwaysRun = true)
 	public void verify_OutgoingAndIncommingMessages() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verifying Incomming and Outgoing Messages functionalities on "
+				.createTest("Verifying Incoming and Outgoing Messages functionalities on "
 						+ prop.getProperty("company_Name") + " account");
-		System.out.println("Verifying Incomming and Outgoing Messages functionalities on "
+		System.out.println("Verifying Incoming and Outgoing Messages functionalities on "
 						+ prop.getProperty("company_Name") + " account");
 		Non_WebDriver_Util.refreshPage(getDriver());
 		dashboardPageFactory.navigateToConnectModule(getDriver());
@@ -185,18 +184,18 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
 		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(getDriver());
 		zuperConnectPageFactory.checkTheIncommingMessageFromAdminUser(getDriver());
-		logger.info("<<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>");
+		logger.info("<<<<<<Incoming and Outgoing Messages functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
-				"Incomming and Outgoing Messages functionality is working as expected.");
-		System.out.println("<<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>");
+				"Incoming and Outgoing Messages functionality is working as expected.");
+		System.out.println("<<<<<<Incoming and Outgoing Messages functionality is working as expected.>>>>>>");
 	}
 
 	@Test(priority = 5, alwaysRun = true)
 	public void verify_OutgoingAndIncommingMMS() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verifying Incomming and Outgoing MMS functionalities on "
+				.createTest("Verifying Incoming and Outgoing MMS functionalities on "
 						+ prop.getProperty("company_Name") + " account");
-		System.out.println("Verifying Incomming and Outgoing MMS functionalities on "
+		System.out.println("Verifying Incoming and Outgoing MMS functionalities on "
 						+ prop.getProperty("company_Name") + " account");
 		zuperConnectPageFactory.clickTextMessageInputSection(getDriver());
 		zuperConnectPageFactory.addAttachmentsToMMS(getDriver());
@@ -214,10 +213,10 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(getDriver());
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
 		zuperConnectPageFactory.checkTheIncommingMMSMessageInAdminUser(getDriver());
-		logger.info("<<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>");
-		System.out.println("<<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>");
+		logger.info("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
+		System.out.println("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
-				"Incomming and Outgoing MMS functionality is working as expected.");
+				"Incoming and Outgoing MMS functionality is working as expected.");
 	}
 
 	@AfterMethod
@@ -233,8 +232,8 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		long seconds = (duration / 1000) % 60;
 		long minutes = (duration / (1000 * 60)) % 60;
 		String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-//		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), minutes,
-//				seconds);
+		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), minutes,
+				seconds,"");
 	}
 
 	@AfterSuite

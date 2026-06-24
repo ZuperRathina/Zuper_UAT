@@ -83,7 +83,7 @@ public class TC_WarmCallTransfer extends Baseclass{
     @AfterMethod
     public void sendReportToSlack() {
     	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0);
+		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Warm Transfer Functionality");
 		getDriver().quit();
 		CompanyPageFactory.incognitoDriver.quit();
     } 
