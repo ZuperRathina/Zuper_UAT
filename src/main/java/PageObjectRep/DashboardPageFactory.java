@@ -256,10 +256,12 @@ public class DashboardPageFactory extends Baseclass {
 			logger.info("Call is Transferred to Agent 2 (" + feNameToTransfer + ") user");
 			Non_WebDriver_Util.testCase.log(Status.PASS,
 					"Call is Transferred to Agent 2 (" + feNameToTransfer + ") user");
+			System.out.println("Call is Transferred to Agent 2 (" + feNameToTransfer + ") user");
 			Non_WebDriver_Util.getScreenshot(driver, "");
 		} else {
 			logger.info("Transfer is Not Working as expected");
 			Non_WebDriver_Util.testCase.log(Status.PASS, "Transfer is Not Working as expected");
+			System.out.println("Transfer is Not Working as expected");
 		}
 	}
 
@@ -348,6 +350,7 @@ public class DashboardPageFactory extends Baseclass {
 			logger.info("Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 			Non_WebDriver_Util.waitThread(5);
 			Non_WebDriver_Util.testCase.log(Status.PASS, "Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
+			System.out.println("Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 		} catch (Exception e) {
 			Non_WebDriver_Util.refreshPage(getDriver());
 			Non_WebDriver_Util.waitThread(2);

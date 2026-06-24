@@ -35,10 +35,12 @@ public class FailureListener implements ITestListener, IExecutionListener {
 	public void onExecutionFinish() {
 
 		System.out.println("===== Failed Test Methods =====");
+		
 		if (!failedOrSkippedTests.isEmpty()) {
 			String failedMethod = "";
 			for (String method : failedOrSkippedTests) {
 				failedMethod = method;
+				System.out.println(failedMethod);
 				if (failedMethod.equalsIgnoreCase("verify_IncommingAndOutgoingCallsWithTwilioVoiceApp")) {
 					TC_IncommingAndOutgoingCallsWithTwilioVoiceApp callApp = new TC_IncommingAndOutgoingCallsWithTwilioVoiceApp();
 					callApp.verify_IncommingAndOutgoingFunctionalities();

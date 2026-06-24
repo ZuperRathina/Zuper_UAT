@@ -16437,3 +16437,576 @@
 [2026-06-16 01:44:28] The MMS was sent to admin user by an another user and the added text is Zuper Reply MMS @ 16-06-2026 01:44:22
 [2026-06-16 01:44:54] Sent MMS is received to the admin user, added text is 'Zuper Reply MMS @ 16-06-2026 01:44:22' and updating this conversation to Marked as Read
 [2026-06-16 01:44:54] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-17 01:31:12] Test setup started...
+[2026-06-17 01:31:43] Notify popup is cleared
+[2026-06-17 01:31:50] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-17 01:31:52] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:31:53] Navigating to Zuper Dashboard page
+[2026-06-17 01:31:57] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:32:04] Call is currently on HOLD
+[2026-06-17 01:32:09] Call is currently not in HOLD state
+[2026-06-17 01:32:11] Call is currently in MUTE state
+[2026-06-17 01:32:15] Call is not Muted now
+[2026-06-17 01:32:20] Navigating to Zuper Dashboard page
+[2026-06-17 01:32:29] Agent 1 Calling Back to Customer Number
+[2026-06-17 01:32:36] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-17 01:32:42] Navigating to Zuper Dashboard page
+[2026-06-17 01:32:45] Call is currently on HOLD
+[2026-06-17 01:32:50] Call is currently not in HOLD state
+[2026-06-17 01:32:52] Call is currently in MUTE state
+[2026-06-17 01:32:56] Call is not Muted now
+[2026-06-17 01:32:58] The call was disconnected by the Customer
+[2026-06-17 01:32:59] Navigating to Zuper Dashboard page
+[2026-06-17 01:33:01] Call is disconnected for the Admin User
+[2026-06-17 01:33:01] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-17 01:33:10] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:33:11] Navigating to Zuper Dashboard page
+[2026-06-17 01:33:15] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:33:21] Launching Chrome in Incognito Mode
+[2026-06-17 01:33:47] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 01:33:48] Notify popup is cleared
+[2026-06-17 01:34:02] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-17 01:34:06] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-17 01:34:16] Call is currently on HOLD
+[2026-06-17 01:34:22] Call is currently not in HOLD state
+[2026-06-17 01:34:24] Call is currently in MUTE state
+[2026-06-17 01:34:27] Call is not Muted now
+[2026-06-17 01:34:30] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-17 01:34:30] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-17 01:34:42] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:34:43] Navigating to Zuper Dashboard page
+[2026-06-17 01:34:48] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:35:02] Call is not being transferred
+[2026-06-17 01:35:05] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-17 01:35:16] Transfered Call is merged
+[2026-06-17 01:35:19] Call is currently in MUTE state
+[2026-06-17 01:35:23] Call is not Muted now
+[2026-06-17 01:35:25] Hold option is not available to this flow
+[2026-06-17 01:35:26] Call is currently in MUTE state
+[2026-06-17 01:35:29] Call is not Muted now
+[2026-06-17 01:35:34] The Warm transferred call was disconnected from the Twilio end
+[2026-06-17 01:35:35] Navigating to Zuper Dashboard page
+[2026-06-17 01:35:38] Call is disconnected for the Admin User
+[2026-06-17 01:35:40] Call is disconnected for the Another User
+[2026-06-17 01:35:40] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-17 01:35:58] The message was sent to another user by an admin user and the Message is Zuper New Message @ 17-06-2026 01:35:53
+[2026-06-17 01:35:58] Launching Chrome in Incognito Mode
+[2026-06-17 01:36:23] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 01:36:23] Notify popup is cleared
+[2026-06-17 01:36:24] Sense Popup is not present
+[2026-06-17 01:36:42] Sent Message is received to the another user, Message is 'Zuper New Message @ 17-06-2026 01:35:53' and this conversation is Marked as Read
+[2026-06-17 01:36:48] Reply Message was sent from the another user to admin user and the Message is Zuper Reply Message @ 17-06-2026 01:36:44
+[2026-06-17 01:37:02] Sent Message is received to the admin user, Message is 'Zuper Reply Message @ 17-06-2026 01:36:44' and this conversation is Marked as Read
+[2026-06-17 01:37:02] <<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>
+[2026-06-17 01:37:26] The MMS was sent to another user by an admin user and added text is Zuper New MMS @ 17-06-2026 01:37:21
+[2026-06-17 01:37:58] Sent MMS is received to the another user, text is 'Zuper New MMS @ 17-06-2026 01:37:21' and this conversation is Marked as Read
+[2026-06-17 01:38:23] The MMS was sent to admin user by an another user and the added text is Zuper Reply MMS @ 17-06-2026 01:38:18
+[2026-06-17 01:38:50] Sent MMS is received to the admin user, added text is 'Zuper Reply MMS @ 17-06-2026 01:38:18' and updating this conversation to Marked as Read
+[2026-06-17 01:38:50] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-17 01:41:33] Test setup started...
+[2026-06-17 01:41:49] Notify popup is cleared
+[2026-06-17 01:41:57] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-17 01:41:58] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:41:59] Navigating to Zuper Dashboard page
+[2026-06-17 01:42:03] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:42:09] Call is currently on HOLD
+[2026-06-17 01:42:14] Call is currently not in HOLD state
+[2026-06-17 01:42:17] Call is currently in MUTE state
+[2026-06-17 01:42:20] Call is not Muted now
+[2026-06-17 01:42:26] Navigating to Zuper Dashboard page
+[2026-06-17 01:42:34] Agent 1 Calling Back to Customer Number
+[2026-06-17 01:42:42] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-17 01:42:48] Navigating to Zuper Dashboard page
+[2026-06-17 01:42:50] Call is currently on HOLD
+[2026-06-17 01:42:55] Call is currently not in HOLD state
+[2026-06-17 01:42:58] Call is currently in MUTE state
+[2026-06-17 01:43:01] Call is not Muted now
+[2026-06-17 01:43:03] The call was disconnected by the Customer
+[2026-06-17 01:43:04] Navigating to Zuper Dashboard page
+[2026-06-17 01:43:06] Call is disconnected for the Admin User
+[2026-06-17 01:43:06] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-17 01:43:15] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:43:16] Navigating to Zuper Dashboard page
+[2026-06-17 01:43:20] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:43:27] Launching Chrome in Incognito Mode
+[2026-06-17 01:43:52] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 01:43:53] Notify popup is cleared
+[2026-06-17 01:44:07] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-17 01:44:11] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-17 01:44:21] Call is currently on HOLD
+[2026-06-17 01:44:27] Call is currently not in HOLD state
+[2026-06-17 01:44:29] Call is currently in MUTE state
+[2026-06-17 01:44:32] Call is not Muted now
+[2026-06-17 01:44:34] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-17 01:44:34] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-17 01:44:44] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 01:44:45] Navigating to Zuper Dashboard page
+[2026-06-17 01:44:50] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 01:45:03] Call is not being transferred
+[2026-06-17 01:45:06] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-17 01:45:17] Transfered Call is merged
+[2026-06-17 01:45:21] Call is currently in MUTE state
+[2026-06-17 01:45:24] Call is not Muted now
+[2026-06-17 01:45:26] Hold option is not available to this flow
+[2026-06-17 01:45:26] Call is currently in MUTE state
+[2026-06-17 01:45:30] Call is not Muted now
+[2026-06-17 01:45:35] The Warm transferred call was disconnected from the Twilio end
+[2026-06-17 01:45:36] Navigating to Zuper Dashboard page
+[2026-06-17 01:45:38] Call is disconnected for the Admin User
+[2026-06-17 01:45:40] Call is disconnected for the Another User
+[2026-06-17 01:45:41] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-17 01:45:57] The message was sent to another user by an admin user and the Message is Zuper New Message @ 17-06-2026 01:45:53
+[2026-06-17 01:45:58] Launching Chrome in Incognito Mode
+[2026-06-17 01:46:22] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 01:46:23] Notify popup is cleared
+[2026-06-17 01:46:24] Sense Popup is not present
+[2026-06-17 01:46:39] Sent Message is received to the another user, Message is 'Zuper New Message @ 17-06-2026 01:45:53' and this conversation is Marked as Read
+[2026-06-17 01:46:43] Reply Message was sent from the another user to admin user and the Message is Zuper Reply Message @ 17-06-2026 01:46:40
+[2026-06-17 01:46:57] Sent Message is received to the admin user, Message is 'Zuper Reply Message @ 17-06-2026 01:46:40' and this conversation is Marked as Read
+[2026-06-17 01:46:57] <<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>
+[2026-06-17 01:47:21] The MMS was sent to another user by an admin user and added text is Zuper New MMS @ 17-06-2026 01:47:16
+[2026-06-17 01:47:48] Sent MMS is received to the another user, text is 'Zuper New MMS @ 17-06-2026 01:47:16' and this conversation is Marked as Read
+[2026-06-17 01:48:14] The MMS was sent to admin user by an another user and the added text is Please find attachedZuper Reply MMS @ 17-06-2026 01:48:09
+[2026-06-17 01:48:41] Sent MMS is received to the admin user, added text is 'Please find attachedZuper Reply MMS @ 17-06-2026 01:48:09' and updating this conversation to Marked as Read
+[2026-06-17 01:48:41] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-17 05:08:37] Test setup started...
+[2026-06-17 05:08:56] Notify popup is cleared
+[2026-06-17 05:09:02] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-17 05:09:04] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:09:05] Navigating to Zuper Dashboard page
+[2026-06-17 05:09:09] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 05:09:15] Call is currently on HOLD
+[2026-06-17 05:09:20] Call is currently not in HOLD state
+[2026-06-17 05:09:23] Call is currently in MUTE state
+[2026-06-17 05:09:26] Call is not Muted now
+[2026-06-17 05:09:31] Navigating to Zuper Dashboard page
+[2026-06-17 05:09:40] Agent 1 Calling Back to Customer Number
+[2026-06-17 05:09:47] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-17 05:09:53] Navigating to Zuper Dashboard page
+[2026-06-17 05:09:55] Call is currently on HOLD
+[2026-06-17 05:10:01] Call is currently not in HOLD state
+[2026-06-17 05:10:03] Call is currently in MUTE state
+[2026-06-17 05:10:06] Call is not Muted now
+[2026-06-17 05:10:08] The call was disconnected by the Customer
+[2026-06-17 05:10:09] Navigating to Zuper Dashboard page
+[2026-06-17 05:11:20] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:11:21] Navigating to Zuper Dashboard page
+[2026-06-17 05:11:27] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 05:11:40] Call is not being transferred
+[2026-06-17 05:11:59] The message was sent to another user by an admin user and the Message is Zuper New Message @ 17-06-2026 05:11:54
+[2026-06-17 05:11:59] Launching Chrome in Incognito Mode
+[2026-06-17 05:12:23] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 05:12:23] Notify popup is cleared
+[2026-06-17 05:12:24] Sense Popup is not present
+[2026-06-17 05:12:51] The MMS was sent to another user by an admin user and added text is Zuper New MMS @ 17-06-2026 05:12:45
+[2026-06-17 05:13:18] Sent MMS is received to the another user, text is 'Zuper New MMS @ 17-06-2026 05:12:45' and this conversation is Marked as Read
+[2026-06-17 05:13:42] The MMS was sent to admin user by an another user and the added text is Please find attachedZuper Reply MMS @ 17-06-2026 05:13:38
+[2026-06-17 05:14:15] Sent MMS is received to the admin user, added text is 'Please find attachedZuper Reply MMS @ 17-06-2026 05:13:38' and updating this conversation to Marked as Read
+[2026-06-17 05:14:15] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-17 05:14:17] <<<<<<Verifying Contract creation, Deactivate and Activate contract and Delete Contract functionalities>>>>>>
+[2026-06-17 05:14:47] <<<<<<Verifying Asset creation, Deactivate and Activate Asset and Delete Asset functionalities>>>>>>
+[2026-06-17 05:15:00] Asset is created and the UID is :https://uat.zuperpro.com/asset_management/107763ed-f7e1-4e84-b76c-f6e8de4712ff/details
+[2026-06-17 05:15:08] Organization is added to the Asset Successfully
+[2026-06-17 05:15:12] Customer is added to the Asset Successfully
+[2026-06-17 05:15:16] Asset is Deactivated from the details page
+[2026-06-17 05:15:21] Asset is in In-Active State on Listing page
+[2026-06-17 05:15:24] Asset is activated from the listing page
+[2026-06-17 05:15:35] Asset is on Active State on Listing page
+[2026-06-17 05:15:40] Asset is Deactivated from the details page
+[2026-06-17 05:15:46] UAT Asset@17-06-2026 05:14:53 Asset is Deleted Successfully
+[2026-06-17 05:15:49] <<<<<<Asset creation, Deactivate and Activate Asset and Delete Asset functionalities are working as expceted>>>>>>
+[2026-06-17 05:15:49] <<<<<<Verifying Request creation, Convert Request to Job and Update Request Status functionalities>>>>>>
+[2026-06-17 05:17:09] Test setup started...
+[2026-06-17 05:17:27] Notify popup is cleared
+[2026-06-17 05:17:34] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-17 05:17:36] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:17:37] Navigating to Zuper Dashboard page
+[2026-06-17 05:17:40] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 05:17:47] Call is currently on HOLD
+[2026-06-17 05:17:52] Call is currently not in HOLD state
+[2026-06-17 05:17:54] Call is currently in MUTE state
+[2026-06-17 05:17:57] Call is not Muted now
+[2026-06-17 05:18:03] Navigating to Zuper Dashboard page
+[2026-06-17 05:18:11] Agent 1 Calling Back to Customer Number
+[2026-06-17 05:18:19] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-17 05:18:25] Navigating to Zuper Dashboard page
+[2026-06-17 05:18:27] Call is currently on HOLD
+[2026-06-17 05:18:32] Call is currently not in HOLD state
+[2026-06-17 05:18:34] Call is currently in MUTE state
+[2026-06-17 05:18:38] Call is not Muted now
+[2026-06-17 05:18:40] The call was disconnected by the Customer
+[2026-06-17 05:18:41] Navigating to Zuper Dashboard page
+[2026-06-17 05:19:18] <<<<<<Verifying Asset creation, Deactivate and Activate Asset and Delete Asset functionalities>>>>>>
+[2026-06-17 05:19:18] <<<<<<Verifying Request creation, Convert Request to Job and Update Request Status functionalities>>>>>>
+[2026-06-17 05:19:44] Test setup started...
+[2026-06-17 05:20:00] Notify popup is cleared
+[2026-06-17 05:20:06] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-17 05:20:08] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:20:09] Navigating to Zuper Dashboard page
+[2026-06-17 05:20:12] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 05:20:19] Call is currently on HOLD
+[2026-06-17 05:20:24] Call is currently not in HOLD state
+[2026-06-17 05:20:26] Call is currently in MUTE state
+[2026-06-17 05:20:29] Call is not Muted now
+[2026-06-17 05:20:35] Navigating to Zuper Dashboard page
+[2026-06-17 05:20:43] Agent 1 Calling Back to Customer Number
+[2026-06-17 05:20:51] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-17 05:20:57] Navigating to Zuper Dashboard page
+[2026-06-17 05:20:59] Call is currently on HOLD
+[2026-06-17 05:21:04] Call is currently not in HOLD state
+[2026-06-17 05:21:07] Call is currently in MUTE state
+[2026-06-17 05:21:10] Call is not Muted now
+[2026-06-17 05:21:12] The call was disconnected by the Customer
+[2026-06-17 05:21:13] Navigating to Zuper Dashboard page
+[2026-06-17 05:21:15] Call is disconnected for the Admin User
+[2026-06-17 05:21:15] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-17 05:21:23] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:21:24] Navigating to Zuper Dashboard page
+[2026-06-17 05:21:28] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-17 05:21:35] Launching Chrome in Incognito Mode
+[2026-06-17 05:21:59] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 05:21:59] Notify popup is cleared
+[2026-06-17 05:22:48] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-17 05:22:49] Navigating to Zuper Dashboard page
+[2026-06-17 05:23:09] The message was sent to another user by an admin user and the Message is Zuper New Message @ 17-06-2026 05:23:05
+[2026-06-17 05:23:10] Launching Chrome in Incognito Mode
+[2026-06-17 05:23:35] Logged in as a 'ZuperTestAutomation' user
+[2026-06-17 05:23:35] Notify popup is cleared
+[2026-06-17 05:23:36] Sense Popup is not present
+[2026-06-17 05:24:04] The MMS was sent to another user by an admin user and added text is Please find attachedZuper New MMS @ 17-06-2026 05:23:58
+[2026-06-17 05:24:29] <<<<<<Verifying Asset creation, Deactivate and Activate Asset and Delete Asset functionalities>>>>>>
+[2026-06-17 05:24:29] <<<<<<Verifying Request creation, Convert Request to Job and Update Request Status functionalities>>>>>>
+[2026-06-17 05:24:43] Test setup started...
+[2026-06-17 05:24:51] <<<<<<Verifying Contract creation, Deactivate and Activate contract and Delete Contract functionalities>>>>>>
+[2026-06-17 05:25:00] Notify popup is cleared
+[2026-06-17 05:25:20] Contract is created and the UID is :https://uat.zuperpro.com/contracts/da011c1c-96bc-41d2-93b5-84a96e0ad6d0/details
+[2026-06-17 05:25:27] Contract is Deactivated from the details page
+[2026-06-17 05:25:30] Contract current status is details page is 'Inactive'
+[2026-06-17 05:25:32] Contract is Activated from the listing page
+[2026-06-17 05:25:35] Contract current status is details page is 'Active'
+[2026-06-17 05:25:37] Contract is Deactivated from the listing page
+[2026-06-17 05:25:40] Contract is in In-Active State on Listing page
+[2026-06-17 05:25:42] Contract is Activated from the listing page
+[2026-06-17 05:25:44] Contract is on Active State on Listing page
+[2026-06-17 05:25:48] Contract is Deactivated from the details page
+[2026-06-17 05:25:51] Contract current status is details page is 'Inactive'
+[2026-06-17 05:25:57] Contract is Deleted Successfully
+[2026-06-17 05:26:00] <<<<<<Contract creation, Deactivate and Activate contract and Delete Contract functionalities are working as expceted>>>>>>
+[2026-06-17 05:26:00] <<<<<<Verifying Asset creation, Deactivate and Activate Asset and Delete Asset functionalities>>>>>>
+[2026-06-17 05:26:13] Asset is created and the UID is :https://uat.zuperpro.com/asset_management/b4e9c646-8824-466e-aa8f-7ba10f31cb6e/details
+[2026-06-17 05:26:19] Organization is added to the Asset Successfully
+[2026-06-17 05:26:23] Customer is added to the Asset Successfully
+[2026-06-17 05:26:26] Asset is Deactivated from the details page
+[2026-06-17 05:26:30] Asset is on Active State on Listing page
+[2026-06-17 05:26:33] Asset is activated from the listing page
+[2026-06-17 05:26:43] Asset is on Active State on Listing page
+[2026-06-17 05:26:47] Asset is Deactivated from the details page
+[2026-06-17 05:26:53] UAT Asset@17-06-2026 05:26:05 Asset is Deleted Successfully
+[2026-06-17 05:26:56] <<<<<<Asset creation, Deactivate and Activate Asset and Delete Asset functionalities are working as expceted>>>>>>
+[2026-06-17 05:26:56] <<<<<<Verifying Request creation, Convert Request to Job and Update Request Status functionalities>>>>>>
+[2026-06-17 05:27:18] Request has been created succesfully and the Request ID is: https://uat.zuperpro.com/request/95865d47-6ef9-4430-9d79-a0ba178a2549/details
+[2026-06-17 05:27:29] Job has been created for the Request succesfully and the Job ID is: https://uat.zuperpro.com/jobs/10eab840-8779-47e8-8e56-87847466efb6/details
+[2026-06-17 05:27:34] Job is Deleted Successfully
+[2026-06-17 05:27:43] Request Status is updated to Closed
+[2026-06-17 05:27:46] Request is Deleted Successfully
+[2026-06-17 05:27:49] <<<<<<Request creation, Convert Request to Job and Update Request Status functionalities are working as expceted>>>>>>
+[2026-06-18 01:33:34] Test setup started...
+[2026-06-18 01:33:52] Notify popup is cleared
+[2026-06-18 01:34:01] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-18 01:34:03] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-18 01:34:04] Navigating to Zuper Dashboard page
+[2026-06-18 01:34:08] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-18 01:34:16] Call is currently on HOLD
+[2026-06-18 01:34:21] Call is currently not in HOLD state
+[2026-06-18 01:34:24] Call is currently in MUTE state
+[2026-06-18 01:34:27] Call is not Muted now
+[2026-06-18 01:34:33] Navigating to Zuper Dashboard page
+[2026-06-18 01:34:41] Agent 1 Calling Back to Customer Number
+[2026-06-18 01:34:49] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-18 01:34:56] Navigating to Zuper Dashboard page
+[2026-06-18 01:34:58] Call is currently on HOLD
+[2026-06-18 01:35:03] Call is currently not in HOLD state
+[2026-06-18 01:35:06] Call is currently in MUTE state
+[2026-06-18 01:35:10] Call is not Muted now
+[2026-06-18 01:35:12] The call was disconnected by the Customer
+[2026-06-18 01:35:13] Navigating to Zuper Dashboard page
+[2026-06-18 01:35:15] Call is disconnected for the Admin User
+[2026-06-18 01:35:15] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-18 01:35:32] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-18 01:35:33] Navigating to Zuper Dashboard page
+[2026-06-18 01:35:38] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-18 01:35:44] Launching Chrome in Incognito Mode
+[2026-06-18 01:36:11] Logged in as a 'ZuperTestAutomation' user
+[2026-06-18 01:36:11] Notify popup is cleared
+[2026-06-18 01:37:07] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-18 01:37:09] Navigating to Zuper Dashboard page
+[2026-06-18 01:37:32] The message was sent to another user by an admin user and the Message is Zuper New Message @ 18-06-2026 01:37:26
+[2026-06-18 01:37:32] Launching Chrome in Incognito Mode
+[2026-06-18 01:37:59] Logged in as a 'ZuperTestAutomation' user
+[2026-06-18 01:38:00] Notify popup is cleared
+[2026-06-18 01:38:01] Sense Popup is not present
+[2026-06-18 01:38:23] Sent Message is received to the another user, Message is 'Zuper New Message @ 18-06-2026 01:37:26' and this conversation is Marked as Read
+[2026-06-18 01:38:30] Reply Message was sent from the another user to admin user and the Message is Zuper Reply Message @ 18-06-2026 01:38:25
+[2026-06-18 01:38:46] Sent Message is received to the admin user, Message is 'Zuper Reply Message @ 18-06-2026 01:38:25' and this conversation is Marked as Read
+[2026-06-18 01:38:46] <<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>
+[2026-06-18 01:39:13] The MMS was sent to another user by an admin user and added text is Zuper New MMS @ 18-06-2026 01:39:07
+[2026-06-18 01:39:48] Sent MMS is received to the another user, text is 'Zuper New MMS @ 18-06-2026 01:39:07' and this conversation is Marked as Read
+[2026-06-18 01:40:18] The MMS was sent to admin user by an another user and the added text is Zuper Reply MMS @ 18-06-2026 01:40:10
+[2026-06-18 01:40:47] Sent MMS is received to the admin user, added text is 'Zuper Reply MMS @ 18-06-2026 01:40:10' and updating this conversation to Marked as Read
+[2026-06-18 01:40:47] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-18 01:41:08] Test setup started...
+[2026-06-18 01:41:24] Notify popup is cleared
+[2026-06-18 01:41:33] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-18 01:41:35] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-18 01:41:36] Navigating to Zuper Dashboard page
+[2026-06-18 01:41:42] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-18 01:41:52] Launching Chrome in Incognito Mode
+[2026-06-18 01:42:19] Logged in as a 'ZuperTestAutomation' user
+[2026-06-18 01:42:21] The notification popup did not appear within the expected wait time
+[2026-06-18 01:42:32] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-18 01:42:36] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-18 01:42:47] Call is currently on HOLD
+[2026-06-18 01:42:53] Call is currently not in HOLD state
+[2026-06-18 01:42:56] Call is currently in MUTE state
+[2026-06-18 01:42:59] Call is not Muted now
+[2026-06-18 01:43:02] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-18 01:43:02] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-18 01:43:02] Test setup started...
+[2026-06-18 01:43:20] Notify popup is cleared
+[2026-06-18 01:43:28] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-18 01:43:31] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-18 01:43:32] Navigating to Zuper Dashboard page
+[2026-06-18 01:43:36] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-18 01:43:48] Launching Chrome in Incognito Mode
+[2026-06-18 01:44:17] Logged in as a 'ZuperTestAutomation' user
+[2026-06-18 01:44:19] The notification popup did not appear within the expected wait time
+[2026-06-18 01:44:29] Call is not being transferred
+[2026-06-18 01:44:32] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-18 01:44:45] Transfered Call is merged
+[2026-06-18 01:44:49] Call is currently in MUTE state
+[2026-06-18 01:44:53] Call is not Muted now
+[2026-06-18 01:44:55] Hold option is not available to this flow
+[2026-06-18 01:44:56] Call is currently in MUTE state
+[2026-06-18 01:45:00] Call is not Muted now
+[2026-06-18 01:45:06] The Warm transferred call was disconnected from the Twilio end
+[2026-06-18 01:45:08] Navigating to Zuper Dashboard page
+[2026-06-18 01:45:10] Call is disconnected for the Admin User
+[2026-06-18 01:45:14] Call is disconnected for the Another User
+[2026-06-18 01:45:15] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-19 02:26:42] Test setup started...
+[2026-06-19 02:27:10] Notify popup is cleared
+[2026-06-19 02:27:18] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-19 02:27:20] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-19 02:27:21] Navigating to Zuper Dashboard page
+[2026-06-19 02:28:45] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-19 02:28:46] Navigating to Zuper Dashboard page
+[2026-06-19 02:40:07] Test setup started...
+[2026-06-19 02:40:27] Notify popup is cleared
+[2026-06-19 02:40:34] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-19 02:40:36] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-19 02:40:37] Navigating to Zuper Dashboard page
+[2026-06-19 02:40:41] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-19 02:40:48] Call is currently on HOLD
+[2026-06-19 02:40:53] Call is currently not in HOLD state
+[2026-06-19 02:40:56] Call is currently in MUTE state
+[2026-06-19 02:40:59] Call is not Muted now
+[2026-06-19 02:41:05] Navigating to Zuper Dashboard page
+[2026-06-19 02:41:14] Agent 1 Calling Back to Customer Number
+[2026-06-19 02:41:21] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-19 02:41:28] Navigating to Zuper Dashboard page
+[2026-06-19 02:41:30] Call is currently on HOLD
+[2026-06-19 02:41:35] Call is currently not in HOLD state
+[2026-06-19 02:41:38] Call is currently in MUTE state
+[2026-06-19 02:41:41] Call is not Muted now
+[2026-06-19 02:41:43] The call was disconnected by the Customer
+[2026-06-19 02:41:44] Navigating to Zuper Dashboard page
+[2026-06-19 02:41:46] Call is disconnected for the Admin User
+[2026-06-19 02:41:46] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-19 02:41:57] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-19 02:41:58] Navigating to Zuper Dashboard page
+[2026-06-19 02:42:03] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-19 02:42:09] Launching Chrome in Incognito Mode
+[2026-06-19 02:42:34] Logged in as a 'ZuperTestAutomation' user
+[2026-06-19 02:42:34] Notify popup is cleared
+[2026-06-19 02:42:47] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-19 02:42:51] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-19 02:43:01] Call is currently on HOLD
+[2026-06-19 02:43:07] Call is currently not in HOLD state
+[2026-06-19 02:43:09] Call is currently in MUTE state
+[2026-06-19 02:43:12] Call is not Muted now
+[2026-06-19 02:43:14] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-19 02:43:14] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-19 02:43:26] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-19 02:43:27] Navigating to Zuper Dashboard page
+[2026-06-19 02:43:32] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-19 02:43:46] Call is not being transferred
+[2026-06-19 02:43:49] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-19 02:44:00] Transfered Call is merged
+[2026-06-19 02:44:04] Call is currently in MUTE state
+[2026-06-19 02:44:07] Call is not Muted now
+[2026-06-19 02:44:09] Hold option is not available to this flow
+[2026-06-19 02:44:09] Call is currently in MUTE state
+[2026-06-19 02:44:13] Call is not Muted now
+[2026-06-19 02:44:18] The Warm transferred call was disconnected from the Twilio end
+[2026-06-19 02:44:19] Navigating to Zuper Dashboard page
+[2026-06-19 02:44:21] Call is disconnected for the Admin User
+[2026-06-19 02:44:23] Call is disconnected for the Another User
+[2026-06-19 02:44:24] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-19 02:44:42] The message was sent to another user by an admin user and the Message is Zuper New Message @ 19-06-2026 02:44:37
+[2026-06-19 02:44:42] Launching Chrome in Incognito Mode
+[2026-06-19 02:45:07] Logged in as a 'ZuperTestAutomation' user
+[2026-06-19 02:45:07] Notify popup is cleared
+[2026-06-19 02:45:08] Sense Popup is not present
+[2026-06-19 02:45:27] Sent Message is received to the another user, Message is 'Zuper New Message @ 19-06-2026 02:44:37' and this conversation is Marked as Read
+[2026-06-19 02:45:33] Reply Message was sent from the another user to admin user and the Message is Zuper Reply Message @ 19-06-2026 02:45:29
+[2026-06-19 02:45:48] Sent Message is received to the admin user, Message is 'Zuper Reply Message @ 19-06-2026 02:45:29' and this conversation is Marked as Read
+[2026-06-19 02:45:48] <<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>
+[2026-06-19 02:46:12] The MMS was sent to another user by an admin user and added text is Please find attachedZuper New MMS @ 19-06-2026 02:46:06
+[2026-06-19 02:46:44] Sent MMS is received to the another user, text is 'Please find attachedZuper New MMS @ 19-06-2026 02:46:06' and this conversation is Marked as Read
+[2026-06-19 02:47:12] The MMS was sent to admin user by an another user and the added text is Zuper Reply MMS @ 19-06-2026 02:47:05
+[2026-06-19 02:47:39] Sent MMS is received to the admin user, added text is 'Zuper Reply MMS @ 19-06-2026 02:47:05' and updating this conversation to Marked as Read
+[2026-06-19 02:47:39] <<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>
+[2026-06-24 02:27:55] Test setup started...
+[2026-06-24 02:28:17] Notify popup is cleared
+[2026-06-24 02:28:25] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-24 02:28:27] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 02:28:29] Navigating to Zuper Dashboard page
+[2026-06-24 02:28:33] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 02:28:41] Call is currently on HOLD
+[2026-06-24 02:28:47] Call is currently not in HOLD state
+[2026-06-24 02:28:50] Call is currently in MUTE state
+[2026-06-24 02:28:53] Call is not Muted now
+[2026-06-24 02:29:00] Navigating to Zuper Dashboard page
+[2026-06-24 02:29:09] Agent 1 Calling Back to Customer Number
+[2026-06-24 02:29:17] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-24 02:29:24] Navigating to Zuper Dashboard page
+[2026-06-24 02:29:27] Call is currently on HOLD
+[2026-06-24 02:29:33] Call is currently not in HOLD state
+[2026-06-24 02:29:36] Call is currently in MUTE state
+[2026-06-24 02:29:39] Call is not Muted now
+[2026-06-24 02:29:42] The call was disconnected by the Customer
+[2026-06-24 02:29:43] Navigating to Zuper Dashboard page
+[2026-06-24 02:29:45] Call is disconnected for the Admin User
+[2026-06-24 02:29:45] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-24 02:29:56] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 02:29:57] Navigating to Zuper Dashboard page
+[2026-06-24 02:30:02] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 02:30:09] Launching Chrome in Incognito Mode
+[2026-06-24 02:30:43] Logged in as a 'ZuperTestAutomation' user
+[2026-06-24 02:30:44] The notification popup did not appear within the expected wait time
+[2026-06-24 02:31:04] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-24 02:31:09] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-24 02:31:21] Call is currently on HOLD
+[2026-06-24 02:31:27] Call is currently not in HOLD state
+[2026-06-24 02:31:30] Call is currently in MUTE state
+[2026-06-24 02:31:34] Call is not Muted now
+[2026-06-24 02:31:37] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-24 02:31:37] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-24 02:31:53] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 02:31:55] Navigating to Zuper Dashboard page
+[2026-06-24 02:32:01] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 02:32:16] Call is not being transferred
+[2026-06-24 02:32:20] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-24 02:32:32] Transfered Call is merged
+[2026-06-24 02:32:36] Call is currently in MUTE state
+[2026-06-24 02:32:40] Call is not Muted now
+[2026-06-24 02:32:42] Hold option is not available to this flow
+[2026-06-24 02:32:44] Call is currently in MUTE state
+[2026-06-24 02:32:48] Call is not Muted now
+[2026-06-24 02:32:53] The Warm transferred call was disconnected from the Twilio end
+[2026-06-24 02:32:54] Navigating to Zuper Dashboard page
+[2026-06-24 02:32:57] Call is disconnected for the Admin User
+[2026-06-24 02:32:59] Call is disconnected for the Another User
+[2026-06-24 02:33:00] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-24 04:53:10] Test setup started...
+[2026-06-24 04:53:20] <<<<<<Verifying Contract creation, Deactivate and Activate contract and Delete Contract functionalities>>>>>>
+[2026-06-24 04:53:30] Notify popup is cleared
+[2026-06-24 04:53:56] Contract is created and the UID is :https://uat.zuperpro.com/contracts/71c8bbda-89a0-4b6d-a2f7-354321f88c12/details
+[2026-06-24 04:54:04] Contract is Deactivated from the details page
+[2026-06-24 04:54:07] Contract current status is details page is 'Inactive'
+[2026-06-24 04:54:09] Contract is Activated from the listing page
+[2026-06-24 04:54:13] Contract current status is details page is 'Active'
+[2026-06-24 04:54:14] Contract is Deactivated from the listing page
+[2026-06-24 04:54:18] Contract is in In-Active State on Listing page
+[2026-06-24 04:54:19] Contract is Activated from the listing page
+[2026-06-24 04:54:21] Contract is on Active State on Listing page
+[2026-06-24 04:54:26] Contract is Deactivated from the details page
+[2026-06-24 04:54:29] Contract current status is details page is 'Inactive'
+[2026-06-24 04:54:35] Contract is Deleted Successfully
+[2026-06-24 04:54:38] <<<<<<Contract creation, Deactivate and Activate contract and Delete Contract functionalities are working as expceted>>>>>>
+[2026-06-24 04:54:38] <<<<<<Verifying Asset creation, Deactivate and Activate Asset and Delete Asset functionalities>>>>>>
+[2026-06-24 04:54:52] Asset is created and the UID is :https://uat.zuperpro.com/asset_management/2043c7d1-20f4-439c-8a7c-6ecc0c17f639/details
+[2026-06-24 04:54:59] Organization is added to the Asset Successfully
+[2026-06-24 04:55:03] Customer is added to the Asset Successfully
+[2026-06-24 04:55:07] Asset is Deactivated from the details page
+[2026-06-24 04:55:11] Asset is on Active State on Listing page
+[2026-06-24 04:55:14] Asset is activated from the listing page
+[2026-06-24 04:55:25] Asset is on Active State on Listing page
+[2026-06-24 04:55:29] Asset is Deactivated from the details page
+[2026-06-24 04:55:34] UAT Asset@24-06-2026 04:54:43 Asset is Deleted Successfully
+[2026-06-24 04:55:37] <<<<<<Asset creation, Deactivate and Activate Asset and Delete Asset functionalities are working as expceted>>>>>>
+[2026-06-24 04:55:37] <<<<<<Verifying Request creation, Convert Request to Job and Update Request Status functionalities>>>>>>
+[2026-06-24 04:55:56] Request has been created succesfully and the Request ID is: https://uat.zuperpro.com/request/e71d497a-2115-4929-9e41-ddee966b0cc8/details
+[2026-06-24 04:56:09] Job has been created for the Request succesfully and the Job ID is: https://uat.zuperpro.com/jobs/af903312-3058-4ace-b70c-c03d9d8ec598/details
+[2026-06-24 04:56:13] Job is Deleted Successfully
+[2026-06-24 04:56:24] Request Status is updated to Closed
+[2026-06-24 04:56:28] Request is Deleted Successfully
+[2026-06-24 04:56:31] <<<<<<Request creation, Convert Request to Job and Update Request Status functionalities are working as expceted>>>>>>
+[2026-06-24 04:57:14] Test setup started...
+[2026-06-24 04:57:38] Notify popup is cleared
+[2026-06-24 04:57:45] Zuper Twilio Voice page is launched and Start the Device functionality is enabled
+[2026-06-24 04:57:47] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 04:57:48] Navigating to Zuper Dashboard page
+[2026-06-24 04:57:52] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 04:57:59] Call is currently on HOLD
+[2026-06-24 04:58:04] Call is currently not in HOLD state
+[2026-06-24 04:58:07] Call is currently in MUTE state
+[2026-06-24 04:58:11] Call is not Muted now
+[2026-06-24 04:58:18] Navigating to Zuper Dashboard page
+[2026-06-24 04:58:27] Agent 1 Calling Back to Customer Number
+[2026-06-24 04:58:35] Call received from the Agent 1 (Zuper Admin) and the call status is '>  Accepted incoming call.' by Customer
+[2026-06-24 04:58:41] Navigating to Zuper Dashboard page
+[2026-06-24 04:58:44] Call is currently on HOLD
+[2026-06-24 04:58:49] Call is currently not in HOLD state
+[2026-06-24 04:58:52] Call is currently in MUTE state
+[2026-06-24 04:58:55] Call is not Muted now
+[2026-06-24 04:58:58] The call was disconnected by the Customer
+[2026-06-24 04:58:59] Navigating to Zuper Dashboard page
+[2026-06-24 04:59:01] Call is disconnected for the Admin User
+[2026-06-24 04:59:01] <<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>
+[2026-06-24 04:59:10] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 04:59:11] Navigating to Zuper Dashboard page
+[2026-06-24 04:59:16] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 04:59:22] Launching Chrome in Incognito Mode
+[2026-06-24 04:59:48] Logged in as a 'ZuperTestAutomation' user
+[2026-06-24 04:59:49] Notify popup is cleared
+[2026-06-24 05:00:05] Call is Transferred to Agent 2 (ZuperTestAutomation) user
+[2026-06-24 05:00:09] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-24 05:00:20] Call is currently on HOLD
+[2026-06-24 05:00:26] Call is currently not in HOLD state
+[2026-06-24 05:00:28] Call is currently in MUTE state
+[2026-06-24 05:00:32] Call is not Muted now
+[2026-06-24 05:00:34] Call is disconnected by Agent 2 - ZuperTestAutomation user
+[2026-06-24 05:00:34] <<<<<<Cold Call Transfer functionality is working as expected.>>>>>>
+[2026-06-24 05:00:45] Dailed to this '(+1) 318 310 4737' number from Zuper Twilio Voice page and Call Status is >  Attempting to call (+1) 318 310 4737 ...
+[2026-06-24 05:00:46] Navigating to Zuper Dashboard page
+[2026-06-24 05:00:52] Customer Incomming call is accepted by the Agent 1(Zuper Admin)
+[2026-06-24 05:01:05] Call is not being transferred
+[2026-06-24 05:01:09] Transfered call is accepted by Agent 2 - ZuperTestAutomation
+[2026-06-24 05:01:20] Transfered Call is merged
+[2026-06-24 05:01:24] Call is currently in MUTE state
+[2026-06-24 05:01:28] Call is not Muted now
+[2026-06-24 05:01:30] Hold option is not available to this flow
+[2026-06-24 05:01:30] Call is currently in MUTE state
+[2026-06-24 05:01:34] Call is not Muted now
+[2026-06-24 05:01:39] The Warm transferred call was disconnected from the Twilio end
+[2026-06-24 05:01:40] Navigating to Zuper Dashboard page
+[2026-06-24 05:01:43] Call is disconnected for the Admin User
+[2026-06-24 05:01:45] Call is disconnected for the Another User
+[2026-06-24 05:01:46] <<<<<<Warm Call Transfer functionality is working as expected.>>>>>>
+[2026-06-24 05:02:07] The message was sent to another user by an admin user and the Message is Zuper New Message @ 24-06-2026 05:02:02
+[2026-06-24 05:02:08] Launching Chrome in Incognito Mode
+[2026-06-24 05:02:33] Logged in as a 'ZuperTestAutomation' user
+[2026-06-24 05:02:33] Notify popup is cleared
+[2026-06-24 05:02:34] Sense Popup is not present
+[2026-06-24 05:03:03] The MMS was sent to another user by an admin user and added text is Please find attachedZuper New MMS @ 24-06-2026 05:02:57

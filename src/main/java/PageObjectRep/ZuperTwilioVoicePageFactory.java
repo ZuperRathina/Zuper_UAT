@@ -93,6 +93,8 @@ public class ZuperTwilioVoicePageFactory extends Baseclass {
 				+ callStatus);
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Dailed to this '" + phNumber
 				+ "' number from Zuper Twilio Voice page and Call Status is " + callStatus);
+		System.out.println("Dailed to this '" + phNumber + "' number from Zuper Twilio Voice page and Call Status is "
+				+ callStatus);
 	}
 
 	public void navigatingFromTwilioPageToZuperDashboardPage() {

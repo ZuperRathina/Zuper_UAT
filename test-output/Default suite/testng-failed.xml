@@ -6,6 +6,7 @@
       <class name="RunnerClass.TC_CombinedSanityCases_UAT">
         <methods>
           <include name="setUp"/>
+          <include name="verify_OutgoingAndIncommingMMS"/>
           <include name="creatingReport"/>
           <include name="sendFinalReport"/>
           <include name="closeBrowsers"/>

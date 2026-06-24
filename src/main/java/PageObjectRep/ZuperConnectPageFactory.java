@@ -115,6 +115,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 			logger.info("Sent Message is received to the another user, Message is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
 			Non_WebDriver_Util.testCase.log(Status.PASS,
 					"Sent Message is received to the another user, Message is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
+			System.out.println("Sent Message is received to the another user, Message is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
 			Non_WebDriver_Util.getScreenshot(driver, "");
 		} else {
 			logger.info("Message is not received to another user");
@@ -132,6 +133,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 			logger.info("Sent MMS is received to the another user, text is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
 			Non_WebDriver_Util.testCase.log(Status.PASS,
 					"Sent MMS is received to the another user, text is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
+			System.out.println("Sent MMS is received to the another user, text is '"+lastReceivedMessage+"' and this conversation is Marked as Read");
 			Non_WebDriver_Util.getScreenshot(driver, "");
 		} else {
 			logger.info("MMS is not received to another user");
@@ -150,6 +152,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 			logger.info("Sent MMS is received to the admin user, added text is '"+lastReceivedMessage+"' and updating this conversation to Marked as Read");
 			Non_WebDriver_Util.testCase.log(Status.PASS,
 					"Sent MMS is received to the admin user, added text is '"+lastReceivedMessage+"' and updating this conversation to Marked as Read");
+			System.out.println("Sent MMS is received to the admin user, added text is '"+lastReceivedMessage+"' and updating this conversation to Marked as Read");
 			Non_WebDriver_Util.getScreenshot(driver, "");
 		} else {
 			logger.info("MMS is not received to Admin user");
@@ -178,6 +181,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 				logger.info("Sent Message is received to the admin user, Message is '"+lasttReceivedMessage+"' and this conversation is Marked as Read");
 				Non_WebDriver_Util.testCase.log(Status.PASS,
 						"Sent Message is received to the admin user, Message is '"+lasttReceivedMessage+"' and this conversation is Marked as Read");
+				System.out.println("Sent Message is received to the admin user, Message is '"+lasttReceivedMessage+"' and this conversation is Marked as Read");
 				Non_WebDriver_Util.getScreenshot(driver, "");
 			} else {
 				logger.info("Message is not received to admin user");
@@ -203,7 +207,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDateTime = LocalDateTime.now().format(formatter);
 		driver.findElement(textArea_MessageField).clear();
-		Non_WebDriver_Util.waitThread(1);
+		Non_WebDriver_Util.waitThread(2);
 		driver.findElement(textArea_MessageField).sendKeys("Zuper New MMS @ " + formattedDateTime);
 		Non_WebDriver_Util.waitForBeClickable(driver, button_SendMessage, 15);
 		if(driver.findElement(button_SendMessage).isEnabled()) {
@@ -213,7 +217,8 @@ public class ZuperConnectPageFactory extends Baseclass {
 		ZuperConnectPageFactory.sentMMSMessage = driver.findElement(element_LastSendMessage).getText();
 		logger.info("The MMS was sent to another user by an admin user and added text is "+ZuperConnectPageFactory.sentMMSMessage);
 		Non_WebDriver_Util.testCase.log(Status.PASS, "The MMS was sent to another user by an admin user and added text is "+ZuperConnectPageFactory.sentMMSMessage);
-		Non_WebDriver_Util.getScreenshot(driver, "");
+		System.out.println();
+		Non_WebDriver_Util.getScreenshot(driver, "The MMS was sent to another user by an admin user and added text is "+ZuperConnectPageFactory.sentMMSMessage);
 	}
 	
 	public void addAttachmentsToMMSFromAnotherUser(WebDriver driver) {
@@ -227,7 +232,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDateTime = LocalDateTime.now().format(formatter);
 		driver.findElement(textArea_MessageField).clear();
-		Non_WebDriver_Util.waitThread(1);
+		Non_WebDriver_Util.waitThread(2);
 		driver.findElement(textArea_MessageField).sendKeys("Zuper Reply MMS @ " + formattedDateTime);
 		Non_WebDriver_Util.waitForBeClickable(driver, button_SendMessage, 15);
 		if(driver.findElement(button_SendMessage).isEnabled()) {
@@ -237,6 +242,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		ZuperConnectPageFactory.sentMMSMessage = driver.findElement(element_LastSendMessage).getText();
 		logger.info("The MMS was sent to admin user by an another user and the added text is "+ZuperConnectPageFactory.sentMMSMessage);
 		Non_WebDriver_Util.testCase.log(Status.PASS, "The MMS was sent to admin user by an another user and the added text is "+ZuperConnectPageFactory.sentMMSMessage);
+		System.out.println("The MMS was sent to admin user by an another user and the added text is "+ZuperConnectPageFactory.sentMMSMessage);
 		Non_WebDriver_Util.getScreenshot(driver, "");
 	}
 
@@ -252,6 +258,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		ZuperConnectPageFactory.sentMessage = driver.findElement(element_LastSendMessage).getText();
 		Non_WebDriver_Util.waitThread(1);
 		logger.info("The message was sent to another user by an admin user and the Message is "+ZuperConnectPageFactory.sentMessage);
+		System.out.println("The message was sent to another user by an admin user and the Message is "+ZuperConnectPageFactory.sentMessage);
 		Non_WebDriver_Util.testCase.log(Status.PASS, "The message was sent to another user by an admin user and the Message is "+ZuperConnectPageFactory.sentMessage);
 		Non_WebDriver_Util.getScreenshot(driver, "");
 	}
@@ -269,6 +276,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 				.trim();
 		logger.info("Reply Message was sent from the another user to admin user and the Message is "+ZuperConnectPageFactory.sentMessageFromAnotherUser );
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Reply Message was sent from the another user to admin user and the Message is "+ZuperConnectPageFactory.sentMessageFromAnotherUser);
+		System.out.println("Reply Message was sent from the another user to admin user and the Message is "+ZuperConnectPageFactory.sentMessageFromAnotherUser );
 		Non_WebDriver_Util.getScreenshot(driver, "");
 	}
 	

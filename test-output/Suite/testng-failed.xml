@@ -8,6 +8,7 @@
           <include name="creatingReport"/>
           <include name="closeBrowsers"/>
           <include name="sendFinalReport"/>
+          <include name="verify_ColdTransferFunctionality"/>
           <include name="setUp"/>
           <include name="verify_WarmCallTransferFunctionality"/>
         </methods>

@@ -42,6 +42,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		Non_WebDriver_Util.initReport();
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verify Incomming and Outgoing call functionalities with Zuper Twilio app");
+		System.out.println("Verify Incomming and Outgoing call functionalities with Zuper Twilio app");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
 		dashboardPageFactory.popup_clear(getDriver());
@@ -78,11 +79,13 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 				"<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.");
+		System.out.println("<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 	}
 
 	@Test(priority = 2, alwaysRun = true)
 	public void verify_ColdTransferFunctionality() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Cold Transfer functionality");
+		System.out.println("Verifying Cold Transfer functionality");
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
@@ -110,11 +113,13 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.disconnectCallFromIncognito();
 		logger.info("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Cold Call Transfer functionality is working as expected.");
+		System.out.println("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
 	}
 
 	@Test(priority = 3, alwaysRun = true)
 	public void verify_WarmCallTransferFunctionality() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Warm Transfer functionality");
+		System.out.println("Verifying Warm Transfer functionality");
 		Non_WebDriver_Util.refreshPage(getDriver());
 		Non_WebDriver_Util.waitThread(3);
 		DashboardPageFactory.customerWindow = Non_WebDriver_Util.storeOriginalWindow(getDriver());
@@ -144,12 +149,15 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUseInIncognito();
 		logger.info("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
+		System.out.println("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 	}
 
 	@Test(priority = 4, alwaysRun = true)
 	public void verify_OutgoingAndIncommingMessages() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verifying Incomming and Outgoing Messages functionalities on "
+						+ prop.getProperty("company_Name") + " account");
+		System.out.println("Verifying Incomming and Outgoing Messages functionalities on "
 						+ prop.getProperty("company_Name") + " account");
 		Non_WebDriver_Util.refreshPage(getDriver());
 		dashboardPageFactory.navigateToConnectModule(getDriver());
@@ -180,12 +188,15 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		logger.info("<<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incomming and Outgoing Messages functionality is working as expected.");
+		System.out.println("<<<<<<Incomming and Outgoing Messages functionality is working as expected.>>>>>>");
 	}
 
 	@Test(priority = 5, alwaysRun = true)
 	public void verify_OutgoingAndIncommingMMS() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verifying Incomming and Outgoing MMS functionalities on "
+						+ prop.getProperty("company_Name") + " account");
+		System.out.println("Verifying Incomming and Outgoing MMS functionalities on "
 						+ prop.getProperty("company_Name") + " account");
 		zuperConnectPageFactory.clickTextMessageInputSection(getDriver());
 		zuperConnectPageFactory.addAttachmentsToMMS(getDriver());
@@ -204,6 +215,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
 		zuperConnectPageFactory.checkTheIncommingMMSMessageInAdminUser(getDriver());
 		logger.info("<<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>");
+		System.out.println("<<<<<<Incomming and Outgoing MMS functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incomming and Outgoing MMS functionality is working as expected.");
 	}
@@ -221,8 +233,8 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		long seconds = (duration / 1000) % 60;
 		long minutes = (duration / (1000 * 60)) % 60;
 		String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), minutes,
-				seconds);
+//		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), minutes,
+//				seconds);
 	}
 
 	@AfterSuite

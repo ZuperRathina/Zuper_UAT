@@ -11,8 +11,11 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import BaseTest.Baseclass;
+import PageObjectRep.AssetsPageFactory;
 import PageObjectRep.CompanyPageFactory;
+import PageObjectRep.ContractsPageFactory;
 import PageObjectRep.DashboardPageFactory;
+import PageObjectRep.RequestPageFactory;
 import PageObjectRep.ZuperConnectPageFactory;
 import PageObjectRep.ZuperTwilioVoicePageFactory;
 import UtilityPackages.Non_WebDriver_Util;
@@ -24,8 +27,9 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 	private DashboardPageFactory dashboardPageFactory;
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 	private ZuperConnectPageFactory zuperConnectPageFactory;
-
-	public static long startTime;
+	private ContractsPageFactory contractsPageFactory;
+	private AssetsPageFactory assetsPageFactory;
+	private RequestPageFactory requestPageFactory;
 
 	@BeforeClass
 	public void setUp() {
@@ -34,7 +38,9 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 		dashboardPageFactory = new DashboardPageFactory();
 		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
 		zuperConnectPageFactory = new ZuperConnectPageFactory();
-		startTime = System.currentTimeMillis();
+		contractsPageFactory = new ContractsPageFactory();
+		assetsPageFactory = new AssetsPageFactory();
+		requestPageFactory = new RequestPageFactory();
 	}
 
 	@Test(priority = 1)
@@ -216,12 +222,12 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 
 	@AfterClass
 	public void sendFinalReport() {
-	long endTime = System.currentTimeMillis();
+//	long endTime = System.currentTimeMillis();
 		Non_WebDriver_Util.extent.flush();
-		long duration = endTime - startTime;
-		long seconds = (duration / 1000) % 60;
-		long minutes = (duration / (1000 * 60)) % 60;
-		String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+//		long duration = endTime - startTime;
+//		long seconds = (duration / 1000) % 60;
+//		long minutes = (duration / (1000 * 60)) % 60;
+//		String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
 //		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), minutes,
 //				seconds);
 	}
