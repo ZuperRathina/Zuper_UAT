@@ -18,7 +18,7 @@ public class ReportToSlack extends Baseclass {
 	private static String token = "xoxb-159793626610-10635849042503-wevTbsp8jNhltquTeMH567E5";
 	private static String channelId = "C0AK06LKHBL";
 
-	public static void uploadReport(String filePath, String environment, String account, long minutes, long seconds) {
+	public static void uploadReport(String filePath, String environment, String account, long minutes, long seconds, String methodName) {
 
 		try {
 
@@ -101,12 +101,21 @@ public class ReportToSlack extends Baseclass {
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 			LocalDate today = LocalDate.now();
 			String formattedDate = today.format(formatter);
-			String executionTime = (minutes > 0 || seconds > 0)
-					? "*Execution Time:* " + minutes + "m " + seconds + "s\n\n"
-					: "";
-			String comment = "*Zuper Connect – Sanity Test Execution Completed (Web)*\n\n" + "*Date:* " + formattedDate
-					+ "\n" + "*Environment:* " + environment + "\n" + "*Account Used:* " + account + "\n"
-					+ executionTime + "For a detailed report, please download and view the attached file.";
+			String comment;
+			if (minutes > 0 || seconds > 0) {
+			    comment = "*Zuper Connect – Sanity Test Execution Completed (Web)*\n\n"
+			            + "*Date:* " + formattedDate + "\n"
+			            + "*Environment:* " + environment + "\n"
+			            + "*Account Used:* " + account + "\n"
+			            + "*Execution Time:* " + minutes + "m " + seconds + "s\n\n"
+			            + "For a detailed report, please download and view the attached file.";
+			} else {
+			    comment = "*Zuper Connect – Sanity Test Retried Scenario:"+methodName+"*\n\n"
+			            + "*Date:* " + formattedDate + "\n"
+			            + "*Environment:* " + environment + "\n"
+			            + "*Account Used:* " + account + "\n\n"
+			            + "For a detailed report, please download and view the attached file.";
+			}
 
 			String payload = "{" + "\"files\":[{\"id\":\"" + fileId + "\",\"title\":\"Sanity Test Report\"}],"
 					+ "\"channel_id\":\"" + channelId + "\"," + "\"initial_comment\":\"" + comment.replace("\n", "\\n")
