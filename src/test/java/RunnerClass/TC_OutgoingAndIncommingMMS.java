@@ -56,11 +56,11 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 		logger.info("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incoming and Outgoing MMS functionality is working as expected.");
-		Non_WebDriver_Util.extent.flush();	
     }
 
     @AfterMethod
     public void sendReportToSlack() {
+		Non_WebDriver_Util.extent.flush();	
     	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
 		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Incoming and Outgoing MMS");
 		CompanyPageFactory.incognitoDriver.quit();

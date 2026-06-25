@@ -2,83 +2,53 @@
 <testng-results ignored="0" total="5" passed="3" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-24T04:57:14 EDT" name="Default suite" finished-at="2026-06-24T05:03:35 EDT" duration-ms="381223">
+  <suite started-at="2026-06-25T02:08:17 EDT" name="Suite" finished-at="2026-06-25T02:14:54 EDT" duration-ms="396996">
     <groups>
     </groups>
-    <test started-at="2026-06-24T04:57:14 EDT" name="Default test" finished-at="2026-06-24T05:03:35 EDT" duration-ms="381223">
-      <class name="RunnerClass.TC_CombinedSanityCases_UAT">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T04:57:14 EDT" name="setUp" finished-at="2026-06-24T04:57:20 EDT" duration-ms="6130" status="PASS">
+    <test started-at="2026-06-25T02:08:17 EDT" name="TC_Job_Creation1" finished-at="2026-06-25T02:14:54 EDT" duration-ms="396996">
+      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:08:17 EDT" name="setUp" finished-at="2026-06-25T02:08:23 EDT" duration-ms="5960" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T04:57:20 EDT" name="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp" finished-at="2026-06-24T04:59:01 EDT" duration-ms="100668" status="PASS">
+        <test-method signature="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:08:23 EDT" name="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp" finished-at="2026-06-25T02:09:53 EDT" duration-ms="90058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_IncommingAndOutgoingCallsWithTwilioVoiceApp -->
-        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T04:59:01 EDT" name="creatingReport" finished-at="2026-06-24T04:59:01 EDT" duration-ms="245" status="PASS">
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:09:53 EDT" name="creatingReport" finished-at="2026-06-25T02:09:54 EDT" duration-ms="188" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verify_IncommingAndOutgoingCallsWithTwilioVoiceApp status=SUCCESS method=TC_CombinedSanityCases_UAT.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e] output={null}]]]>
+                <![CDATA[[TestResult name=verify_IncommingAndOutgoingCallsWithTwilioVoiceApp status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()[pri:1, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- creatingReport -->
-        <test-method signature="verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T04:59:01 EDT" name="verify_ColdTransferFunctionality" finished-at="2026-06-24T05:00:34 EDT" duration-ms="92988" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_ColdTransferFunctionality -->
-        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:00:34 EDT" name="creatingReport" finished-at="2026-06-24T05:00:35 EDT" duration-ms="304" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_ColdTransferFunctionality status=SUCCESS method=TC_CombinedSanityCases_UAT.verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- creatingReport -->
-        <test-method signature="verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:00:35 EDT" name="verify_WarmCallTransferFunctionality" finished-at="2026-06-24T05:01:46 EDT" duration-ms="71138" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verify_WarmCallTransferFunctionality -->
-        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:01:46 EDT" name="creatingReport" finished-at="2026-06-24T05:01:46 EDT" duration-ms="238" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verify_WarmCallTransferFunctionality status=SUCCESS method=TC_CombinedSanityCases_UAT.verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- creatingReport -->
-        <test-method signature="verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:01:46 EDT" name="verify_OutgoingAndIncommingMessages" finished-at="2026-06-24T05:02:38 EDT" duration-ms="52200" status="FAIL">
+        <test-method signature="verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:09:54 EDT" name="verify_ColdTransferFunctionality" finished-at="2026-06-25T02:11:20 EDT" duration-ms="86404" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//app-call-inbox//ng-icon"}
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Transfer Now']/parent::div/img"}
   (Session info: chrome=149.0.7827.156)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c7790edcb4364e919076faf8a79ea47e, findElement {using=xpath, value=//app-call-inbox//ng-icon}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51706}, goog:processID: 28820, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51706/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c7790edcb4364e919076faf8a79ea47e]]>
+Command: [3577812836c55e777e5f8fa3b147ee27, findElement {value=//p[text()='Transfer Now']/parent::div/img, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3577812836c55e777e5f8fa3b147ee27]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//app-call-inbox//ng-icon"}
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[text()='Transfer Now']/parent::div/img"}
   (Session info: chrome=149.0.7827.156)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c7790edcb4364e919076faf8a79ea47e, findElement {using=xpath, value=//app-call-inbox//ng-icon}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51706}, goog:processID: 28820, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51706/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c7790edcb4364e919076faf8a79ea47e
+Command: [3577812836c55e777e5f8fa3b147ee27, findElement {value=//p[text()='Transfer Now']/parent::div/img, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3577812836c55e777e5f8fa3b147ee27
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -96,8 +66,8 @@ at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:5
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
 at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:225)
-at PageObjectRep.ZuperConnectPageFactory.selectAllInboxes(ZuperConnectPageFactory.java:61)
-at RunnerClass.TC_CombinedSanityCases_UAT.verify_OutgoingAndIncommingMessages(TC_CombinedSanityCases_UAT.java:175)
+at PageObjectRep.DashboardPageFactory.transferringCallToFE(DashboardPageFactory.java:251)
+at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_ColdTransferFunctionality(TC_CombinedSanityCasesWithoutMinimize.java:105)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -131,57 +101,40 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_OutgoingAndIncommingMessages -->
-        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:02:38 EDT" name="creatingReport" finished-at="2026-06-24T05:02:39 EDT" duration-ms="262" status="PASS">
+        </test-method> <!-- verify_ColdTransferFunctionality -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:11:20 EDT" name="creatingReport" finished-at="2026-06-25T02:11:20 EDT" duration-ms="138" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMessages status=FAILURE method=TC_CombinedSanityCases_UAT.verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e] output={null}]]]>
+                <![CDATA[[TestResult name=verify_ColdTransferFunctionality status=FAILURE method=TC_CombinedSanityCasesWithoutMinimize.verify_ColdTransferFunctionality()[pri:2, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- creatingReport -->
-        <test-method signature="verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:02:39 EDT" name="verify_OutgoingAndIncommingMMS" finished-at="2026-06-24T05:03:34 EDT" duration-ms="55582" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method signature="verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:11:20 EDT" name="verify_WarmCallTransferFunctionality" finished-at="2026-06-25T02:11:35 EDT" duration-ms="14692" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[element click intercepted: Element <button class="flex items-center px-2 py-1 bg-[#0172CB] text-white rounded-md shadow-md hover:bg-[#005AA3] min-w-[120px] justify-center font-semibold">...</button> is not clickable at point (1263, 729). Other element would receive the click: <iframe _ngcontent-ng-c2824830262="" id="zuper-connect-frame" title="zuper-connect-frame" allow="microphone" class="zuper-connect-iframe ng-star-inserted contextual-display" src="https://connect-widget.zuperpro.com/caller?companyLoginName=Reportbuildertest&amp;zuperAuthToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzIjoxNzg0ODgwMDAwODE4LCJjb21wYW55Ijp7ImNvbXBhbnlfdWlkIjoiNDc1OTY1ZDEtMzI3Mi00OTVlLTk4ZmUtNzQxZDkxODUzMWIyIn0sInVzZXIiOnsiY29tcGFueV9pZCI6MTAwMTA4OCwiZW1haWwiOiJjb25uZWN0YWRtaW5AZ21haWwuY29tIiwidXNlcl9pZCI6MjY1ODEsInVzZXJfdWlkIjoiMjZhNGE0MGQtMDcxNS00OWVhLTkwYWItZjA2MWRiMjU3OWExIiwicm9sZSI6eyJyb2xlX2lkIjoxLCJyb2xlX3VpZCI6IjUwNGU0ZWFjLWZmN2QtMTFlNy04YmU1LTBlZDVmODlmNzE4YiIsInJvbGVfbmFtZSI6IkFkbWluIiwicm9sZV9rZXkiOiJBRE1JTiIsImNyZWF0ZWRfYXQiOiIyMDE4LTAxLTIyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAxOC0wMS0yMlQwMDowMDowMC4wMDBaIn0sImZpcnN0X25hbWUiOiJDb25uZWN0IiwibGFzdF9uYW1lIjoiQWRtaW4iLCJidXNpbmVzc191bml0cyI6W10sImFjY2Vzc19yb2xlX3VpZCI6bnVsbH0sInNlc3Npb24iOnsidXNlcl9zZXNzaW9uX3VpZCI6IjkxZDYwMGJkLWRlNzAtNDJhYi1hZTdjLTU3MmY0YzlmOWM0MSIsInVzZXJfc2Vzc2lvbl9pZCI6MjQ2MzIzfSwiaWF0IjoxNzgyMjkxNzQ1fQ.9iwhAmeRuF1C9oCXpGdxrw7cl6RD8vT8MInfacs8tO4"></iframe>
-  (Session info: chrome=149.0.7827.156)
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (3577812836c55e777e5f8fa3b147ee27)] -> xpath: //iframe[@id='zuper-connect-frame']] (tried for 5 second(s) with 500 milliseconds interval)
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c7790edcb4364e919076faf8a79ea47e, clickElement {id=f.F5F30C3C06FA6B6A49826DE588913CFE.d.ACCF5E5D5DA13B49B98094BB15976509.e.733}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51706}, goog:processID: 28820, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51706/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (c7790edcb4364e919076faf8a79ea47e)] -> xpath: //*[contains(text(),'Mark as read')]]
-Session ID: c7790edcb4364e919076faf8a79ea47e]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3577812836c55e777e5f8fa3b147ee27]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button class="flex items-center px-2 py-1 bg-[#0172CB] text-white rounded-md shadow-md hover:bg-[#005AA3] min-w-[120px] justify-center font-semibold">...</button> is not clickable at point (1263, 729). Other element would receive the click: <iframe _ngcontent-ng-c2824830262="" id="zuper-connect-frame" title="zuper-connect-frame" allow="microphone" class="zuper-connect-iframe ng-star-inserted contextual-display" src="https://connect-widget.zuperpro.com/caller?companyLoginName=Reportbuildertest&amp;zuperAuthToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVzIjoxNzg0ODgwMDAwODE4LCJjb21wYW55Ijp7ImNvbXBhbnlfdWlkIjoiNDc1OTY1ZDEtMzI3Mi00OTVlLTk4ZmUtNzQxZDkxODUzMWIyIn0sInVzZXIiOnsiY29tcGFueV9pZCI6MTAwMTA4OCwiZW1haWwiOiJjb25uZWN0YWRtaW5AZ21haWwuY29tIiwidXNlcl9pZCI6MjY1ODEsInVzZXJfdWlkIjoiMjZhNGE0MGQtMDcxNS00OWVhLTkwYWItZjA2MWRiMjU3OWExIiwicm9sZSI6eyJyb2xlX2lkIjoxLCJyb2xlX3VpZCI6IjUwNGU0ZWFjLWZmN2QtMTFlNy04YmU1LTBlZDVmODlmNzE4YiIsInJvbGVfbmFtZSI6IkFkbWluIiwicm9sZV9rZXkiOiJBRE1JTiIsImNyZWF0ZWRfYXQiOiIyMDE4LTAxLTIyVDAwOjAwOjAwLjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAxOC0wMS0yMlQwMDowMDowMC4wMDBaIn0sImZpcnN0X25hbWUiOiJDb25uZWN0IiwibGFzdF9uYW1lIjoiQWRtaW4iLCJidXNpbmVzc191bml0cyI6W10sImFjY2Vzc19yb2xlX3VpZCI6bnVsbH0sInNlc3Npb24iOnsidXNlcl9zZXNzaW9uX3VpZCI6IjkxZDYwMGJkLWRlNzAtNDJhYi1hZTdjLTU3MmY0YzlmOWM0MSIsInVzZXJfc2Vzc2lvbl9pZCI6MjQ2MzIzfSwiaWF0IjoxNzgyMjkxNzQ1fQ.9iwhAmeRuF1C9oCXpGdxrw7cl6RD8vT8MInfacs8tO4"></iframe>
-  (Session info: chrome=149.0.7827.156)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (3577812836c55e777e5f8fa3b147ee27)] -> xpath: //iframe[@id='zuper-connect-frame']] (tried for 5 second(s) with 500 milliseconds interval)
 Build info: version: '4.20.0', revision: '866c76ca80'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c7790edcb4364e919076faf8a79ea47e, clickElement {id=f.F5F30C3C06FA6B6A49826DE588913CFE.d.ACCF5E5D5DA13B49B98094BB15976509.e.733}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51706}, goog:processID: 28820, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51706/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (c7790edcb4364e919076faf8a79ea47e)] -> xpath: //*[contains(text(),'Mark as read')]]
-Session ID: c7790edcb4364e919076faf8a79ea47e
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at PageObjectRep.ZuperConnectPageFactory.checkTheIncommingMMSMessage(ZuperConnectPageFactory.java:130)
-at RunnerClass.TC_CombinedSanityCases_UAT.verify_OutgoingAndIncommingMMS(TC_CombinedSanityCases_UAT.java:204)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3577812836c55e777e5f8fa3b147ee27
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at UtilityPackages.Non_WebDriver_Util.waitForVisible(Non_WebDriver_Util.java:215)
+at PageObjectRep.DashboardPageFactory.switchingToFrame(DashboardPageFactory.java:269)
+at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_WarmCallTransferFunctionality(TC_CombinedSanityCasesWithoutMinimize.java:128)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -212,30 +165,60 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_OutgoingAndIncommingMMS -->
-        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:03:34 EDT" name="creatingReport" finished-at="2026-06-24T05:03:34 EDT" duration-ms="194" status="PASS">
+        </test-method> <!-- verify_WarmCallTransferFunctionality -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:11:35 EDT" name="creatingReport" finished-at="2026-06-25T02:11:35 EDT" duration-ms="105" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMMS status=FAILURE method=TC_CombinedSanityCases_UAT.verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e] output={null}]]]>
+                <![CDATA[[TestResult name=verify_WarmCallTransferFunctionality status=FAILURE method=TC_CombinedSanityCasesWithoutMinimize.verify_WarmCallTransferFunctionality()[pri:3, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- creatingReport -->
-        <test-method is-config="true" signature="sendFinalReport()[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:03:34 EDT" name="sendFinalReport" finished-at="2026-06-24T05:03:35 EDT" duration-ms="1089" status="PASS">
+        <test-method signature="verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:11:35 EDT" name="verify_OutgoingAndIncommingMessages" finished-at="2026-06-25T02:12:56 EDT" duration-ms="80833" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_OutgoingAndIncommingMessages -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:12:56 EDT" name="creatingReport" finished-at="2026-06-25T02:12:56 EDT" duration-ms="153" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMessages status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMessages()[pri:4, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method signature="verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:12:56 EDT" name="verify_OutgoingAndIncommingMMS" finished-at="2026-06-25T02:14:49 EDT" duration-ms="113200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_OutgoingAndIncommingMMS -->
+        <test-method is-config="true" signature="creatingReport(org.testng.ITestResult)[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:14:49 EDT" name="creatingReport" finished-at="2026-06-25T02:14:49 EDT" duration-ms="153" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verify_OutgoingAndIncommingMMS status=SUCCESS method=TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMMS()[pri:5, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- creatingReport -->
+        <test-method is-config="true" signature="sendFinalReport()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:14:49 EDT" name="sendFinalReport" finished-at="2026-06-25T02:14:54 EDT" duration-ms="5028" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendFinalReport -->
-        <test-method is-config="true" signature="closeBrowsers()[pri:0, instance:RunnerClass.TC_CombinedSanityCases_UAT@493dfb8e]" started-at="2026-06-24T05:03:36 EDT" name="closeBrowsers" finished-at="2026-06-24T05:03:39 EDT" duration-ms="3155" status="PASS">
+        <test-method is-config="true" signature="closeBrowsers()[pri:0, instance:RunnerClass.TC_CombinedSanityCasesWithoutMinimize@32cb636e]" started-at="2026-06-25T02:14:54 EDT" name="closeBrowsers" finished-at="2026-06-25T02:14:57 EDT" duration-ms="2419" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowsers -->
-      </class> <!-- RunnerClass.TC_CombinedSanityCases_UAT -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
+    </test> <!-- TC_Job_Creation1 -->
+  </suite> <!-- Suite -->
 </testng-results>

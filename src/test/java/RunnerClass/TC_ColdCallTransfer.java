@@ -55,12 +55,12 @@ public class TC_ColdCallTransfer extends Baseclass {
 		dashboardPageFactory.disconnectCallFromIncognito();
 		dashboardPageFactory.switchingToDefaultContent(CompanyPageFactory.incognitoDriver);
 		logger.info("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
-		Non_WebDriver_Util.testCase.log(Status.PASS, "Cold Call Transfer functionality is working as expected.");
-		Non_WebDriver_Util.extent.flush();
+		Non_WebDriver_Util.testCase.log(Status.PASS, "Cold Call Transfer functionality is working as expected.");		
 	}
 
 	@AfterMethod
     public void sendReportToSlack() {
+		Non_WebDriver_Util.extent.flush();
     	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
 		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Cold Transfer Functionality");
 		CompanyPageFactory.incognitoDriver.quit();

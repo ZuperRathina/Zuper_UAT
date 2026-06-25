@@ -77,11 +77,11 @@ public class TC_WarmCallTransfer extends Baseclass{
 		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUseInIncognito();
 		logger.info("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
-		Non_WebDriver_Util.extent.flush();
     }
 
     @AfterMethod
     public void sendReportToSlack() {
+    	Non_WebDriver_Util.extent.flush();
     	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
 		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Warm Transfer Functionality");
 		getDriver().quit();

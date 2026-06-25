@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="RunnerClass.FailureListener"/>
+  </listeners>
+  <test thread-count="5" name="TC_Job_Creation1(failed)">
     <classes>
-      <class name="RunnerClass.TC_CombinedSanityCases_UAT">
+      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
         <methods>
-          <include name="setUp"/>
-          <include name="verify_OutgoingAndIncommingMMS"/>
           <include name="creatingReport"/>
-          <include name="sendFinalReport"/>
           <include name="closeBrowsers"/>
-          <include name="verify_OutgoingAndIncommingMessages"/>
+          <include name="sendFinalReport"/>
+          <include name="verify_ColdTransferFunctionality"/>
+          <include name="setUp"/>
+          <include name="verify_WarmCallTransferFunctionality"/>
         </methods>
-      </class> <!-- RunnerClass.TC_CombinedSanityCases_UAT -->
+      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- TC_Job_Creation1(failed) -->
+</suite> <!-- Failed suite [Suite] -->
