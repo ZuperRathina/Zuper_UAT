@@ -1,6 +1,6 @@
 package RunnerClass;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -26,7 +26,7 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 				.createTest("Verifying Incoming and Outgoing MMS functionality with " +prop.getProperty("company_Name") +" account");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		//dashboardPageFactory.popup_clear(getDriver());
 		dashboardPageFactory.minimizeTheDailer(getDriver());
 		dashboardPageFactory.navigateToConnectModule(getDriver());
 		zuperConnectPageFactory.createNewMessage(getDriver());
@@ -36,7 +36,8 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 		companyPageFactory.launchBrowserInIncognito(prop.getProperty("baseURL"));
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("messgaeUserCompanyName"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("messageUserEmail"), prop.getProperty("messageUserPassword"));	
-		dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		//dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		dashboardPageFactory.closeAppTourPopup(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.closeSensePopup(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.minimizeTheDailer(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.navigateToConnectModuleInIncognito(CompanyPageFactory.incognitoDriver);
@@ -58,13 +59,43 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 				"Incoming and Outgoing MMS functionality is working as expected.");
     }
 
-    @AfterMethod
+    @AfterTest(alwaysRun = true)
     public void sendReportToSlack() {
-		Non_WebDriver_Util.extent.flush();	
-    	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Incoming and Outgoing MMS");
-		CompanyPageFactory.incognitoDriver.quit();
-		getDriver().quit();
+
+        System.out.println("===== AFTER METHOD STARTED =====");
+
+        try {
+            Non_WebDriver_Util.extent.flush();
+            System.out.println("Extent flushed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
+                    prop.getProperty("company_Name"), 0, 0,
+                    "Incomming and Outgoing MMS Functionalities");
+            System.out.println("Slack upload completed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (CompanyPageFactory.incognitoDriver != null)
+                CompanyPageFactory.incognitoDriver.quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (getDriver() != null)
+                getDriver().quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("===== AFTER METHOD FINISHED =====");
     }
 
 }

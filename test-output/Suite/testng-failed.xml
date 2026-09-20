@@ -9,11 +9,11 @@
       <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
         <methods>
           <include name="creatingReport"/>
-          <include name="closeBrowsers"/>
           <include name="sendFinalReport"/>
-          <include name="verify_ColdTransferFunctionality"/>
+          <include name="verify_OutgoingAndIncommingMMS"/>
+          <include name="closeBrowsers"/>
+          <include name="verify_OutgoingAndIncommingMessages"/>
           <include name="setUp"/>
-          <include name="verify_WarmCallTransferFunctionality"/>
         </methods>
       </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
     </classes>

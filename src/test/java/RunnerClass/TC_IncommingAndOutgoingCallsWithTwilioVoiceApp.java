@@ -1,6 +1,6 @@
 package RunnerClass;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -26,7 +26,7 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 				.createTest("Verify Incomming and Outgoing functionalities with Zuper Twilio app");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
@@ -62,11 +62,41 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 				"Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.");
 	}
 
-	@AfterMethod
+	@AfterTest(alwaysRun = true)
 	public void sendReportToSlack() {
-		Non_WebDriver_Util.extent.flush();
-		String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Incomming and Outgoing Call Functionalities");	
-		getDriver().quit();
+
+		System.out.println("===== AFTER METHOD STARTED =====");
+
+		try {
+			Non_WebDriver_Util.extent.flush();
+			System.out.println("Extent flushed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+			UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0,
+					"Incomming and Outgoing Call Functionalities");
+			System.out.println("Slack upload completed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			if (CompanyPageFactory.incognitoDriver != null)
+				CompanyPageFactory.incognitoDriver.quit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			if (getDriver() != null)
+				getDriver().quit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("===== AFTER METHOD FINISHED =====");
 	}
 }

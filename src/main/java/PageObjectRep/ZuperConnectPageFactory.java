@@ -9,6 +9,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
 import UtilityPackages.Non_WebDriver_Util;
+import java.io.File;
 
 public class ZuperConnectPageFactory extends Baseclass {
 
@@ -30,15 +31,15 @@ public class ZuperConnectPageFactory extends Baseclass {
 	//private By element_MessagesList = By.xpath("//app-conversation-list/div/div[2]/div");
 	private By button_MarkAsRead = By.xpath("//*[contains(text(),'Mark as read')]");
 	private By element_TextMessage = By.xpath("//span[text()='Text Message']");
-	private By button_AddAttachments = By.xpath("//div[@id='messageInput']/div/div[2]/div[1]/div/button");
+	private By button_AddAttachments = By.xpath("//app-attachment-source-menu//button");
 	private By button_ClickToUpload = By.xpath("//input[@type='file']");
 	private By button_DoneOnAttachments = By.xpath("//button[text()=' Done ']");
 	private By text_100Per = By.xpath("//div[text()=' 100%']");
 	private By tab_Calls = By.xpath("//a[text()=' Calls ']");
 	private By tab_Conversation = By.xpath("//a[text()=' Conversations ']");
-	private By element_AllInboxes = By.xpath("//p[text()='All Inboxes']");
+	private By element_AllInboxes = By.xpath("//*[text()='All Numbers']");
 	private By element_ToInput = By.xpath("//ng-select//input");
-	private By element_UATTest = By.xpath("//p[@title='UAT @15']");
+	private By element_UATTest = By.xpath("//div[@class='cdk-overlay-pane']//*[@title='UAT @15']");
 	private By element_InboxDropDown = By.xpath("//app-call-inbox//ng-icon");
 	private By element_firstListingCustomer = By.xpath("(//app-conversation-list//p[@title])[1]");
 	
@@ -206,6 +207,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		driver.findElement(button_DoneOnAttachments).click();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDateTime = LocalDateTime.now().format(formatter);
+		Non_WebDriver_Util.waitThread(1);
 		driver.findElement(textArea_MessageField).clear();
 		Non_WebDriver_Util.waitThread(2);
 		driver.findElement(textArea_MessageField).sendKeys("Zuper New MMS @ " + formattedDateTime);
@@ -231,6 +233,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 		driver.findElement(button_DoneOnAttachments).click();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 		String formattedDateTime = LocalDateTime.now().format(formatter);
+		Non_WebDriver_Util.waitThread(1);
 		driver.findElement(textArea_MessageField).clear();
 		Non_WebDriver_Util.waitThread(2);
 		driver.findElement(textArea_MessageField).sendKeys("Zuper Reply MMS @ " + formattedDateTime);

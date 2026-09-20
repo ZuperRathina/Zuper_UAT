@@ -38,7 +38,7 @@ public class RequestPageFactory extends Baseclass {
 	private By element_RequestCreatedMessage = By.xpath("//div[text()='Customer Request Created successfully']");
 	private By icon_ConvertToJob = By.xpath("//mat-icon[@svgicon='tabler:briefcase']");
 	private By element_JobCreatedMessage = By.xpath("//div[text()='Job created successfully']");
-	private By tab_StatusHistory= By.xpath("//*[normalize-space()='Status History'] ");
+	private By button_UpdateStatusIcon= By.xpath("(//*[normalize-space()='Update Status'])[1]//ancestor::mat-icon[1]");
 	private By dropdown_ChooseStatus = By.xpath("(//div[normalize-space()='Choose Request Status'])[4]/parent::div");
 	private By elements_DropdownOptions = By.xpath("//ng-dropdown-panel[@aria-label='Options list'] /div/div[2]/div/span");
 	//private By input_Remarks = By.xpath("driver.findElement(dropdown_ChooseStatus).click();");
@@ -54,8 +54,8 @@ public class RequestPageFactory extends Baseclass {
 	
 	public void updateReqStatus() {
 		driver.navigate().to(requestURL);
-		Non_WebDriver_Util.waitForBeClickable(driver, tab_StatusHistory, 10);
-		driver.findElement(tab_StatusHistory).click();
+		Non_WebDriver_Util.waitForBeClickable(driver, button_UpdateStatusIcon, 10);
+		driver.findElement(button_UpdateStatusIcon).click();
 		Non_WebDriver_Util.waitForBeClickable(driver, dropdown_ChooseStatus, 10);
 		driver.findElement(dropdown_ChooseStatus).click();
 		Non_WebDriver_Util.waitThread(1);
@@ -131,9 +131,11 @@ public class RequestPageFactory extends Baseclass {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		String formattedDateTime = LocalDateTime.now().format(formatter);
 		driver.findElement(input_RequestName).sendKeys("UAT Request @"+formattedDateTime);
-		Non_WebDriver_Util.waitThread(1);
+		Non_WebDriver_Util.waitThread(3);
 		driver.switchTo().frame(0);
-		driver.findElement(input_RequestDescription).sendKeys("Zuper Test Contract Description \n\n Zuper@123 ");
+		Non_WebDriver_Util.tabKeyClick(getDriver());
+		driver.switchTo().activeElement().sendKeys("Zuper Test Contract Description \n\n Zuper@123");
+		//driver.findElement(input_RequestDescription).sendKeys("Zuper Test Contract Description \n\n Zuper@123 ");
 		driver.switchTo().defaultContent();
 		driver.findElement(input_DueDate).click();
 		Non_WebDriver_Util.waitThread(1);

@@ -3,16 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="RunnerClass.TC_CombinedSanityCases_UAT">
+      <class name="RunnerClass.TC_ColdCallTransfer">
         <methods>
-          <include name="setUp"/>
-          <include name="verify_OutgoingAndIncommingMMS"/>
-          <include name="creatingReport"/>
-          <include name="sendFinalReport"/>
-          <include name="closeBrowsers"/>
-          <include name="verify_OutgoingAndIncommingMessages"/>
+          <include name="sendReportToSlack"/>
+          <include name="verify_ColdTransferFunctionality"/>
         </methods>
-      </class> <!-- RunnerClass.TC_CombinedSanityCases_UAT -->
+      </class> <!-- RunnerClass.TC_ColdCallTransfer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

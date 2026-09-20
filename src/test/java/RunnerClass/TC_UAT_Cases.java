@@ -1,6 +1,5 @@
 package RunnerClass;
 
-import java.io.ObjectInputFilter.Status;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -12,16 +11,14 @@ import PageObjectRep.CompanyPageFactory;
 import PageObjectRep.ContractsPageFactory;
 import PageObjectRep.DashboardPageFactory;
 import PageObjectRep.RequestPageFactory;
-import PageObjectRep.ZuperConnectPageFactory;
-import PageObjectRep.ZuperTwilioVoicePageFactory;
 import UtilityPackages.Non_WebDriver_Util;
 
 public class TC_UAT_Cases extends Baseclass {
 
 	private CompanyPageFactory companyPageFactory;
 	private DashboardPageFactory dashboardPageFactory;
-	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
-	private ZuperConnectPageFactory zuperConnectPageFactory;
+//	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
+//	private ZuperConnectPageFactory zuperConnectPageFactory;
 	private ContractsPageFactory contractsPageFactory;
 	private AssetsPageFactory assetsPageFactory;
 	private RequestPageFactory requestPageFactory;
@@ -31,8 +28,8 @@ public class TC_UAT_Cases extends Baseclass {
 		initilizeConfig(); // BaseClass setup
 		companyPageFactory = new CompanyPageFactory();
 		dashboardPageFactory = new DashboardPageFactory();
-		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
-		zuperConnectPageFactory = new ZuperConnectPageFactory();
+//		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
+//		zuperConnectPageFactory = new ZuperConnectPageFactory();
 		contractsPageFactory = new ContractsPageFactory();
 		assetsPageFactory = new AssetsPageFactory();
 		requestPageFactory = new RequestPageFactory();
@@ -48,7 +45,7 @@ public class TC_UAT_Cases extends Baseclass {
 				"<<<<<<Verifying Contract creation, Deactivate and Activate contract and Delete Contract functionalities>>>>>>");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		//dashboardPageFactory.popup_clear(getDriver());
 		dashboardPageFactory.minimizeTheDailer(getDriver());
 		dashboardPageFactory.navigateToContracts();
 		contractsPageFactory.createNewContract();
@@ -103,6 +100,7 @@ public class TC_UAT_Cases extends Baseclass {
 				"<<<<<<Request creation, Convert Request to Job and Update Request Status functionalities are working as expceted>>>>>>");
 		Non_WebDriver_Util.testCase.log(com.aventstack.extentreports.Status.PASS,
 				"Request creation, Convert Request to Job and Update Request Status functionalities are working as expceted");
+		getDriver().quit();
 	}
 
 //	@Test(priority = 4)

@@ -48,6 +48,12 @@ public class CompanyPageFactory extends Baseclass {
 
 	public void enterCompanyNameDetailsInIncognito(String name) {
 		Non_WebDriver_Util.waitThread(3);
+		try {
+			Non_WebDriver_Util.waitForBeClickable(incognitoDriver, input_EnterCompanyName, 15);
+		} catch (Exception e) {
+			incognitoDriver.navigate().refresh();
+			Non_WebDriver_Util.waitForBeClickable(incognitoDriver, input_EnterCompanyName, 20);
+		}
 		incognitoDriver.findElement(input_EnterCompanyName).clear();
 		incognitoDriver.findElement(input_EnterCompanyName).sendKeys(name);
 		incognitoDriver.findElement(button_continue).click();
@@ -82,6 +88,15 @@ public class CompanyPageFactory extends Baseclass {
 		
         options1.addArguments("--incognito");
         options1.addArguments("--disable-notifications");    
+
+		// Start Chrome maximized and visible
+        options1.addArguments("--start-maximized");
+        options1.addArguments("--window-position=0,0");
+
+		// Fix Chrome rendering/scaling on Mac
+        options1.addArguments("--disable-gpu");
+        options1.addArguments("--disable-software-rasterizer");
+        options1.addArguments("--force-device-scale-factor=1");
         Map<String, Object> prefs = new HashMap<>();
         Map<String, Object> profile = new HashMap<>();
         Map<String, Object> contentSettings = new HashMap<>();
@@ -96,7 +111,6 @@ public class CompanyPageFactory extends Baseclass {
 
         // auto-approve mic/camera dialog
         options1.addArguments("--use-fake-ui-for-media-stream");
-        options1.addArguments("force-device-scale-factor=0.97");
         incognitoDriver = new ChromeDriver(options1);
         
         incognitoDriver.navigate().to(url);

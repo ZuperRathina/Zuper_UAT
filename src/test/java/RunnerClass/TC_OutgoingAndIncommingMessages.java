@@ -1,6 +1,6 @@
 package RunnerClass;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -37,6 +37,7 @@ public class TC_OutgoingAndIncommingMessages extends Baseclass{
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("messgaeUserCompanyName"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("messageUserEmail"), prop.getProperty("messageUserPassword"));	
 		dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		dashboardPageFactory.closeAppTourPopup(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.closeSensePopup(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.minimizeTheDailer(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.navigateToConnectModuleInIncognito(CompanyPageFactory.incognitoDriver);
@@ -58,13 +59,43 @@ public class TC_OutgoingAndIncommingMessages extends Baseclass{
 				"Incoming and Outgoing Messages functionality is working as expected.");	
     }
 
-	@AfterMethod
+    @AfterTest(alwaysRun = true)
     public void sendReportToSlack() {
-		Non_WebDriver_Util.extent.flush();
-    	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Incoming and Outgoing Messages");
-		getDriver().quit();
-		CompanyPageFactory.incognitoDriver.quit();
+
+        System.out.println("===== AFTER METHOD STARTED =====");
+
+        try {
+            Non_WebDriver_Util.extent.flush();
+            System.out.println("Extent flushed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
+                    prop.getProperty("company_Name"), 0, 0,
+                    "Incomming and Outgoing Message Functionalities");
+            System.out.println("Slack upload completed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (CompanyPageFactory.incognitoDriver != null)
+                CompanyPageFactory.incognitoDriver.quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (getDriver() != null)
+                getDriver().quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("===== AFTER METHOD FINISHED =====");
     }
  
 }

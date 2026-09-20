@@ -22,9 +22,10 @@ public class DashboardPageFactory extends Baseclass {
 	private By button_JobLinkFromsideBar = By.xpath("//a[contains(@href, '/jobs')]");
 	private By frame_ConnectDailerPad = By.xpath("//iframe[@id='zuper-connect-frame']");
 	private By button_AcceptCall = By.xpath("//p[text()='Accept']/preceding::button[1]");
-	private By button_DisconnectCall = By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]/div[3]/button");
+	private By button_DisconnectCall = By
+			.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]/div[1]/div[3]/button");
 	private By button_RecentCalls = By.xpath("//div[@id='app']/div/div/div/div[5]/div[1]/span[1]");
-	private By text_TwilioNumber = By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]/p[1]");
+	//private By text_TwilioNumber = By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]/p[1]");
 	private By input_onDailer = By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]//input");
 	private By button_CallOnDailer = By
 			.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div/div[2]/div[2]/div[1]/img");
@@ -34,11 +35,12 @@ public class DashboardPageFactory extends Baseclass {
 			.xpath("//p[text()='Available Users']/parent::div/parent::div/div[2]/div/div[2]/div");
 	private By icon_callForSearchedUser = By
 			.xpath("//p[text()='Available Users']/parent::div/parent::div/div[2]/div/div[2]/div/div[2]/img");
-	private By button_ColdTransfer = By.xpath("//p[text()='Transfer Now']/parent::div/img");
+	private By button_ColdTransfer = By.xpath("//p[text()='Transfer Now']/preceding::img[1]");
 	private By text_CallTransferred = By.xpath("//h3[text()='Call Transferred']");
 	private By button_WarmTransfer = By.xpath("//p[text()='Talk First']/parent::div/img");
 	private By button_MergeCall = By.xpath("//div[@id='icon_Merge Call']");
-	//private By button_ZuperConnect = By.xpath("//mat-icon[@data-mat-icon-name='call-logs']");
+	// private By button_ZuperConnect =
+	// By.xpath("//mat-icon[@data-mat-icon-name='call-logs']");
 	private By button_MinimizeDailer = By.xpath("//div[@id='zuper-connect-container']//em");
 	private By icon_ReleaseNotesClose = By.xpath("//div[@class='beamerAnnouncementBarClose']");
 	private By button_Hold = By.xpath("//div[@id='icon_Hold']");
@@ -57,7 +59,20 @@ public class DashboardPageFactory extends Baseclass {
 //	private By element_dailer = By.xpath("//div[@class='cdk-overlay-container']/div/div");
 	private By element_sensePopup = By.xpath("//app-sense-launch-popup/div");
 	private By button_CloseOnSensepopup = By.xpath("//app-sense-launch-popup/div/button");
-	
+	private By element_AppTourPopup = By.xpath("//app-launch-announcement-popup");
+	private By button_CloseOnAppTour = By.xpath("//app-launch-announcement-popup/div/button");
+
+	public void closeAppTourPopup(WebDriver driver) {
+		boolean isPresent = driver.findElements(element_AppTourPopup).size() > 0;
+		Non_WebDriver_Util.waitThread(1);
+		if (isPresent) {
+			Non_WebDriver_Util.waitForBeClickable(driver, button_CloseOnAppTour, 20);
+			driver.findElement(button_CloseOnAppTour).click();
+		} else {
+			logger.info("App Tour Popup is not present");
+		}
+
+	}
 
 	public void closeSensePopup(WebDriver driver) {
 		boolean isPresent = driver.findElements(element_sensePopup).size() > 0;
@@ -68,9 +83,9 @@ public class DashboardPageFactory extends Baseclass {
 		} else {
 			logger.info("Sense Popup is not present");
 		}
-		
+
 	}
-	
+
 	public void navigateToContracts() {
 		Non_WebDriver_Util.jsScrollAndActionClick(driver, icon_ContractsAndAssets);
 		Non_WebDriver_Util.waitThread(1);
@@ -92,7 +107,7 @@ public class DashboardPageFactory extends Baseclass {
 	}
 
 	public void openDailer(WebDriver driver) {
-		
+
 		try {
 			Non_WebDriver_Util.waitForBeClickable(driver, icon_GlobalCall, 20);
 			driver.findElement(icon_GlobalCall).click();
@@ -114,7 +129,7 @@ public class DashboardPageFactory extends Baseclass {
 		driver.findElement(element_Available).click();
 		Non_WebDriver_Util.waitThread(3);
 	}
-	
+
 	public void zuperToTwilio() {
 		driver.switchTo().defaultContent();
 		Non_WebDriver_Util.switchToNewTab(driver);
@@ -187,8 +202,6 @@ public class DashboardPageFactory extends Baseclass {
 		Non_WebDriver_Util.waitForBeClickable(driver, button_MinimizeDailer, 10);
 		driver.findElement(button_MinimizeDailer).click();
 	}
-	
-
 
 	public void navigateToConnectModule(WebDriver driver) {
 		Non_WebDriver_Util.waitThread(1);
@@ -219,9 +232,15 @@ public class DashboardPageFactory extends Baseclass {
 
 	public void warmTransferringCallToFE(String feNameToTransfer) {
 		Non_WebDriver_Util.waitThread(2);
-		Non_WebDriver_Util.waitForBeClickable(driver, button_WarmTransfer, 5);
-		driver.findElement(button_WarmTransfer).click();
-
+		try {
+			Non_WebDriver_Util.waitForBeClickable(driver, button_WarmTransfer, 15);
+			driver.findElement(button_WarmTransfer).click();
+		} catch (Exception e) {
+			Non_WebDriver_Util.waitForBeClickable(driver, icon_callForSearchedUser, 15);
+			driver.findElement(icon_callForSearchedUser).click();
+			Non_WebDriver_Util.waitForBeClickable(driver, button_WarmTransfer, 15);
+			driver.findElement(button_WarmTransfer).click();
+		}	
 		String transferButtonStatus = driver.findElement(button_Transfer).getAttribute("class");
 		if (transferButtonStatus.contains("cursor-not-allowed")) {
 			logger.info("Call has been transferred to another user, Waiting that user to pick the Call");
@@ -248,9 +267,30 @@ public class DashboardPageFactory extends Baseclass {
 
 	public void transferringCallToFE(String feNameToTransfer) {
 		Non_WebDriver_Util.waitThread(2);
-		Non_WebDriver_Util.waitForBeClickable(driver, button_ColdTransfer, 5);
-		driver.findElement(button_ColdTransfer).click();
-		Non_WebDriver_Util.waitForVisible(driver, text_CallTransferred, 5);
+		try {
+			Non_WebDriver_Util.waitForBeClickable(driver, button_ColdTransfer, 15);
+			driver.findElement(button_ColdTransfer).click();
+		} catch (Exception e) {
+			Non_WebDriver_Util.waitForBeClickable(driver, icon_callForSearchedUser, 15);
+			driver.findElement(icon_callForSearchedUser).click();
+			Non_WebDriver_Util.waitForBeClickable(driver, button_ColdTransfer, 15);
+			driver.findElement(button_ColdTransfer).click();
+		}		
+		boolean isTransfered = driver.findElements(text_CallTransferred).size() > 0;
+		System.out.println("isTransfered: " + isTransfered);
+		Non_WebDriver_Util.waitThread(1);
+		if (!isTransfered) {
+			System.out.println("Call is not transferred, Selecting the user again");
+			Non_WebDriver_Util.waitThread(1);
+			Actions actions = new Actions(driver);
+			actions.moveToElement(driver.findElement(searchedUserToHover)).build().perform();
+			Non_WebDriver_Util.waitForBeClickable(driver, icon_callForSearchedUser, 15);
+			driver.findElement(icon_callForSearchedUser).click();
+			Non_WebDriver_Util.waitThread(1);
+			Non_WebDriver_Util.waitForBeClickable(driver, button_ColdTransfer, 25);
+			driver.findElement(button_ColdTransfer).click();
+		} 
+		
 		List<WebElement> callTransferredMessage = driver.findElements(text_CallTransferred);
 		if (!callTransferredMessage.isEmpty()) {
 			logger.info("Call is Transferred to Agent 2 (" + feNameToTransfer + ") user");
@@ -266,8 +306,9 @@ public class DashboardPageFactory extends Baseclass {
 	}
 
 	public void switchingToFrame(WebDriver driver) {
-		Non_WebDriver_Util.waitForVisible(driver, frame_ConnectDailerPad, 5);
+		Non_WebDriver_Util.waitForVisible(driver, frame_ConnectDailerPad, 50);
 		driver.switchTo().frame(driver.findElement(frame_ConnectDailerPad));
+		logger.info("Switched into the iFrame");
 	}
 
 	public void switchingToDefaultContent(WebDriver driver) {
@@ -279,7 +320,7 @@ public class DashboardPageFactory extends Baseclass {
 		if (driver.findElement(input_onDailer).isDisplayed()) {
 			logger.info("Call is disconnected for the Admin User");
 			Non_WebDriver_Util.testCase.log(Status.PASS, "Call is disconnected for the Admin User");
-		}else {
+		} else {
 			disconnectCall();
 		}
 	}
@@ -295,7 +336,8 @@ public class DashboardPageFactory extends Baseclass {
 
 	public void callingTwilioNumberBack() {
 		Non_WebDriver_Util.waitThread(5);
-		driver.findElement(input_onDailer).sendKeys(DashboardPageFactory.incommingTwilioNumber);
+		// driver.findElement(input_onDailer).sendKeys(DashboardPageFactory.incommingTwilioNumber);
+		driver.findElement(input_onDailer).sendKeys("463 232 3489");
 		Non_WebDriver_Util.waitThread(1);
 		driver.findElement(button_CallOnDailer).click();
 		Non_WebDriver_Util.waitThread(2);
@@ -306,6 +348,10 @@ public class DashboardPageFactory extends Baseclass {
 	}
 
 	public static String customerWindow;
+
+	public void getCurrentWindow() {
+		DashboardPageFactory.customerWindow = Non_WebDriver_Util.storeOriginalWindow(getDriver());
+	}
 
 	public void popup_clear(WebDriver driver) {
 		try {
@@ -318,9 +364,9 @@ public class DashboardPageFactory extends Baseclass {
 			Non_WebDriver_Util.testCase.log(Status.PASS,
 					"The notification popup did not appear within the expected wait time");
 		}
-		DashboardPageFactory.customerWindow = Non_WebDriver_Util.storeOriginalWindow(getDriver());
+
 	}
-	
+
 	public void popup_clearInIncognito(WebDriver driver) {
 		try {
 			Non_WebDriver_Util.waitForVisible(driver, button_PopUpLatestUpdates, 10);
@@ -341,17 +387,21 @@ public class DashboardPageFactory extends Baseclass {
 	public static String incommingTwilioNumber;
 
 	public void checkAndAcceptTheCall() {
-		Non_WebDriver_Util.waitThread(3);		
+
 		try {
-			DashboardPageFactory.incommingTwilioNumber = driver.findElement(text_TwilioNumber).getText();
+			Non_WebDriver_Util.waitThread(2);
+//			DashboardPageFactory.incommingTwilioNumber = driver.findElement(text_TwilioNumber).getText();
+//			logger.info("Incoming call from" + incommingTwilioNumber );
 			Non_WebDriver_Util.waitForVisible(driver, button_AcceptCall, 50);
 			Non_WebDriver_Util.waitForBeClickable(driver, button_AcceptCall, 50);
 			driver.findElement(button_AcceptCall).click();
 			logger.info("Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 			Non_WebDriver_Util.waitThread(5);
-			Non_WebDriver_Util.testCase.log(Status.PASS, "Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
+			Non_WebDriver_Util.testCase.log(Status.PASS,
+					"Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 			System.out.println("Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 		} catch (Exception e) {
+			logger.info("Executing catch block for Accept the call");
 			Non_WebDriver_Util.refreshPage(getDriver());
 			Non_WebDriver_Util.waitThread(2);
 			ZuperTwilioVoicePageFactory zp = new ZuperTwilioVoicePageFactory();
@@ -366,8 +416,9 @@ public class DashboardPageFactory extends Baseclass {
 			driver.findElement(button_AcceptCall).click();
 			logger.info("Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
 			Non_WebDriver_Util.waitThread(5);
-			Non_WebDriver_Util.testCase.log(Status.PASS, "Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
-		}		
+			Non_WebDriver_Util.testCase.log(Status.PASS,
+					"Customer Incomming call is accepted by the Agent 1(Zuper Admin)");
+		}
 		try {
 			Non_WebDriver_Util.getScreenshot(driver, "IncomingCallAccepted");
 		} catch (Exception e) {
@@ -397,7 +448,13 @@ public class DashboardPageFactory extends Baseclass {
 	}
 
 	public void disconnectCall() {
-		driver.findElement(button_DisconnectCall).click();
+		Non_WebDriver_Util.waitThread(1);
+		try {
+			driver.findElement(button_DisconnectCall).click();
+		} catch (Exception e) {
+			Non_WebDriver_Util.refreshPage(getDriver());
+		}
+
 	}
 
 }

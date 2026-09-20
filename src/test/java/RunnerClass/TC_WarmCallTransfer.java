@@ -1,6 +1,6 @@
 package RunnerClass;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -26,7 +26,7 @@ public class TC_WarmCallTransfer extends Baseclass{
 				.createTest("Verifying Warm Transfer functionality");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
@@ -41,7 +41,6 @@ public class TC_WarmCallTransfer extends Baseclass{
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("feEmail"), prop.getProperty("fePassword"));
 		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.maximizeWindow1(getDriver());
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
@@ -79,13 +78,44 @@ public class TC_WarmCallTransfer extends Baseclass{
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
     }
 
-    @AfterMethod
+    
+    @AfterTest(alwaysRun = true)
     public void sendReportToSlack() {
-    	Non_WebDriver_Util.extent.flush();
-    	String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-		UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0, "Warm Transfer Functionality");
-		getDriver().quit();
-		CompanyPageFactory.incognitoDriver.quit();
-    } 
+
+        System.out.println("===== AFTER METHOD STARTED =====");
+
+        try {
+            Non_WebDriver_Util.extent.flush();
+            System.out.println("Extent flushed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
+                    prop.getProperty("company_Name"), 0, 0,
+                    "Warm Transfer Functionality");
+            System.out.println("Slack upload completed");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (CompanyPageFactory.incognitoDriver != null)
+                CompanyPageFactory.incognitoDriver.quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if (getDriver() != null)
+                getDriver().quit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("===== AFTER METHOD FINISHED =====");
+    }
 }
 

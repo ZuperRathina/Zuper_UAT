@@ -110,7 +110,7 @@ public class ReportToSlack extends Baseclass {
 			            + "*Execution Time:* " + minutes + "m " + seconds + "s\n\n"
 			            + "For a detailed report, please download and view the attached file.";
 			} else {
-			    comment = "*Zuper Connect – Sanity Test Retried Scenario:"+methodName+"*\n\n"
+			    comment = "*Zuper Connect – Sanity Test Retried Scenario: "+methodName+"*\n\n"
 			            + "*Date:* " + formattedDate + "\n"
 			            + "*Environment:* " + environment + "\n"
 			            + "*Account Used:* " + account + "\n\n"

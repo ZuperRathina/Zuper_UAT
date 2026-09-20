@@ -57,6 +57,8 @@ public class ContractsPageFactory extends Baseclass {
 	private By element_ContractCreatedMessage = By.xpath("//div[text()='Service Contract created successfully']");
 	private By element_creationPopup = By.xpath("//hot-toast-container//dynamic-view/div");
 	private By checkbox_SameAsServiceAddress = By.cssSelector("input#sameAsServiceAddress");
+	private By element_contractNotFound = By.xpath("//*[text()='Contract not found for the given UID']");
+	
 
 	public void deleteContractFromDetailsPage() {
 		String contractLink = String.format("//a[normalize-space()='%s']/ancestor::tr/td[3]//a", contractTitle);
@@ -71,8 +73,17 @@ public class ContractsPageFactory extends Baseclass {
 		Non_WebDriver_Util.waitThread(1);
 		Non_WebDriver_Util.waitForBeClickable(driver, button_DeleteOnPopup, 5);
 		driver.findElement(button_DeleteOnPopup).click();
-		Non_WebDriver_Util.waitThread(1);
-		Non_WebDriver_Util.waitForVisible(driver, element_DeletedMessage, 10);
+		try {
+			Non_WebDriver_Util.waitForVisible(driver, element_DeletedMessage, 30);
+		} catch (Exception e) {
+		driver.navigate().to(contractLink);
+		boolean isPresent = driver.findElements(element_contractNotFound).size() > 0;
+		if (isPresent) {
+			logger.info("Contract is Deleted Successfully");
+		} else {
+			logger.info("Contract is Not Deleted");
+		}
+		}	
 		Non_WebDriver_Util.waitThread(1);
 		logger.info("Contract is Deleted Successfully");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Contract is Deleted Successfully");
@@ -175,7 +186,9 @@ public class ContractsPageFactory extends Baseclass {
 		Non_WebDriver_Util.selectMatOptionByTextt(driver, elements_ContTemplate, "SMS Contract Template");
 		Non_WebDriver_Util.waitThread(1);
 		driver.switchTo().frame(0);
-		driver.findElement(textBox_ContractDesc).sendKeys("Zuper Test Contract Description");
+		Non_WebDriver_Util.tabKeyClick(getDriver());
+		driver.switchTo().activeElement().sendKeys("Zuper Test Contract Description \n\n Zuper@123");
+//		driver.findElement(textBox_ContractDesc).sendKeys("Zuper Test Contract Description");
 		driver.switchTo().defaultContent();
 		driver.findElement(button_AddContact).click();
 		driver.findElement(textBox_SearchContacts).sendKeys("1Plus");

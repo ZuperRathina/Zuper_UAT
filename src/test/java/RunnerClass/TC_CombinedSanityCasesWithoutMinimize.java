@@ -1,15 +1,13 @@
 package RunnerClass;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.Status;
-
 import BaseTest.Baseclass;
 import PageObjectRep.CompanyPageFactory;
 import PageObjectRep.DashboardPageFactory;
@@ -40,16 +38,18 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	public void verify_IncommingAndOutgoingCallsWithTwilioVoiceApp() {
 		Non_WebDriver_Util.initReport();
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verify Incomming and Outgoing call functionalities with Zuper Twilio app");
-		System.out.println("Verify Incomming and Outgoing call functionalities with Zuper Twilio app");
+				.createTest("Verifying Incomming and Outgoing call functionalities with Zuper Twilio app");
+		System.out.println("Verifying Incomming and Outgoing call functionalities with Zuper Twilio app");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		Non_WebDriver_Util.waitThread(1);
+		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		zuperTwilioPageFactory.navigateToZuperTwilioVoicepage();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
+		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.checkAndAcceptTheCall();
@@ -57,6 +57,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.disconnectCall();
 		dashboardPageFactory.zuperToTwilio();
+		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.callingTwilioNumberBack();
@@ -96,7 +97,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		companyPageFactory.launchBrowserInIncognito(prop.getProperty("baseURL"));
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("feEmail"), prop.getProperty("fePassword"));
-		dashboardPageFactory.popup_clearInIncognito(CompanyPageFactory.incognitoDriver);
+		//dashboardPageFactory.popup_clearInIncognito(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
 		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(2);
@@ -167,10 +168,12 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("messgaeUserCompanyName"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("messageUserEmail"),
 				prop.getProperty("messageUserPassword"));
-		dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		//dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		dashboardPageFactory.closeAppTourPopup(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.closeSensePopup(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.minimizeTheDailer(CompanyPageFactory.incognitoDriver);
+		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.navigateToConnectModuleInIncognito(CompanyPageFactory.incognitoDriver);
 		zuperConnectPageFactory.selectAllInboxes(CompanyPageFactory.incognitoDriver);
 		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(CompanyPageFactory.incognitoDriver);
@@ -236,10 +239,24 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 				seconds,"");
 	}
 
-	@AfterSuite
+	@AfterSuite(alwaysRun = true)
 	public void closeBrowsers() {
-		CompanyPageFactory.incognitoDriver.quit();
-		getDriver().quit();
-		// Non_WebDriver_Util.clearScreenshots();
+
+	    try {
+	        if (CompanyPageFactory.incognitoDriver != null) {
+	            CompanyPageFactory.incognitoDriver.quit();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    try {
+	        WebDriver driver = getDriver();
+	        if (driver != null) {
+	            driver.quit();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 }

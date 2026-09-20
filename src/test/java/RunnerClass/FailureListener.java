@@ -1,13 +1,12 @@
 package RunnerClass;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
 import org.testng.IExecutionListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import PageObjectRep.CompanyPageFactory;
 
 public class FailureListener implements ITestListener, IExecutionListener {
 
@@ -37,6 +36,7 @@ public class FailureListener implements ITestListener, IExecutionListener {
 		System.out.println("===== Failed Test Methods =====");
 		
 		if (!failedOrSkippedTests.isEmpty()) {
+			CompanyPageFactory.incognitoDriver.quit();
 			String failedMethod = "";
 			for (String method : failedOrSkippedTests) {
 				failedMethod = method;

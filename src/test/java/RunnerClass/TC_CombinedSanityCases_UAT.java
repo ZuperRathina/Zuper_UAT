@@ -5,17 +5,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.Status;
-
 import BaseTest.Baseclass;
-import PageObjectRep.AssetsPageFactory;
 import PageObjectRep.CompanyPageFactory;
-import PageObjectRep.ContractsPageFactory;
 import PageObjectRep.DashboardPageFactory;
-import PageObjectRep.RequestPageFactory;
 import PageObjectRep.ZuperConnectPageFactory;
 import PageObjectRep.ZuperTwilioVoicePageFactory;
 import UtilityPackages.Non_WebDriver_Util;
@@ -27,9 +21,9 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 	private DashboardPageFactory dashboardPageFactory;
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 	private ZuperConnectPageFactory zuperConnectPageFactory;
-	private ContractsPageFactory contractsPageFactory;
-	private AssetsPageFactory assetsPageFactory;
-	private RequestPageFactory requestPageFactory;
+//	private ContractsPageFactory contractsPageFactory;
+//	private AssetsPageFactory assetsPageFactory;
+//	private RequestPageFactory requestPageFactory;
 
 	@BeforeClass
 	public void setUp() {
@@ -38,9 +32,9 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 		dashboardPageFactory = new DashboardPageFactory();
 		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
 		zuperConnectPageFactory = new ZuperConnectPageFactory();
-		contractsPageFactory = new ContractsPageFactory();
-		assetsPageFactory = new AssetsPageFactory();
-		requestPageFactory = new RequestPageFactory();
+//		contractsPageFactory = new ContractsPageFactory();
+//		assetsPageFactory = new AssetsPageFactory();
+//		requestPageFactory = new RequestPageFactory();
 	}
 
 	@Test(priority = 1)
@@ -51,7 +45,7 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 				.createTest("Verify Incomming and Outgoing call functionalities with Zuper Twilio app");
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
-		dashboardPageFactory.popup_clear(getDriver());
+		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
@@ -101,7 +95,7 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 		companyPageFactory.launchBrowserInIncognito(prop.getProperty("UAT_URL"));
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("company_Name"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("feEmail"), prop.getProperty("fePassword"));
-		dashboardPageFactory.popup_clearInIncognito(CompanyPageFactory.incognitoDriver);
+		//dashboardPageFactory.popup_clearInIncognito(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
 		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(2);
@@ -132,6 +126,7 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.checkAndAcceptTheCall();
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
+		Non_WebDriver_Util.waitThread(3);
 		dashboardPageFactory.warmTransferringCallToFE(prop.getProperty("feToTransfer"));
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.waitThread(1);
@@ -167,7 +162,7 @@ public class TC_CombinedSanityCases_UAT extends Baseclass {
 		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("messgaeUserCompanyName"));
 		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("messageUserEmail"),
 				prop.getProperty("messageUserPassword"));
-		dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
+		//dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
 		dashboardPageFactory.closeSensePopup(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.minimizeTheDailer(CompanyPageFactory.incognitoDriver);

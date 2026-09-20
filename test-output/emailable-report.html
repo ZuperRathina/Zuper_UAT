@@ -8,51 +8,11 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">TC_Job_Creation1</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">396,996</td><td></td><td></td></tr>
+<tr><th colspan="8">Default suite</th></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">166,257</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">TC_Job_Creation1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td><td><a href="#m0">verify_ColdTransferFunctionality</a></td><td rowspan="1">1782367794051</td><td rowspan="1">86404</td></tr><tr class="failedeven"><td><a href="#m1">verify_WarmCallTransferFunctionality</a></td><td rowspan="1">1782367880604</td><td rowspan="1">14692</td></tr><tr><th colspan="4">TC_Job_Creation1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td><td><a href="#m2">verify_IncommingAndOutgoingCallsWithTwilioVoiceApp</a></td><td rowspan="1">1782367703789</td><td rowspan="1">90058</td></tr><tr class="passedeven"><td><a href="#m3">verify_OutgoingAndIncommingMMS</a></td><td rowspan="1">1782367976395</td><td rowspan="1">113200</td></tr><tr class="passedeven"><td><a href="#m4">verify_OutgoingAndIncommingMessages</a></td><td rowspan="1">1782367895406</td><td rowspan="1">80833</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">RunnerClass.TC_WarmCallTransfer</td><td><a href="#m0">verify_WarmCallTransferFunctionalities</a></td><td rowspan="1">1789709975769</td><td rowspan="1">165508</td></tr></tbody>
 </table>
-<h2>TC_Job_Creation1</h2><h3 id="m0">RunnerClass.TC_CombinedSanityCasesWithoutMinimize#verify_ColdTransferFunctionality</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//p[text()=&apos;Transfer Now&apos;]/parent::div/img&quot;}
-  (Session info: chrome=149.0.7827.156)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3577812836c55e777e5f8fa3b147ee27, findElement {value=//p[text()=&apos;Transfer Now&apos;]/parent::div/img, using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3577812836c55e777e5f8fa3b147ee27
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
-	at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:225)
-	at PageObjectRep.DashboardPageFactory.transferringCallToFE(DashboardPageFactory.java:251)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_ColdTransferFunctionality(TC_CombinedSanityCasesWithoutMinimize.java:105)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">RunnerClass.TC_CombinedSanityCasesWithoutMinimize#verify_WarmCallTransferFunctionality</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on windows (3577812836c55e777e5f8fa3b147ee27)] -&gt; xpath: //iframe[@id=&apos;zuper-connect-frame&apos;]] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.156, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\RATHIN~1.K\AppData...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58860}, goog:processID: 21708, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58860/devtoo..., se:cdpVersion: 149.0.7827.156, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3577812836c55e777e5f8fa3b147ee27
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at UtilityPackages.Non_WebDriver_Util.waitForVisible(Non_WebDriver_Util.java:215)
-	at PageObjectRep.DashboardPageFactory.switchingToFrame(DashboardPageFactory.java:269)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_WarmCallTransferFunctionality(TC_CombinedSanityCasesWithoutMinimize.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">RunnerClass.TC_CombinedSanityCasesWithoutMinimize#verify_IncommingAndOutgoingCallsWithTwilioVoiceApp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">RunnerClass.TC_CombinedSanityCasesWithoutMinimize#verify_OutgoingAndIncommingMMS</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">RunnerClass.TC_CombinedSanityCasesWithoutMinimize#verify_OutgoingAndIncommingMessages</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">RunnerClass.TC_WarmCallTransfer#verify_WarmCallTransferFunctionalities</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
