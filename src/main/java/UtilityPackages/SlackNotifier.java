@@ -7,6 +7,7 @@ import java.net.URL;
 
 public class SlackNotifier {
 
+	@SuppressWarnings("deprecation")
 	public static void sendSlackMessage(String message) {
 		try {
 

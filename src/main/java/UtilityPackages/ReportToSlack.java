@@ -15,12 +15,20 @@ import org.json.JSONObject;
 import BaseTest.Baseclass;
 
 public class ReportToSlack extends Baseclass {
-	private static String token = "xoxb-159793626610-10635849042503-wevTbsp8jNhltquTeMH567E5";
+	// Read from the environment instead of hardcoding - never commit a real
+	// Slack token to source control. Set SLACK_BOT_TOKEN in your shell/CI env.
+	private static String token = System.getenv("SLACK_BOT_TOKEN");
 	private static String channelId = "C0AK06LKHBL";
 
+	@SuppressWarnings("deprecation")
 	public static void uploadReport(String filePath, String environment, String account, long minutes, long seconds, String methodName) {
 
 		try {
+
+			if (token == null || token.isEmpty()) {
+				System.out.println("SLACK_BOT_TOKEN environment variable is not set - skipping Slack upload");
+				return;
+			}
 
 			File file = new File(filePath);
 

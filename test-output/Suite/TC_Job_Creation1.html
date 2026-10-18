@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>TC_Job_Creation1</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Sep 17 04:42:07 EDT 2026</td>
+<td>Started on:</td><td>Sat Oct 17 10:34:56 EDT 2026</td>
 </tr>
-<tr><td>Total time:</td><td>322 seconds (322840 ms)</td>
+<tr><td>Total time:</td><td>56 seconds (56117 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,17 +76,58 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMMS()'><b>verify_OutgoingAndIncommingMMS</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td>
-<td><div><pre>java.lang.RuntimeException: No files found in the given folder path
-	at UtilityPackages.Non_WebDriver_Util.uploadMultipleFiles(Non_WebDriver_Util.java:87)
-	at PageObjectRep.ZuperConnectPageFactory.addAttachmentsToMMS(ZuperConnectPageFactory.java:203)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMMS(TC_CombinedSanityCasesWithoutMinimize.java:204)
+<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()'><b>verify_IncommingAndOutgoingCallsWithTwilioVoiceApp</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input#phone-number&quot;}
+  (Session info: chrome=156.0.8078.12)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.7&apos;, java.version: &apos;26.0.2.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [50b7e06747d8e3fd43ad7ef3234d1351, findElement {value=input#phone-number, using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 156.0.8078.12, chrome: {chromedriverVersion: 156.0.8078.12 (634b046faf21..., userDataDir: /var/folders/7f/m486rgjx6vd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61483}, goog:processID: 47683, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61483/devtoo..., se:cdpVersion: 156.0.8078.12, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 50b7e06747d8e3fd43ad7ef3234d1351
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:278)
+	at PageObjectRep.ZuperTwilioVoicePageFactory.callingCustomerNumber(ZuperTwilioVoicePageFactory.java:82)
+	at RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp(TC_CombinedSanityCasesWithoutMinimizeTEST.java:58)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1027623306", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1027623306'><pre>java.lang.RuntimeException: No files found in the given folder path
-	at UtilityPackages.Non_WebDriver_Util.uploadMultipleFiles(Non_WebDriver_Util.java:87)
-	at PageObjectRep.ZuperConnectPageFactory.addAttachmentsToMMS(ZuperConnectPageFactory.java:203)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMMS(TC_CombinedSanityCasesWithoutMinimize.java:204)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1649026294", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1649026294'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;input#phone-number&quot;}
+  (Session info: chrome=156.0.8078.12)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
+System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.7&apos;, java.version: &apos;26.0.2.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [50b7e06747d8e3fd43ad7ef3234d1351, findElement {value=input#phone-number, using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 156.0.8078.12, chrome: {chromedriverVersion: 156.0.8078.12 (634b046faf21..., userDataDir: /var/folders/7f/m486rgjx6vd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61483}, goog:processID: 47683, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61483/devtoo..., se:cdpVersion: 156.0.8078.12, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 50b7e06747d8e3fd43ad7ef3234d1351
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:278)
+	at PageObjectRep.ZuperTwilioVoicePageFactory.callingCustomerNumber(ZuperTwilioVoicePageFactory.java:82)
+	at RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp(TC_CombinedSanityCasesWithoutMinimizeTEST.java:58)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -114,87 +155,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>6</td>
-<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimize@3a393455</td></tr>
-<tr>
-<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMessages()'><b>verify_OutgoingAndIncommingMessages</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (f5805b29ab0525b1f06de39f722a9684)] -&gt; xpath: //*[contains(text(),&apos;Mark as read&apos;)]] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.7&apos;, java.version: &apos;26.0.2.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 153.0.8010.48, chrome: {chromedriverVersion: 153.0.8010.47 (73934a44f61e..., userDataDir: /var/folders/7f/m486rgjx6vd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49932}, goog:processID: 7948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49932/devtoo..., se:cdpVersion: 153.0.8010.48, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f5805b29ab0525b1f06de39f722a9684
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:225)
-	at PageObjectRep.ZuperConnectPageFactory.checkTheIncommingMessage(ZuperConnectPageFactory.java:112)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMessages(TC_CombinedSanityCasesWithoutMinimize.java:181)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace793575862", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace793575862'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (f5805b29ab0525b1f06de39f722a9684)] -&gt; xpath: //*[contains(text(),&apos;Mark as read&apos;)]] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
-System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;26.7&apos;, java.version: &apos;26.0.2.1&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 153.0.8010.48, chrome: {chromedriverVersion: 153.0.8010.47 (73934a44f61e..., userDataDir: /var/folders/7f/m486rgjx6vd...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49932}, goog:processID: 7948, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:49932/devtoo..., se:cdpVersion: 153.0.8010.48, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f5805b29ab0525b1f06de39f722a9684
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at UtilityPackages.Non_WebDriver_Util.waitForBeClickable(Non_WebDriver_Util.java:225)
-	at PageObjectRep.ZuperConnectPageFactory.checkTheIncommingMessage(ZuperConnectPageFactory.java:112)
-	at RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_OutgoingAndIncommingMessages(TC_CombinedSanityCasesWithoutMinimize.java:181)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>65</td>
-<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimize@3a393455</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_IncommingAndOutgoingCallsWithTwilioVoiceApp()'><b>verify_IncommingAndOutgoingCallsWithTwilioVoiceApp</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td>
-<td></td>
-<td>86</td>
-<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimize@3a393455</td></tr>
-<tr>
-<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_ColdTransferFunctionality()'><b>verify_ColdTransferFunctionality</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td>
-<td></td>
-<td>95</td>
-<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimize@3a393455</td></tr>
-<tr>
-<td title='RunnerClass.TC_CombinedSanityCasesWithoutMinimize.verify_WarmCallTransferFunctionality()'><b>verify_WarmCallTransferFunctionality</b><br>Test class: RunnerClass.TC_CombinedSanityCasesWithoutMinimize</td>
-<td></td>
-<td>61</td>
-<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimize@3a393455</td></tr>
+<td>50</td>
+<td>RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST@49872d67</td></tr>
 </table><p>
 </body>
 </html>

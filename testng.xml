@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite">	
+<suite name="Suite">
+
+    
 
     <listeners>
         <listener class-name="RunnerClass.FailureListener"/>
     </listeners>
 
     <test name="TC_Job_Creation1">
+    <parameter name="url" value="UATNext"/>
         <classes>
-            <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize"/>
+            <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST"/>
         </classes>
     </test>
 

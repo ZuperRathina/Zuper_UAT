@@ -1,6 +1,7 @@
 package RunnerClass;
 
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -16,16 +17,17 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 
 	@Test
-	public void verify_IncommingAndOutgoingFunctionalities() {
-		initilizeConfig();
+	public void verify_IncommingAndOutgoingFunctionalities(@Optional("liveNext")String url) {
+		initilizeConfigNew("normal", prop.getProperty(url));
 		companyPageFactory = new CompanyPageFactory();
 		dashboardPageFactory = new DashboardPageFactory();
 		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
 		Non_WebDriver_Util.initReport();
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verify Incomming and Outgoing functionalities with Zuper Twilio app");
-		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
-		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"), getDriver());
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"), getDriver());
+		dashboardPageFactory.storeDriverValue();
 		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
@@ -34,10 +36,10 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.checkAndAcceptTheCall();
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
 		dashboardPageFactory.putOnHold(getDriver());
 		dashboardPageFactory.putOnMute(getDriver());
-		dashboardPageFactory.disconnectCall();
+		dashboardPageFactory.disconnectCallNew(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
@@ -55,7 +57,7 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse();
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(getDriver());
 		logger.info(
 				"<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
@@ -79,13 +81,6 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 			UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0,
 					"Incomming and Outgoing Call Functionalities");
 			System.out.println("Slack upload completed");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
-			if (CompanyPageFactory.incognitoDriver != null)
-				CompanyPageFactory.incognitoDriver.quit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -6,6 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -22,26 +24,30 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 	private ZuperConnectPageFactory zuperConnectPageFactory;
 
+
 	public static long startTime;
 
+	@Parameters("url")
 	@BeforeClass
-	public void setUp() {
-		initilizeConfig(); // BaseClass setup
+	public void setUp(@Optional("liveNext")String url) {
+		initilizeConfigNew("normal", prop.getProperty(url)); // BaseClass setup
 		companyPageFactory = new CompanyPageFactory();
 		dashboardPageFactory = new DashboardPageFactory();
 		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
 		zuperConnectPageFactory = new ZuperConnectPageFactory();
 		startTime = System.currentTimeMillis();
 	}
-
+	
 	@Test(priority = 1)
-	public void verify_IncommingAndOutgoingCallsWithTwilioVoiceApp() {
-		Non_WebDriver_Util.initReport();
+	public void verify_IncommingAndOutgoingCallsWithTwilioVoiceApp() {	
+		Non_WebDriver_Util.initReport();		
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verifying Incomming and Outgoing call functionalities with Zuper Twilio app");
 		System.out.println("Verifying Incomming and Outgoing call functionalities with Zuper Twilio app");
-		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
-		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"), getDriver());
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"),
+				getDriver());
+		dashboardPageFactory.storeDriverValue();
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
@@ -52,10 +58,10 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.checkAndAcceptTheCall();
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
 		dashboardPageFactory.putOnHold(getDriver());
 		dashboardPageFactory.putOnMute(getDriver());
-		dashboardPageFactory.disconnectCall();
+		dashboardPageFactory.disconnectCallNew(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
@@ -74,119 +80,116 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse();
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(getDriver());
 		logger.info(
 				"<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.");
-		System.out.println("<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
+		System.out.println(
+				"<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 	}
 
+	@Parameters("url")
 	@Test(priority = 2, alwaysRun = true)
-	public void verify_ColdTransferFunctionality() {
+	public void verify_ColdTransferFunctionality(@Optional("liveNext")String url) {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Cold Transfer functionality");
 		System.out.println("Verifying Cold Transfer functionality");
 		dashboardPageFactory.markUserAsAvailable(getDriver());
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.checkAndAcceptTheCall();
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		companyPageFactory.launchBrowserInIncognito(prop.getProperty("baseURL"));
-		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("company_Name"));
-		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("feEmail"), prop.getProperty("fePassword"));
-		//dashboardPageFactory.popup_clearInIncognito(CompanyPageFactory.incognitoDriver);
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		initilizeConfigNew("incognito", prop.getProperty(url));
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"),
+				incognitoDriver);
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("feEmail"), prop.getProperty("fePassword"),
+				incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
-		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(2);
-		dashboardPageFactory.switchingToFrame(getDriver());
+		Non_WebDriver_Util.refreshPage(incognitoDriver);
+		Non_WebDriver_Util.waitThread(3);
+		dashboardPageFactory.switchingToFrame(incognitoDriver);
+		dashboardPageFactory.markUserAsAvailable(incognitoDriver);
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
 		dashboardPageFactory.transferringCallToFE(prop.getProperty("feToTransfer"));
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		dashboardPageFactory.switchingToFrame(CompanyPageFactory.incognitoDriver);
 		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.checkAndAcceptTheCallInIncognito();
-		dashboardPageFactory.putOnHold(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.putOnMute(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.disconnectCallFromIncognito();
+		dashboardPageFactory.checkAndAcceptTheCall(incognitoDriver);
+		dashboardPageFactory.putOnHold(incognitoDriver);
+		dashboardPageFactory.putOnMute(incognitoDriver);
+		dashboardPageFactory.disconnectCallNew(incognitoDriver);
 		logger.info("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Cold Call Transfer functionality is working as expected.");
 		System.out.println("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
 	}
+	
 
 	@Test(priority = 3, alwaysRun = true)
 	public void verify_WarmCallTransferFunctionality() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Warm Transfer functionality");
 		System.out.println("Verifying Warm Transfer functionality");
-		Non_WebDriver_Util.refreshPage(getDriver());
-		Non_WebDriver_Util.waitThread(3);
+		dashboardPageFactory.markUserAsAvailable(getDriver());
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
+		Non_WebDriver_Util.waitThread(1);
 		DashboardPageFactory.customerWindow = Non_WebDriver_Util.storeOriginalWindow(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.checkAndAcceptTheCall();
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
 		dashboardPageFactory.warmTransferringCallToFE(prop.getProperty("feToTransfer"));
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.checkAndAcceptTheCallInIncognito();
-		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.checkAndAcceptTheCall(incognitoDriver);
 		dashboardPageFactory.mergeTheTransferedCall();
 		dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.putOnHold(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		dashboardPageFactory.putOnMute(CompanyPageFactory.incognitoDriver);
+		dashboardPageFactory.putOnMute(incognitoDriver);
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		zuperTwilioPageFactory.disconnectTheWarmTransferCallFromTwilioEnd();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse();
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUseInIncognito();
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(incognitoDriver);
+		dashboardPageFactory.quitBrowser(incognitoDriver);
 		logger.info("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
 		System.out.println("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 	}
 
+	@Parameters("url")
 	@Test(priority = 4, alwaysRun = true)
-	public void verify_OutgoingAndIncommingMessages() {
+	public void verify_OutgoingAndIncommingMessages(@Optional("liveNext")String url) {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verifying Incoming and Outgoing Messages functionalities on "
 						+ prop.getProperty("company_Name") + " account");
 		System.out.println("Verifying Incoming and Outgoing Messages functionalities on "
-						+ prop.getProperty("company_Name") + " account");
+				+ prop.getProperty("company_Name") + " account");
 		Non_WebDriver_Util.refreshPage(getDriver());
 		dashboardPageFactory.navigateToConnectModule(getDriver());
 		zuperConnectPageFactory.createNewMessage(getDriver());
 		zuperConnectPageFactory.clickTextMessageInputSection(getDriver());
 		zuperConnectPageFactory.enterTextAndSendMessage(getDriver());
-		companyPageFactory.launchBrowserInIncognito(prop.getProperty("baseURL"));
-		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("messgaeUserCompanyName"));
-		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("messageUserEmail"),
-				prop.getProperty("messageUserPassword"));
-		//dashboardPageFactory.popup_clear(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.closeAppTourPopup(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.closeSensePopup(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.minimizeTheDailer(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.navigateToConnectModuleInIncognito(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.selectAllInboxes(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(1);
-		zuperConnectPageFactory.checkTheIncommingMessage(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.clickTextMessageInputSection(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.enterTextAndSendMessageFromAnotherUser(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(5);
+		initilizeConfigNew("incognito", prop.getProperty(url));
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("messgaeUserCompanyName"), incognitoDriver);
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("messageUserEmail"), prop.getProperty("messageUserPassword"), incognitoDriver);	 		
+		dashboardPageFactory.navigateToConnectModule(incognitoDriver);
+		dashboardPageFactory.minimizeTheDailer(incognitoDriver);
+		zuperConnectPageFactory.selectAllInboxes(incognitoDriver);
+		zuperConnectPageFactory.navigateToReqCustomerConversation(incognitoDriver, prop.getProperty("reportBuilderAccCustomerName"));	
+		zuperConnectPageFactory.checkTheIncommingMessage(incognitoDriver);
+		zuperConnectPageFactory.clickTextMessageInputSection(incognitoDriver);
+        zuperConnectPageFactory.enterTextAndSendMessage(incognitoDriver);
+        Non_WebDriver_Util.waitThread(5);
 		Non_WebDriver_Util.refreshPage(getDriver());
 		Non_WebDriver_Util.waitThread(1);
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
-		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(getDriver());
-		zuperConnectPageFactory.checkTheIncommingMessageFromAdminUser(getDriver());
+		zuperConnectPageFactory.navigateToReqCustomerConversation(getDriver(), prop.getProperty("twilioLiveAccCustomerName"));	
+		zuperConnectPageFactory.checkTheIncommingMessage(getDriver());	
 		logger.info("<<<<<<Incoming and Outgoing Messages functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incoming and Outgoing Messages functionality is working as expected.");
@@ -196,30 +199,28 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	@Test(priority = 5, alwaysRun = true)
 	public void verify_OutgoingAndIncommingMMS() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verifying Incoming and Outgoing MMS functionalities on "
-						+ prop.getProperty("company_Name") + " account");
-		System.out.println("Verifying Incoming and Outgoing MMS functionalities on "
-						+ prop.getProperty("company_Name") + " account");
+				.createTest("Verifying Incoming and Outgoing MMS functionalities on " + prop.getProperty("company_Name")
+						+ " account");
+		System.out.println("Verifying Incoming and Outgoing MMS functionalities on " + prop.getProperty("company_Name")
+				+ " account");
 		zuperConnectPageFactory.clickTextMessageInputSection(getDriver());
 		zuperConnectPageFactory.addAttachmentsToMMS(getDriver());
 		Non_WebDriver_Util.waitThread(15);
-		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
+		Non_WebDriver_Util.refreshPage(incognitoDriver);
 		Non_WebDriver_Util.waitThread(2);
-		zuperConnectPageFactory.selectAllInboxes(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.checkTheIncommingMMSMessage(CompanyPageFactory.incognitoDriver);
-		zuperConnectPageFactory.addAttachmentsToMMSFromAnotherUser(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.waitThread(15);
+		zuperConnectPageFactory.selectAllInboxes(incognitoDriver);
+		zuperConnectPageFactory.navigateToReqCustomerConversation(incognitoDriver, prop.getProperty("reportBuilderAccCustomerName"));	
+		zuperConnectPageFactory.checkTheIncommingMMSMessage(incognitoDriver);
+		zuperConnectPageFactory.addAttachmentsToMMS(incognitoDriver);
+        Non_WebDriver_Util.waitThread(15);
 		Non_WebDriver_Util.refreshPage(getDriver());
 		Non_WebDriver_Util.waitThread(1);
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
-		zuperConnectPageFactory.navigateToTheRecentReceivedMessage(getDriver());
-		zuperConnectPageFactory.selectAllInboxes(getDriver());
-		zuperConnectPageFactory.checkTheIncommingMMSMessageInAdminUser(getDriver());
+		zuperConnectPageFactory.navigateToReqCustomerConversation(getDriver(), prop.getProperty("twilioLiveAccCustomerName"));	
+		zuperConnectPageFactory.checkTheIncommingMMSMessage(getDriver());
 		logger.info("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
 		System.out.println("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
-		Non_WebDriver_Util.testCase.log(Status.PASS,
-				"Incoming and Outgoing MMS functionality is working as expected.");
+		Non_WebDriver_Util.testCase.log(Status.PASS, "Incoming and Outgoing MMS functionality is working as expected.");
 	}
 
 	@AfterMethod
@@ -229,7 +230,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 
 	@AfterClass
 	public void sendFinalReport() {
-	long endTime = System.currentTimeMillis();
+		long endTime = System.currentTimeMillis();
 		Non_WebDriver_Util.extent.flush();
 		long duration = endTime - startTime;
 		long seconds = (duration / 1000) % 60;
@@ -242,21 +243,14 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	@AfterSuite(alwaysRun = true)
 	public void closeBrowsers() {
 
-	    try {
-	        if (CompanyPageFactory.incognitoDriver != null) {
-	            CompanyPageFactory.incognitoDriver.quit();
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		if (incognitoDriver != null) {
+			incognitoDriver.quit();
+		}
 
-	    try {
-	        WebDriver driver = getDriver();
-	        if (driver != null) {
-	            driver.quit();
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+		WebDriver driver = getDriver();
+		if (driver != null) {
+			driver.quit();
+		}
+
 	}
 }

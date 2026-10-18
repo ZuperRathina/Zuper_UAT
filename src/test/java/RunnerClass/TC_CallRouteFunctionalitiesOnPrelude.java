@@ -1,0 +1,66 @@
+package RunnerClass;
+
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+import BaseTest.Baseclass;
+import PageObjectRep.CallRoutePageFactory;
+import PageObjectRep.CompanyPageFactory;
+import PageObjectRep.DashboardPageFactory;
+import PageObjectRep.SettingsPageFactory;
+import UtilityPackages.Non_WebDriver_Util;
+
+public class TC_CallRouteFunctionalitiesOnPrelude extends Baseclass {
+
+	private CompanyPageFactory companyPageFactory;
+	private DashboardPageFactory dashboardPageFactory;
+	private SettingsPageFactory settingsPageFactory;
+	private CallRoutePageFactory callRoutePageFactory;
+
+	@Test
+	public void setUp() {
+		initilizeConfig(); // BaseClass setup
+		getDriver().navigate().to(prop.getProperty("nextURL"));
+		companyPageFactory = new CompanyPageFactory();
+		dashboardPageFactory = new DashboardPageFactory();
+		settingsPageFactory = new SettingsPageFactory();
+		callRoutePageFactory = new CallRoutePageFactory();
+		Non_WebDriver_Util.initReport();
+		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
+				.createTest("Verifying the Call Route creation, update, and deletion functionalities in Prelude.");
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"), getDriver());
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"),
+				getDriver());
+		dashboardPageFactory.navigateToSettings();
+		settingsPageFactory.navigateToCallSettings();
+		dashboardPageFactory.minimizeTheDailer(getDriver());
+		callRoutePageFactory.createNewCallRoute();
+		callRoutePageFactory.editExistingCallRoute();
+		callRoutePageFactory.deleteExistingCallRoute();
+	}
+
+	@AfterTest(alwaysRun = true)
+	public void sendReportToSlack() {
+
+		System.out.println("===== AFTER METHOD STARTED =====");
+
+		try {
+			Non_WebDriver_Util.extent.flush();
+			System.out.println("Extent flushed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+//		try {
+//			String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+//            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
+//                    prop.getProperty("company_Name"), 0, 0,
+//                    "Call Group Creation, Update, and Deletion Functionalities in Prelude");
+//			System.out.println("Slack upload completed");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
+		if (getDriver() != null)
+			getDriver().quit();
+	}
+}

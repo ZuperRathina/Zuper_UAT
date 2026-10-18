@@ -6,7 +6,10 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,13 +42,11 @@ public class Non_WebDriver_Util {
 	public static void initReport() {
 		if (extent == null) {
 			reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-//			File reportFile = new File(reportPath);
-//			if (reportFile.exists()) {
-//				reportFile.delete();
-//			}
 			ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
 			extent = new ExtentReports();
 			extent.attachReporter(htmlReporter);
+		}else {
+			System.out.println("Extent report already initialized.");
 		}
 	}
 
@@ -162,7 +163,59 @@ public class Non_WebDriver_Util {
 
 		return base64Screenshot;
 	}
-
+//	public static void addingScreenShotToReport(ITestResult result, WebDriver driver) {
+//	    try {
+//
+//	        if (result.getStatus() == ITestResult.FAILURE) {
+//
+//	            String failureReason = "No failure reason available";
+//
+//	            if (result.getThrowable() != null) {
+//	                String message = result.getThrowable().getMessage();
+//
+//	                if (message != null && !message.trim().isEmpty()) {
+//	                    failureReason = message;
+//	                }
+//	            }
+//
+//	            String requiredMessage = failureReason.split("\\(Session info:")[0].trim();
+//
+//	            if (Non_WebDriver_Util.testCase != null) {
+//	                Non_WebDriver_Util.testCase
+//	                        .fail(result.getName() + " Method is Failed and the Reason is: " + requiredMessage);
+//
+//	                if (driver != null) {
+//	                    Non_WebDriver_Util.getScreenshot(driver, result.getName() + " Method Failed");
+//	                }
+//	            } else {
+//	                System.out.println("ExtentTest testCase is null. Unable to add failure to report.");
+//	            }
+//
+//	        } else if (result.getStatus() == ITestResult.SUCCESS) {
+//
+//	            if (Non_WebDriver_Util.testCase != null) {
+//	                Non_WebDriver_Util.testCase.pass(result.getName() + " Method is Passed");
+//
+//	                if (driver != null) {
+//	                    Non_WebDriver_Util.getScreenshot(driver, result.getName() + " Method Passed");
+//	                }
+//	            }
+//
+//	        } else if (result.getStatus() == ITestResult.SKIP) {
+//
+//	            if (Non_WebDriver_Util.testCase != null) {
+//	                Non_WebDriver_Util.testCase.skip(result.getName() + " Method is Skipped");
+//
+//	                if (driver != null) {
+//	                    Non_WebDriver_Util.getScreenshot(driver, result.getName() + " Method Skipped");
+//	                }
+//	            }
+//	        }
+//
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	    }
+//	}
 	public static void addingScreenShotToReport(ITestResult result, WebDriver driver) {
 		try {
 
@@ -189,7 +242,7 @@ public class Non_WebDriver_Util {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+			}
 
 	public static void clearScreenshots() {
 
@@ -287,6 +340,11 @@ public class Non_WebDriver_Util {
 		actions.moveToElement(element).pause(Duration.ofMillis(300)).click().build().perform();
 	}
 
+	public static void jsScrollToElement(WebDriver driver, By element) {
+	    ((JavascriptExecutor) driver)
+	        .executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
+	}
+
 	public static void selectMatOptionByTextt(WebDriver driver, List<WebElement> elements, String optionText) {
 		boolean found = false;
 		for (WebElement option : elements) {
@@ -309,6 +367,21 @@ public class Non_WebDriver_Util {
 			js.executeScript("arguments[0].click();", driver.findElement(element));
 		} catch (Exception e) {
 			System.out.println("❌ JS Click failed: " + e.getMessage());
+		}
+	}
+
+	// Scrolls the element into view then clicks it via JS - unlike
+	// jsScrollAndActionClick (which uses Actions and needs a real visible
+	// element), this works even on visually-hidden elements (e.g. native
+	// inputs backing a custom-styled radio/checkbox/select).
+	public static void jsScrollAndClick(WebDriver driver, By element) {
+		try {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			WebElement target = driver.findElement(element);
+			js.executeScript("arguments[0].scrollIntoView({block: 'center'});", target);
+			js.executeScript("arguments[0].click();", target);
+		} catch (Exception e) {
+			System.out.println("❌ JS Scroll+Click failed: " + e.getMessage());
 		}
 	}
 
@@ -452,6 +525,32 @@ public class Non_WebDriver_Util {
 
 	public static String storeOriginalWindow(WebDriver driver) {
 		return driver.getWindowHandle();
+	}
+
+	/**
+	 * Dumps the current page's HTML source to a file under
+	 * <project-root>/PageDumps/<label>_<timestamp>.html, for offline inspection
+	 * (e.g. finding real locators when a new page/module hasn't been mapped yet).
+	 * Prints the resulting file path to the console.
+	 */
+	public static String dumpPageSource(WebDriver driver, String label) {
+		try {
+			String dumpDir = System.getProperty("user.dir") + "/PageDumps";
+			File dir = new File(dumpDir);
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+			String filePath = dumpDir + "/" + label + "_" + timestamp + ".html";
+			try (FileWriter writer = new FileWriter(filePath)) {
+				writer.write(driver.getPageSource());
+			}
+			System.out.println("Page source dumped to: " + filePath);
+			return filePath;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package RunnerClass;
 
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
@@ -9,23 +10,24 @@ import PageObjectRep.DashboardPageFactory;
 import PageObjectRep.ZuperTwilioVoicePageFactory;
 import UtilityPackages.Non_WebDriver_Util;
 
-public class TC_WarmCallTransfer extends Baseclass{
-	
+public class TC_WarmCallTransfer extends Baseclass {
+
 	private CompanyPageFactory companyPageFactory;
 	private DashboardPageFactory dashboardPageFactory;
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 
-    @Test
-    public void verify_WarmCallTransferFunctionalities() {
-    	 initilizeConfig();           //  BaseClass setup
-         companyPageFactory = new CompanyPageFactory();
-         dashboardPageFactory= new DashboardPageFactory();
-         zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
-    	Non_WebDriver_Util.initReport();
-		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
-				.createTest("Verifying Warm Transfer functionality");
-		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"));
-		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"));
+	@Test
+	public void verify_WarmCallTransferFunctionalities(@Optional("liveNext") String url) {
+		initilizeConfigNew("normal", prop.getProperty(url));
+		companyPageFactory = new CompanyPageFactory();
+		dashboardPageFactory = new DashboardPageFactory();
+		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
+		Non_WebDriver_Util.initReport();
+		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Warm Transfer functionality");
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"), getDriver());
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"),
+				getDriver());
+		dashboardPageFactory.storeDriverValue();
 		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
@@ -34,88 +36,60 @@ public class TC_WarmCallTransfer extends Baseclass{
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.checkAndAcceptTheCall();
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		Non_WebDriver_Util.minimizeWindow(getDriver());
-		companyPageFactory.launchBrowserInIncognito(prop.getProperty("baseURL"));
-		companyPageFactory.enterCompanyNameDetailsInIncognito(prop.getProperty("company_Name"));
-		companyPageFactory.enter_LoginSceanrioInIncognito(prop.getProperty("feEmail"), prop.getProperty("fePassword"));
-		Non_WebDriver_Util.refreshPage(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.maximizeWindow1(getDriver());
-		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		initilizeConfigNew("incognito", prop.getProperty(url));
+		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"), incognitoDriver);
+		companyPageFactory.enter_LoginSceanrio(prop.getProperty("feEmail"), prop.getProperty("fePassword"),
+				incognitoDriver);
+		Non_WebDriver_Util.refreshPage(incognitoDriver);
+		dashboardPageFactory.switchingToFrame(incognitoDriver);
+		dashboardPageFactory.markUserAsAvailable(incognitoDriver);
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
 		dashboardPageFactory.warmTransferringCallToFE(prop.getProperty("feToTransfer"));
 		DashboardPageFactory.customerWindow = Non_WebDriver_Util.storeOriginalWindow(getDriver());
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		Non_WebDriver_Util.minimizeWindow(getDriver());
-		dashboardPageFactory.switchingToFrame(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.checkAndAcceptTheCallInIncognito();
-		dashboardPageFactory.switchingToDefaultContent(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.minimizeWindow(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.maximizeWindow1(getDriver());
-		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.checkAndAcceptTheCall(incognitoDriver);
 		dashboardPageFactory.mergeTheTransferedCall();
 		dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.putOnHold(getDriver());
+		dashboardPageFactory.putOnMute(incognitoDriver);
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		Non_WebDriver_Util.minimizeWindow(getDriver());
-		Non_WebDriver_Util.maximizeWindow1(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.switchingToFrame(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.putOnMute(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.minimizeWindow(CompanyPageFactory.incognitoDriver);
-		Non_WebDriver_Util.maximizeWindow1(getDriver());
-		dashboardPageFactory.switchingToDefaultContent(CompanyPageFactory.incognitoDriver);
 		zuperTwilioPageFactory.disconnectTheWarmTransferCallFromTwilioEnd();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse();
-		dashboardPageFactory.switchingToDefaultContent(getDriver());
-		Non_WebDriver_Util.minimizeWindow(getDriver());
-		Non_WebDriver_Util.maximizeWindow1(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.switchingToFrame(CompanyPageFactory.incognitoDriver);
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUseInIncognito();
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(getDriver());
+		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(incognitoDriver);
 		logger.info("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
-    }
+	}
 
-    
-    @AfterTest(alwaysRun = true)
-    public void sendReportToSlack() {
+	@AfterTest(alwaysRun = true)
+	public void sendReportToSlack() {
 
-        System.out.println("===== AFTER METHOD STARTED =====");
+		System.out.println("===== AFTER METHOD STARTED =====");
 
-        try {
-            Non_WebDriver_Util.extent.flush();
-            System.out.println("Extent flushed");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		try {
+			Non_WebDriver_Util.extent.flush();
+			System.out.println("Extent flushed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        try {
-            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+		try {
+			String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
             UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
                     prop.getProperty("company_Name"), 0, 0,
                     "Warm Transfer Functionality");
-            System.out.println("Slack upload completed");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+			System.out.println("Slack upload completed");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        try {
-            if (CompanyPageFactory.incognitoDriver != null)
-                CompanyPageFactory.incognitoDriver.quit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		if (incognitoDriver != null)
+			incognitoDriver.quit();
 
-        try {
-            if (getDriver() != null)
-                getDriver().quit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		if (getDriver() != null)
+			getDriver().quit();
 
-        System.out.println("===== AFTER METHOD FINISHED =====");
-    }
+		System.out.println("===== AFTER METHOD FINISHED =====");
+	}
 }
-
