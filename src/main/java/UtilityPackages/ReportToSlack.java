@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import BaseTest.Baseclass;
 
 public class ReportToSlack extends Baseclass {
-	private static String token = "xoxb-159793626610-10635849042503-IDWBcTaA2y1qkvsl68mBVbja";
+	private static String token = "";
 	private static String channelId = "C0AK06LKHBL";
 
 	@SuppressWarnings("deprecation")
