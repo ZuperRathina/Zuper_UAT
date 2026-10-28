@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,7 +33,11 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import PageObjectRep.DashboardPageFactory;
 import UtilityPackages.Non_WebDriver_Util;
 
 public class Non_WebDriver_Util {
@@ -45,9 +53,185 @@ public class Non_WebDriver_Util {
 			ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
 			extent = new ExtentReports();
 			extent.attachReporter(htmlReporter);
-		}else {
+		} else {
 			System.out.println("Extent report already initialized.");
 		}
+	}
+
+	public static void checkPUTResponse(String putUrl, String apiKey, String requestBody) {
+		try {
+			com.mashape.unirest.http.HttpResponse<JsonNode> jsonResponse = Unirest.put(putUrl)
+					.header("Content-Type", "application/json").header("x-api-key", apiKey).body(requestBody).asJson();
+
+			System.out.println(jsonResponse.getStatus());
+			System.out.println(jsonResponse.getStatusText());
+			System.out.println(jsonResponse.getBody());
+			String responseBody = jsonResponse.getBody().toString();
+			System.out.println("Response Body: " + responseBody);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public static String getResponseRecentMessageObj;
+	public static JSONObject dataObject;
+
+	public static void checkGETResponse(String getUrl, String apiKey) {
+		try {
+			com.mashape.unirest.http.HttpResponse<JsonNode> jsonResponse = Unirest.get(getUrl)
+					.header("Content-Type", "application/json").header("x-api-key", apiKey).asJson();
+
+			System.out.println("Status: " + jsonResponse.getStatus());
+			System.out.println("Status Text: " + jsonResponse.getStatusText());
+			JsonNode responseBody = jsonResponse.getBody();
+			JSONObject jsonObject = new JSONObject(responseBody.toString());
+
+			if (jsonObject.has("data") && jsonObject.optJSONObject("data") != null) {
+				dataObject = jsonObject.getJSONObject("data");
+			} else {
+				dataObject = jsonObject;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static JSONObject dataObjectPOST;
+	public static void checkPOSTResponse(String getUrl, String apiKey) {
+		try {
+			com.mashape.unirest.http.HttpResponse<JsonNode> jsonResponse = Unirest.post(getUrl).header("accept", "application/json")
+					.header("Content-Type", "application/json").header("x-api-key", apiKey).body("{\"filters\":{}}").asJson();
+
+			System.out.println("Status: " + jsonResponse.getStatus());
+			System.out.println("Status Text: " + jsonResponse.getStatusText());
+
+			JsonNode responseBody = jsonResponse.getBody();
+			JSONObject jsonObject = new JSONObject(responseBody.toString());
+			
+			if (jsonObject.has("data") && jsonObject.optJSONObject("data") != null) {
+				dataObjectPOST = jsonObject.getJSONObject("data");
+			} else {
+				dataObjectPOST = jsonObject;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void printMediaDetails(String getUrl, String apiKey, WebDriver driver) {
+
+		checkGETResponse(getUrl, apiKey);
+
+		try {
+			if (dataObject == null) {
+				System.out.println("Response data is null");
+				return;
+			}
+
+			JSONObject recentMessage = dataObject.optJSONObject("recent_message");
+
+			if (recentMessage == null) {
+				System.out.println("recent_message not found");
+				return;
+			}
+
+			String direction = recentMessage.optString("direction", "");
+
+			org.json.JSONArray mediaArray = recentMessage.optJSONArray("media");
+
+			if (mediaArray == null) {
+				System.out.println("Media array not found");
+				return;
+			}
+
+			if (direction.equalsIgnoreCase("OUTGOING")) {
+				if (DashboardPageFactory.driverValue.equalsIgnoreCase(driver.toString())) {
+					Non_WebDriver_Util.testCase.log(Status.PASS,
+							"Agent 1 sent attachment(s) to Agent 2. Count: " + mediaArray.length());
+				} else {
+					Non_WebDriver_Util.testCase.log(Status.PASS,
+							"Agent 2 sent attachment(s) to Agent 1. Count: " + mediaArray.length());
+				}
+			} else {
+				if (DashboardPageFactory.driverValue.equalsIgnoreCase(driver.toString())) {
+					Non_WebDriver_Util.testCase.log(Status.PASS,
+							"Agent 1 received attachment(s) from Agent 2. Count: " + mediaArray.length());
+				} else {
+					Non_WebDriver_Util.testCase.log(Status.PASS,
+							"Agent 2 received attachment(s) from Agent 1. Count: " + mediaArray.length());
+				}
+			}
+
+			for (int i = 0; i < mediaArray.length(); i++) {
+				JSONObject media = mediaArray.getJSONObject(i);
+
+				String url = media.optString("media_url", "");
+				String type = media.optString("content_type", "");
+
+				getResponseRecentMessageObj = "Attachment Type: " + type + "<br>Attachment URL: " + "<a href='" + url
+						+ "' target='_blank'>" + url + "</a>";
+
+				Non_WebDriver_Util.testCase.log(Status.PASS, getResponseRecentMessageObj);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static String inprogressCallUID;
+	public static void getInProgressCallUID(String getUrl, String apiKey, String userNameToMatch) {
+		checkPOSTResponse(getUrl, apiKey);
+	    JSONArray callsArray = dataObjectPOST.getJSONArray("data");
+	    boolean callFound = false;
+
+	    for (int i = 0; i < callsArray.length(); i++) {
+	        JSONObject call = callsArray.getJSONObject(i);
+
+	        // Check status first
+	        if (!"IN_PROGRESS".equalsIgnoreCase(call.optString("status"))) {
+	            continue;
+	        }
+
+	        String direction = call.optString("direction");
+	        JSONObject userObject = null;
+
+	        // Get username based on call direction
+	        if ("OUTGOING".equalsIgnoreCase(direction)) {
+	            JSONObject fromObject = call.optJSONObject("from");
+	            if (fromObject != null) {
+	                userObject = fromObject.optJSONObject("user");
+	            }
+	        } else if ("INCOMING".equalsIgnoreCase(direction)) {
+	            JSONObject toObject = call.optJSONObject("to");
+	            if (toObject != null) {
+	                userObject = toObject.optJSONObject("user");
+	            }
+	        }
+
+	        String userName = (userObject != null)
+	                ? userObject.optString("user_name", "")
+	                : "";
+
+	        // Match username
+	        if (userName.equalsIgnoreCase(userNameToMatch)) {
+//	            String fromNumber = call.optString("from_number");
+//	            String toNumber = call.optString("to_number");
+	        	inprogressCallUID = call.optString("call_uid");
+	        	Non_WebDriver_Util.testCase.log(Status.PASS,
+						"Inprogress Call UID is: " + inprogressCallUID);
+	            System.out.println("Inprogress Call UID: " + inprogressCallUID);
+
+	            callFound = true;
+	            break;
+	        }
+	        dataObjectPOST=null;
+	    }
+
+	    if (!callFound) {
+	        System.out.println("No matching IN_PROGRESS call found for user: " + userNameToMatch);
+	    }
 	}
 
 	public static void minimizeWindow(WebDriver driver) {
@@ -92,6 +276,15 @@ public class Non_WebDriver_Util {
 
 		WebElement uploadInput = driver.findElement(uploadInputLocator);
 		uploadInput.sendKeys(filePaths);
+	}
+
+	// Counts files in the same folder uploadMultipleFiles() reads from, so
+	// callers can derive an "expected attachment count" dynamically instead
+	// of hardcoding a number that can drift out of sync with the folder.
+	public static int countFilesInFolder(String filePath) {
+		File folder = new File(filePath);
+		File[] files = folder.listFiles(File::isFile);
+		return files == null ? 0 : files.length;
 	}
 
 	public static void minimizeWindow() {
@@ -163,6 +356,7 @@ public class Non_WebDriver_Util {
 
 		return base64Screenshot;
 	}
+
 //	public static void addingScreenShotToReport(ITestResult result, WebDriver driver) {
 //	    try {
 //
@@ -242,7 +436,7 @@ public class Non_WebDriver_Util {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			}
+	}
 
 	public static void clearScreenshots() {
 
@@ -341,8 +535,7 @@ public class Non_WebDriver_Util {
 	}
 
 	public static void jsScrollToElement(WebDriver driver, By element) {
-	    ((JavascriptExecutor) driver)
-	        .executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
 	}
 
 	public static void selectMatOptionByTextt(WebDriver driver, List<WebElement> elements, String optionText) {
@@ -553,4 +746,93 @@ public class Non_WebDriver_Util {
 		}
 	}
 
+	public static void playAudio(WebDriver driver, String fileName) {
+		String audioPath = new File(System.getProperty("user.dir"), "Resources/AudioFiles/" + fileName + ".mp3")
+				.getAbsolutePath();
+
+		try {
+			String escapedPath = audioPath.replace("\\", "\\\\").replace("\"", "\\\"");
+
+			String script = "tell application \"Music\"\n" + "open POSIX file \"" + escapedPath + "\"\n" + "play\n"
+					+ "end tell";
+
+			Process process = new ProcessBuilder("osascript", "-e", script).start();
+
+			int exitCode = process.waitFor();
+
+			if (exitCode != 0) {
+				System.out.println("Failed to play: " + fileName);
+			}
+
+		} catch (IOException | InterruptedException e) {
+			if (e instanceof InterruptedException) {
+				Thread.currentThread().interrupt();
+			}
+			e.printStackTrace();
+		}
+	}
+
+	public static void playAudioInMusic(String fileName) {
+		try {
+			String audioPath = new File(System.getProperty("user.dir"), "/Resources/AudioFiles/" + fileName + ".mp3")
+					.getAbsolutePath();
+
+			String script = "tell application \"Music\"\n" + "activate\n" + "open POSIX file \""
+					+ audioPath.replace("\\", "\\\\").replace("\"", "\\\"") + "\"\n" + "delay 2\n" + "play\n"
+					+ "end tell";
+
+			Process process = new ProcessBuilder("osascript", "-e", script).start();
+
+			int exitCode = process.waitFor();
+
+			if (exitCode != 0) {
+				System.out.println("Failed to play audio in Music.");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void openMusic() {
+		try {
+			Process process = new ProcessBuilder("osascript", "-e", "tell application \"Music\" to activate").start();
+
+			process.waitFor();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void minimizeMusic() {
+		try {
+			String script = "tell application \"System Events\"\n" + "if exists process \"Music\" then\n"
+					+ "tell process \"Music\"\n" + "if exists window 1 then\n"
+					+ "set value of attribute \"AXMinimized\" of window 1 to true\n" + "end if\n" + "end tell\n"
+					+ "end if\n" + "end tell";
+
+			Process process = new ProcessBuilder("osascript", "-e", script).start();
+
+			int exitCode = process.waitFor();
+
+			if (exitCode != 0) {
+				System.out.println("Failed to minimize Music.");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void quitMusic() {
+		try {
+			Process process = new ProcessBuilder("osascript", "-e", "tell application \"Music\" to quit").start();
+
+			process.waitFor();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

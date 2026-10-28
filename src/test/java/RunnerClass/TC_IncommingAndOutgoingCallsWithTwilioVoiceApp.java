@@ -37,8 +37,16 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.openMusic();
+		Non_WebDriver_Util.minimizeMusic();
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent");
+		Non_WebDriver_Util.waitThread(12);
 		dashboardPageFactory.putOnHold(getDriver());
-		dashboardPageFactory.putOnMute(getDriver());
+		//dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.disconnectCallNew(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
@@ -50,8 +58,15 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		Non_WebDriver_Util.waitThread(2);
 		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent");
+		Non_WebDriver_Util.waitThread(12);
+		Non_WebDriver_Util.quitMusic();
 		dashboardPageFactory.putOnHold(getDriver());
-		dashboardPageFactory.putOnMute(getDriver());
+		//dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.switchToNewTab(getDriver());
 		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
@@ -76,14 +91,14 @@ public class TC_IncommingAndOutgoingCallsWithTwilioVoiceApp extends Baseclass {
 			e.printStackTrace();
 		}
 
-		try {
-			String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-			UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0,
-					"Incomming and Outgoing Call Functionalities");
-			System.out.println("Slack upload completed");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+//			UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live", prop.getProperty("company_Name"), 0, 0,
+//					"Incomming and Outgoing Call Functionalities");
+//			System.out.println("Slack upload completed");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		try {
 			if (getDriver() != null)

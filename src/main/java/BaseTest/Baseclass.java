@@ -5,7 +5,6 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
@@ -58,7 +57,6 @@ public class Baseclass {
 
 				throw new IllegalArgumentException("Invalid modeType: " + modeType + ". Use 'normal' or 'incognito'.");
 			}
-
 			// Disable browser notifications
 			options.addArguments("--disable-notifications");
 
@@ -72,6 +70,7 @@ public class Baseclass {
 			options.addArguments("--disable-gpu");
 			options.addArguments("--disable-software-rasterizer");
 			options.addArguments("--force-device-scale-factor=1");
+			options.addArguments("--autoplay-policy=no-user-gesture-required");
 
 			Map<String, Object> prefs = new HashMap<>();
 			Map<String, Object> profile = new HashMap<>();

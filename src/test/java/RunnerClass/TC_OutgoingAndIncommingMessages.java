@@ -17,7 +17,7 @@ public class TC_OutgoingAndIncommingMessages extends Baseclass{
 	private ZuperConnectPageFactory zuperConnectPageFactory;
 
     @Test
-    public void verify_OutgoingAndIncommingMessages(@Optional("liveNext") String url) {
+    public void verify_OutgoingAndIncommingMessages(@Optional("UAT") String url) {
     	initilizeConfigNew("normal", prop.getProperty(url));        
         companyPageFactory = new CompanyPageFactory();
         dashboardPageFactory= new DashboardPageFactory();

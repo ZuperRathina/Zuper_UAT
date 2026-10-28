@@ -3,12 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="RunnerClass.TC_OutgoingAndIncommingMessages">
+      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
         <methods>
-          <include name="sendReportToSlack"/>
+          <include name="creatingReport"/>
+          <include name="sendFinalReport"/>
+          <include name="verify_OutgoingAndIncommingMMS"/>
+          <include name="closeBrowsers"/>
           <include name="verify_OutgoingAndIncommingMessages" invocation-numbers="0"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- RunnerClass.TC_OutgoingAndIncommingMessages -->
+      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

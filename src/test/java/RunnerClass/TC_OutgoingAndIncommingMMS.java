@@ -17,7 +17,7 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 	private ZuperConnectPageFactory zuperConnectPageFactory;
 
     @Test
-    public void verify_OutgoingAndIncommingMMS(@Optional("liveNext") String url) {
+    public void verify_OutgoingAndIncommingMMS(@Optional("UAT") String url) {
     	initilizeConfigNew("normal", prop.getProperty(url));  
         companyPageFactory = new CompanyPageFactory();
         dashboardPageFactory= new DashboardPageFactory();
@@ -33,6 +33,7 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 		zuperConnectPageFactory.createNewMessage(getDriver());
 		zuperConnectPageFactory.clickTextMessageInputSection(getDriver());
 		zuperConnectPageFactory.addAttachmentsToMMS(getDriver());
+		zuperConnectPageFactory.checkingAttachmnetsCountAndURL(prop.getProperty("telephonyMessagesApiUrlUSEast"), getDriver(), prop.getProperty("usEastAPIKey"));
 		initilizeConfigNew("incognito", prop.getProperty(url));
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("messgaeUserCompanyName"), incognitoDriver);
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("messageUserEmail"), prop.getProperty("messageUserPassword"), incognitoDriver);	
@@ -41,13 +42,16 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
 		zuperConnectPageFactory.selectAllInboxes(incognitoDriver);
 		zuperConnectPageFactory.navigateToReqCustomerConversation(incognitoDriver, prop.getProperty("reportBuilderAccCustomerName"));	
 		zuperConnectPageFactory.checkTheIncommingMMSMessage(incognitoDriver);
+		zuperConnectPageFactory.checkingAttachmnetsCountAndURL(prop.getProperty("telephonyMessagesApiUrlUSWest"), incognitoDriver, prop.getProperty("usWestAPIKey"));
 		zuperConnectPageFactory.addAttachmentsToMMS(incognitoDriver);
+		zuperConnectPageFactory.checkingAttachmnetsCountAndURL(prop.getProperty("telephonyMessagesApiUrlUSWest"), incognitoDriver, prop.getProperty("usWestAPIKey"));
         Non_WebDriver_Util.waitThread(15);
 		Non_WebDriver_Util.refreshPage(getDriver());
 		Non_WebDriver_Util.waitThread(1);
 		zuperConnectPageFactory.selectAllInboxes(getDriver());
 		zuperConnectPageFactory.navigateToReqCustomerConversation(getDriver(), prop.getProperty("twilioLiveAccCustomerName"));	
 		zuperConnectPageFactory.checkTheIncommingMMSMessage(getDriver());
+		zuperConnectPageFactory.checkingAttachmnetsCountAndURL(prop.getProperty("telephonyMessagesApiUrlUSEast"), getDriver(), prop.getProperty("usEastAPIKey"));
 		logger.info("<<<<<<Incoming and Outgoing MMS functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
 				"Incoming and Outgoing MMS functionality is working as expected.");
@@ -64,16 +68,16 @@ public class TC_OutgoingAndIncommingMMS extends Baseclass{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        try {
-            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
-            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
-                    prop.getProperty("company_Name"), 0, 0,
-                    "Incomming and Outgoing MMS Functionalities");
-            System.out.println("Slack upload completed");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//
+//        try {
+//            String reportPath = System.getProperty("user.dir") + "/ExtentReport.html";
+//            UtilityPackages.ReportToSlack.uploadReport(reportPath, "Live",
+//                    prop.getProperty("company_Name"), 0, 0,
+//                    "Incomming and Outgoing MMS Functionalities");
+//            System.out.println("Slack upload completed");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         try {
             if (incognitoDriver != null)

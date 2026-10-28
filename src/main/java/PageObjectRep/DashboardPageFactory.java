@@ -31,8 +31,6 @@ public class DashboardPageFactory extends Baseclass {
 			.xpath("//span[normalize-space()='Hold']/parent::div/parent::div/following::div[1]//span");
 	private By endCallOnPrompt = By.xpath("//button[normalize-space()='End Call']");
 	private By button_RecentCalls = By.xpath("//div[@id='app']/div/div/div/div[5]/div[1]/span[1]");
-	// private By text_TwilioNumber =
-	// By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]/p[1]");
 	private By input_onDailer = By.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div[1]//input");
 	private By button_CallOnDailer = By
 			.xpath("//div[@id='app']/div/div/div/div[3]/div[1]/div/div/div[2]/div[2]/div[1]/img");
@@ -46,8 +44,6 @@ public class DashboardPageFactory extends Baseclass {
 	private By text_CallTransferred = By.xpath("//h3[text()='Call Transferred']");
 	private By button_WarmTransfer = By.xpath("//p[text()='Talk First']/parent::div/img");
 	private By button_MergeCall = By.xpath("//div[@id='icon_Merge Call']");
-	// private By button_ZuperConnect =
-	// By.xpath("//mat-icon[@data-mat-icon-name='call-logs']");
 	private By button_MinimizeDailer = By.xpath("//div[@id='zuper-connect-container']//em");
 	private By icon_ReleaseNotesClose = By.xpath("//div[@class='beamerAnnouncementBarClose']");
 	private By button_Hold = By.xpath("//div[@id='icon_Hold']");
@@ -56,27 +52,18 @@ public class DashboardPageFactory extends Baseclass {
 	private By element_Mute = By.xpath("//div[@id='icon_Mute']/img");
 	private By element_IconOnDailer = By.xpath("//div[@id='app']/div/div/div/div[1]//div[@id='prime-avatar']");
 	private By element_Available = By.xpath("//div[text()='Available']/parent::div");
-	private By icon_ContractsAndAssets = By.xpath("//zuper-vertical-navigation-aside-item[@id='contract_asset']");
-	private By link_ContractsLink = By.xpath("//span[text()=' Contracts ']");
-	private By link_AssetsLink = By.xpath("//span[normalize-space()='Assets']");
-	private By link_RequestLink = By.xpath("//mat-icon[@data-mat-icon-name='wrench-screwdriver']");
-	// TODO: built from description, not inspected HTML - verify against the real
-	// DOM.
 	private By icon_ThreeDotMenu = By.xpath("//mat-icon[@data-mat-icon-name='dots-circle-horizontal']");
 	private By link_SettingsOption = By.xpath("//span[normalize-space()='Settings']");
-	// private By dropdown_Communication =
-	// By.xpath("//*[normalize-space()='Communication']");
 	private By link_ZuperConnectMenu = By.xpath(
 			"(//zuper-vertical-navigation-basic-item//*[normalize-space()='Communication' or normalize-space()='Zuper Connect'])[1]/parent::a");
-	private By icon_GlobalCall = By.cssSelector("div[tippyname='dialer_tooltip']");
+	private By icon_GlobalCall = By.cssSelector("//button[@aria-label='Dialer']");
 	private By element_TwilioIsReadyToUse = By
 			.xpath("//p[contains(text(),'Twilio.Device Ready to make and receive calls!')] ");
-//	private By element_dailer = By.xpath("//div[@class='cdk-overlay-container']/div/div");
 	private By element_sensePopup = By.xpath("//app-sense-launch-popup/div");
 	private By button_CloseOnSensepopup = By.xpath("//app-sense-launch-popup/div/button");
 	private By element_AppTourPopup = By.xpath("//app-launch-announcement-popup");
 	private By button_CloseOnAppTour = By.xpath("//app-launch-announcement-popup/div/button");
-
+	
 	public void closeAppTourPopup(WebDriver driver) {
 		boolean isPresent = driver.findElements(element_AppTourPopup).size() > 0;
 		Non_WebDriver_Util.waitThread(1);
@@ -101,26 +88,6 @@ public class DashboardPageFactory extends Baseclass {
 
 	}
 
-	public void navigateToContracts() {
-		Non_WebDriver_Util.jsScrollAndActionClick(driver, icon_ContractsAndAssets);
-		Non_WebDriver_Util.waitThread(1);
-		driver.findElement(link_ContractsLink).click();
-	}
-
-	public void navigateToAssets() {
-		Non_WebDriver_Util.jsScrollAndActionClick(driver, icon_ContractsAndAssets);
-		Non_WebDriver_Util.waitThread(1);
-		driver.findElement(link_AssetsLink).click();
-//		driver.navigate().to("https://uat.zuperpro.com/asset_management");
-		Non_WebDriver_Util.waitThread(3);
-	}
-
-	public void navigateToRequest() {
-		Non_WebDriver_Util.waitThread(3);
-		Non_WebDriver_Util.jsScrollAndActionClick(driver, link_RequestLink);
-		Non_WebDriver_Util.waitThread(1);
-	}
-
 	public void navigateToSettings() {
 		Non_WebDriver_Util.waitForBeClickable(driver, icon_ThreeDotMenu, 15);
 		Non_WebDriver_Util.hoverTheElement(driver, icon_ThreeDotMenu);
@@ -132,9 +99,8 @@ public class DashboardPageFactory extends Baseclass {
 	}
 
 	public void openDailer(WebDriver driver) {
-
+		Non_WebDriver_Util.waitThread(2);
 		try {
-			Non_WebDriver_Util.waitForBeClickable(driver, icon_GlobalCall, 20);
 			driver.findElement(icon_GlobalCall).click();
 			Non_WebDriver_Util.waitThread(1);
 		} catch (Exception e) {
@@ -200,6 +166,7 @@ public class DashboardPageFactory extends Baseclass {
 		checkingMuteOption(driver);
 		Non_WebDriver_Util.waitThread(2);
 	}
+	
 
 	public void checkingHoldOption(WebDriver driver) {
 		String srcText = driver.findElement(element_Hold).getAttribute("src");
@@ -254,7 +221,7 @@ public class DashboardPageFactory extends Baseclass {
 		} catch (Exception e) {
 			logger.info("Zuper Connect menu is not available in the left side bar, trying to navigate via URL");
 			String url = driver.getCurrentUrl();
-			String baseUrl = url.split("/dashboard")[0];
+			String baseUrl = url.substring(0, url.indexOf(".com") + 4);
 			String updatedUrl = baseUrl + "/connect/conversations";
 			driver.navigate().to(updatedUrl);
 			Non_WebDriver_Util.waitThread(2);
@@ -501,5 +468,12 @@ public class DashboardPageFactory extends Baseclass {
 		} else {
 			logger.info("Incognito driver is null, cannot close the browser.");
 		}
+	}
+
+	public void muteAndUnmute(WebDriver driver) {
+		Non_WebDriver_Util.waitForBeClickable(driver, button_Mute, 10);
+		driver.findElement(button_Mute).click();
+		checkingMuteOption(driver);
+		
 	}
 }

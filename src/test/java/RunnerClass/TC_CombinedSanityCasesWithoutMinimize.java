@@ -11,6 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import BaseTest.Baseclass;
+import PageObjectRep.CallsListingPageFactory;
 import PageObjectRep.CompanyPageFactory;
 import PageObjectRep.DashboardPageFactory;
 import PageObjectRep.ZuperConnectPageFactory;
@@ -23,6 +24,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	private DashboardPageFactory dashboardPageFactory;
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
 	private ZuperConnectPageFactory zuperConnectPageFactory;
+	private CallsListingPageFactory callsListingPageFactory;
 
 
 	public static long startTime;
@@ -35,6 +37,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory = new DashboardPageFactory();
 		zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
 		zuperConnectPageFactory = new ZuperConnectPageFactory();
+		callsListingPageFactory = new CallsListingPageFactory();
 		startTime = System.currentTimeMillis();
 	}
 	
@@ -48,22 +51,32 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		companyPageFactory.enter_LoginSceanrio(prop.getProperty("useremail"), prop.getProperty("password"),
 				getDriver());
 		dashboardPageFactory.storeDriverValue();
-		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.getCurrentWindow();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		zuperTwilioPageFactory.navigateToZuperTwilioVoicepage();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
-		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.openMusic();
+		Non_WebDriver_Util.minimizeMusic();
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent1");
+		Non_WebDriver_Util.waitThread(12);
 		dashboardPageFactory.putOnHold(getDriver());
-		dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.disconnectCallNew(getDriver());
+		Non_WebDriver_Util.waitThread(2);
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
+		Non_WebDriver_Util.waitThread(10);
+		callsListingPageFactory.getCallSummary();
+		callsListingPageFactory.checkKeywords("normal");
 		dashboardPageFactory.zuperToTwilio();
-		Non_WebDriver_Util.waitThread(1);
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.callingTwilioNumberBack();
@@ -71,16 +84,25 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		Non_WebDriver_Util.waitThread(3);
 		zuperTwilioPageFactory.acceptingTheIncommingCallOnTwilio();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
 		Non_WebDriver_Util.waitThread(2);
 		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent1");
+		Non_WebDriver_Util.waitThread(12);
 		dashboardPageFactory.putOnHold(getDriver());
-		dashboardPageFactory.putOnMute(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.switchToNewTab(getDriver());
 		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
-		dashboardPageFactory.switchingToFrame(getDriver());
-		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(getDriver());
+		Non_WebDriver_Util.waitThread(5);
+		callsListingPageFactory.getCallSummary();
+		callsListingPageFactory.checkKeywords("normal");
+		dashboardPageFactory.zuperToTwilio();
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		logger.info(
 				"<<<<<<Incomming and Outgoing call functionalities with Zuper Twilio app is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS,
@@ -94,14 +116,21 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	public void verify_ColdTransferFunctionality(@Optional("liveNext")String url) {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Cold Transfer functionality");
 		System.out.println("Verifying Cold Transfer functionality");
+		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		dashboardPageFactory.zuperToTwilio();
 		zuperTwilioPageFactory.callingCustomerNumber(prop.getProperty("customerNumber"));
 		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
 		dashboardPageFactory.switchingToFrame(getDriver());
-		Non_WebDriver_Util.waitThread(1);
-		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		dashboardPageFactory.checkAndAcceptTheCall(getDriver());	
+		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "ColdTransferAgent1Message");
+		Non_WebDriver_Util.waitThread(8);
 		initilizeConfigNew("incognito", prop.getProperty(url));
 		companyPageFactory.enterCompanyNameDetails(prop.getProperty("company_Name"),
 				incognitoDriver);
@@ -116,9 +145,19 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.transferringCallToFE(prop.getProperty("feToTransfer"));
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.checkAndAcceptTheCall(incognitoDriver);
+		Non_WebDriver_Util.waitThread(1);
+		Non_WebDriver_Util.playAudio(incognitoDriver, "Agent1");
+		Non_WebDriver_Util.waitThread(12);
 		dashboardPageFactory.putOnHold(incognitoDriver);
-		dashboardPageFactory.putOnMute(incognitoDriver);
 		dashboardPageFactory.disconnectCallNew(incognitoDriver);
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		Non_WebDriver_Util.waitThread(5);
+		callsListingPageFactory.getCallSummary();	
+		callsListingPageFactory.checkKeywords("coldTransfer");
+		dashboardPageFactory.zuperToTwilio();
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		Non_WebDriver_Util.waitThread(2);
 		logger.info("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Cold Call Transfer functionality is working as expected.");
 		System.out.println("<<<<<<Cold Call Transfer functionality is working as expected.>>>>>>");
@@ -129,6 +168,7 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 	public void verify_WarmCallTransferFunctionality() {
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent.createTest("Verifying Warm Transfer functionality");
 		System.out.println("Verifying Warm Transfer functionality");
+		dashboardPageFactory.switchingToFrame(getDriver());
 		dashboardPageFactory.markUserAsAvailable(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.waitThread(1);
@@ -139,12 +179,23 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.switchingToFrame(getDriver());
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.checkAndAcceptTheCall(getDriver());
+		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "WarmTransferAgent1Message");
+		Non_WebDriver_Util.waitThread(11);
 		dashboardPageFactory.selectFEToTransfer(prop.getProperty("feToTransfer"));
 		dashboardPageFactory.warmTransferringCallToFE(prop.getProperty("feToTransfer"));
 		Non_WebDriver_Util.waitThread(1);
 		dashboardPageFactory.checkAndAcceptTheCall(incognitoDriver);
 		dashboardPageFactory.mergeTheTransferedCall();
-		dashboardPageFactory.putOnMute(getDriver());
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent1");
+		Non_WebDriver_Util.waitThread(12);
+		Non_WebDriver_Util.quitMusic();
+		dashboardPageFactory.muteAndUnmute(getDriver());
 		dashboardPageFactory.putOnHold(getDriver());
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		dashboardPageFactory.putOnMute(incognitoDriver);
@@ -156,6 +207,9 @@ public class TC_CombinedSanityCasesWithoutMinimize extends Baseclass {
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		dashboardPageFactory.verifyCallIsDisconnectedAndDailerIsReadyToUse(incognitoDriver);
 		dashboardPageFactory.quitBrowser(incognitoDriver);
+		Non_WebDriver_Util.waitThread(5);
+		callsListingPageFactory.getCallSummary();
+		callsListingPageFactory.checkKeywords("warmTransfer");
 		logger.info("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Warm Call Transfer functionality is working as expected.");
 		System.out.println("<<<<<<Warm Call Transfer functionality is working as expected.>>>>>>");

@@ -32,7 +32,7 @@ public class ZuperConnectPageFactory extends Baseclass {
 	private By button_ClickToUpload = By.xpath("//input[@type='file']");
 	private By button_DoneOnAttachments = By.xpath("//button[text()=' Done ']");
 	private By text_100Per = By.xpath("//div[text()=' 100%']");
-	private By tab_Calls = By.xpath("//a[text()=' Calls ']");
+	private By tab_Calls = By.xpath("(//button[normalize-space()='Calls'])[1]");
 	private By tab_Conversation = By.xpath("//a[text()=' Conversations ']");
 	private By element_AllInboxes = By.xpath("//*[text()='All Numbers']");
 	private By element_ToInput = By.xpath("//ng-select//input");
@@ -161,6 +161,12 @@ public class ZuperConnectPageFactory extends Baseclass {
 		driver.findElement(tab_Conversation).click();
 	}
 
+	public void navigateToCallsTab() {
+		Non_WebDriver_Util.waitForBeClickable(driver, tab_Calls, 15);
+		driver.findElement(tab_Calls).click();
+		Non_WebDriver_Util.waitThread(1);
+	}
+
 	public static String sentMessage;
 	public static String sentMMSMessage;
 
@@ -201,8 +207,8 @@ public class ZuperConnectPageFactory extends Baseclass {
 		}
 		Non_WebDriver_Util.getScreenshot(driver, "");
 	}
-
-	public void enterTextAndSendMessage(WebDriver driver) {	
+	
+	public void enterTextAndSendMessage(WebDriver driver) {
 		if (DashboardPageFactory.driverValue.equalsIgnoreCase(driver.toString())) {
 			creatingMessage("Zuper New Message @ ", driver);
 			logger.info("Agent 1 sent a message to Agent 2 and the Message is: '" + sentMessage + "'");
@@ -238,5 +244,18 @@ public class ZuperConnectPageFactory extends Baseclass {
 		Non_WebDriver_Util.returnToParentTab(driver, DashboardPageFactory.customerWindow);
 		logger.info("Navigating to Zuper Dashboard page");
 		Non_WebDriver_Util.testCase.log(Status.PASS, "Navigating to Zuper Dashboard page");
+	}
+
+	public void checkingAttachmnetsCountAndURL(String region, WebDriver driver, String apiKey) {
+		Non_WebDriver_Util.waitThread(1);
+		String currentURL = driver.getCurrentUrl();
+		String[] urlParts = currentURL.split("/");
+		String conversationUID = urlParts[urlParts.length - 1];
+		System.out.println("Conversation UID is: " + conversationUID);	
+		String conversationURL = region + conversationUID;
+		System.out.println("Conversation URL is: " + conversationURL);	
+		Non_WebDriver_Util.printMediaDetails(conversationURL, apiKey, driver);
+		conversationURL = null;
+		
 	}
 }
