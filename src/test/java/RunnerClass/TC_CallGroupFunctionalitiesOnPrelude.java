@@ -1,6 +1,7 @@
 package RunnerClass;
 
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import BaseTest.Baseclass;
 import PageObjectRep.CallGroupPageFactory;
@@ -17,8 +18,8 @@ public class TC_CallGroupFunctionalitiesOnPrelude extends Baseclass {
 	private CallGroupPageFactory callGroupPageFactory;
 
 	@Test
-	public void setUp() {
-		initilizeConfig(); // BaseClass setup
+	public void verify_CallGroupFunctionalitiesOnPrelude(@Optional("UAT") String url) {
+		initilizeConfigNew("normal", prop.getProperty(url));    
 		getDriver().navigate().to(prop.getProperty("nextURL"));
 		companyPageFactory = new CompanyPageFactory();
 		dashboardPageFactory = new DashboardPageFactory();

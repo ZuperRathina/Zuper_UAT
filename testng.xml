@@ -6,9 +6,9 @@
     </listeners>
 
     <test name="TC_Job_Creation1">
-    <parameter name="url" value="UATNext"/>
+    <parameter name="url" value="liveNext"/>
         <classes>
-            <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST"/>
+            <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize"/>
         </classes>
     </test>
 

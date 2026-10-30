@@ -4,7 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import BaseTest.Baseclass;
-import PageObjectRep.CallsListingPageFactory;
+//import PageObjectRep.CallsListingPageFactory;
 import PageObjectRep.CompanyPageFactory;
 import PageObjectRep.DashboardPageFactory;
 //import PageObjectRep.ZuperConnectPageFactory;
@@ -17,7 +17,7 @@ public class TestFuncs extends Baseclass{
 	private DashboardPageFactory dashboardPageFactory;
 	//private ZuperConnectPageFactory zuperConnectPageFactory;
 	private ZuperTwilioVoicePageFactory zuperTwilioPageFactory;
-	private CallsListingPageFactory callsListingPageFactory;
+	//private CallsListingPageFactory callsListingPageFactory;
 
     @Test
     public void testFns(@Optional("liveNext") String url) {
@@ -26,7 +26,7 @@ public class TestFuncs extends Baseclass{
         dashboardPageFactory= new DashboardPageFactory();
       //  zuperConnectPageFactory= new ZuperConnectPageFactory();
         zuperTwilioPageFactory = new ZuperTwilioVoicePageFactory();
-        callsListingPageFactory = new CallsListingPageFactory();
+      // callsListingPageFactory = new CallsListingPageFactory();
     	Non_WebDriver_Util.initReport();
 		Non_WebDriver_Util.testCase = Non_WebDriver_Util.extent
 				.createTest("Verifying Incoming and Outgoing Messages functionality with " +prop.getProperty("company_Name") +" account");
@@ -56,33 +56,33 @@ public class TestFuncs extends Baseclass{
 		Non_WebDriver_Util.waitThread(2);
 		dashboardPageFactory.switchingToDefaultContent(getDriver());
 		Non_WebDriver_Util.waitThread(10);
-		callsListingPageFactory.getCallSummary();	
+		//callsListingPageFactory.getCallSummary();	
 		dashboardPageFactory.openDailer(getDriver());
-//		dashboardPageFactory.zuperToTwilio();
-//		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
-//		dashboardPageFactory.switchingToFrame(getDriver());
-//		dashboardPageFactory.callingTwilioNumberBack();
-//		dashboardPageFactory.switchingToDefaultContent(getDriver());
-//		Non_WebDriver_Util.waitThread(3);
-//		zuperTwilioPageFactory.acceptingTheIncommingCallOnTwilio();
-//		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
-//		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
-//		Non_WebDriver_Util.waitThread(2);
-//		dashboardPageFactory.switchingToFrame(getDriver());
-//		dashboardPageFactory.muteAndUnmute(getDriver());
-//		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
-//		Non_WebDriver_Util.waitThread(12);
-//		dashboardPageFactory.muteAndUnmute(getDriver());
-//		Non_WebDriver_Util.playAudio(getDriver(), "Agent1");
-//		Non_WebDriver_Util.waitThread(12);
-//		Non_WebDriver_Util.quitMusic();
-//		dashboardPageFactory.putOnHold(getDriver());
-//		dashboardPageFactory.switchingToDefaultContent(getDriver());
-//		Non_WebDriver_Util.switchToNewTab(getDriver());
-//		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
-//		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
-//		Non_WebDriver_Util.waitThread(10);
-//		callsListingPageFactory.getCallSummary();	
+		dashboardPageFactory.zuperToTwilio();
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.callingTwilioNumberBack();
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
+		Non_WebDriver_Util.waitThread(3);
+		zuperTwilioPageFactory.acceptingTheIncommingCallOnTwilio();
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		Non_WebDriver_Util.getInProgressCallUID(prop.getProperty("getCallsUSEast"), prop.getProperty("usEastAPIKey"), prop.getProperty("callInitiatedOrAcceptedUser"));
+		Non_WebDriver_Util.waitThread(2);
+		dashboardPageFactory.switchingToFrame(getDriver());
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Customer");
+		Non_WebDriver_Util.waitThread(12);
+		dashboardPageFactory.muteAndUnmute(getDriver());
+		Non_WebDriver_Util.playAudio(getDriver(), "Agent1");
+		Non_WebDriver_Util.waitThread(12);
+		Non_WebDriver_Util.quitMusic();
+		dashboardPageFactory.putOnHold(getDriver());
+		dashboardPageFactory.switchingToDefaultContent(getDriver());
+		Non_WebDriver_Util.switchToNewTab(getDriver());
+		zuperTwilioPageFactory.disconnectTheCallFromTwilioEnd();
+		zuperTwilioPageFactory.navigatingFromTwilioPageToZuperDashboardPage();
+		Non_WebDriver_Util.waitThread(10);
+		//callsListingPageFactory.getCallSummary();	
     }
     
     @AfterTest(alwaysRun = true)

@@ -15,8 +15,9 @@ import org.json.JSONObject;
 import BaseTest.Baseclass;
 
 public class ReportToSlack extends Baseclass {
-	private static String token = "";
+	public static String token = Baseclass.propSecc.getProperty("slackToken");
 	private static String channelId = "C0AK06LKHBL";
+	
 
 	@SuppressWarnings("deprecation")
 	public static void uploadReport(String filePath, String environment, String account, long minutes, long seconds, String methodName) {
@@ -46,7 +47,7 @@ public class ReportToSlack extends Baseclass {
 			OutputStream os = conn.getOutputStream();
 			os.write(body.getBytes());
 			os.close();
-
+			
 			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			String line;
 			StringBuilder responseStr = new StringBuilder();

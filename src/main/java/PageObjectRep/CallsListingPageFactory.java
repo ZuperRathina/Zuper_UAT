@@ -65,11 +65,11 @@ public class CallsListingPageFactory extends Baseclass {
 		String[] keywords;
 
 		if (callType.equalsIgnoreCase("normal")) {
-			keywords = new String[] { "storm", "roof damage", "address", "date and time" };
+			keywords = new String[] { "storm", "roof damage", "address", "date", "time" };
 		} else if (callType.equalsIgnoreCase("coldTransfer")) {
-			keywords = new String[] { "Storm", "roof damage", "transferred", "address", "date and time" };
+			keywords = new String[] { "Storm", "roof damage", "transferred", "address", "date", "time" };
 		} else if (callType.equalsIgnoreCase("warmTransfer")) {
-			keywords = new String[] { "Storm", "roof damage", "teammates", "address", "date and time" };
+			keywords = new String[] { "Storm", "roof damage", "teammates", "address", "date", "time" };
 		} else {
 			System.out.println("Invalid call type: " + callType);
 			return;

@@ -20,7 +20,7 @@ public class TOTPUtil {
         byte[] keyBytes = base32.decode(base32Secret.toUpperCase());
 
         // Create SecretKey for HMAC-SHA1
-        SecretKey key = new SecretKeySpec(keyBytes, "HmacSHA1");
+        SecretKey key = new SecretKeySpec(keyBytes, "");
 
         // Create TOTP generator: 30 seconds, 6 digits
         TimeBasedOneTimePasswordGenerator totp =

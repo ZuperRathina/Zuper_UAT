@@ -1,6 +1,6 @@
 package RunnerClass;
 
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
@@ -54,7 +54,7 @@ public class TC_OutgoingAndIncommingMessages extends Baseclass{
 				"Incoming and Outgoing Messages functionality is working as expected.");	
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void sendReportToSlack() {
 
         System.out.println("===== AFTER METHOD STARTED =====");

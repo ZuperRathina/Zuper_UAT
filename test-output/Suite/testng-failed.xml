@@ -5,17 +5,17 @@
     <listener class-name="RunnerClass.FailureListener"/>
   </listeners>
   <test thread-count="5" name="TC_Job_Creation1(failed)">
-    <parameter name="url" value="UATNext"/>
+    <parameter name="url" value="liveNext"/>
     <classes>
-      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST">
+      <class name="RunnerClass.TC_CombinedSanityCasesWithoutMinimize">
         <methods>
-          <include name="verify_IncommingAndOutgoingCallsWithTwilioVoiceApp"/>
-          <include name="setUp"/>
-          <include name="sendFinalReport"/>
           <include name="creatingReport"/>
+          <include name="sendFinalReport"/>
           <include name="closeBrowsers"/>
+          <include name="verify_OutgoingAndIncommingMessages" invocation-numbers="0"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimizeTEST -->
+      </class> <!-- RunnerClass.TC_CombinedSanityCasesWithoutMinimize -->
     </classes>
   </test> <!-- TC_Job_Creation1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

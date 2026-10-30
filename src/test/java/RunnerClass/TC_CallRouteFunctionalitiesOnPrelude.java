@@ -1,6 +1,7 @@
 package RunnerClass;
 
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 import BaseTest.Baseclass;
 import PageObjectRep.CallRoutePageFactory;
@@ -17,8 +18,8 @@ public class TC_CallRouteFunctionalitiesOnPrelude extends Baseclass {
 	private CallRoutePageFactory callRoutePageFactory;
 
 	@Test
-	public void setUp() {
-		initilizeConfig(); // BaseClass setup
+	public void verfiy_CallRouteFunctionalitiesOnPrelude(@Optional("UAT") String url) {
+		initilizeConfigNew("normal", prop.getProperty(url));    
 		getDriver().navigate().to(prop.getProperty("nextURL"));
 		companyPageFactory = new CompanyPageFactory();
 		dashboardPageFactory = new DashboardPageFactory();

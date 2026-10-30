@@ -21,7 +21,7 @@ public class EmailReport {
 	public static void sendEmailReport() {
 		// String reportPath
 		String senderEmail = "zupertesting@gmail.com";
-		String appPassword = "suejntlrnlgnxipi";
+		String appPassword = "";
 		String receiverEmail = "rathinakumar.k@zuper.co";
 		//String receiverCCEmail = "jeevitha.k@zuper.co";
 

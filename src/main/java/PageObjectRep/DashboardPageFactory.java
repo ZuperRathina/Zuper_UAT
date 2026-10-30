@@ -127,10 +127,6 @@ public class DashboardPageFactory extends Baseclass {
 		Non_WebDriver_Util.waitThread(3);
 	}
 
-	public void updatingDailerStatus(WebDriver driver) {
-
-	}
-
 	public void zuperToTwilio() {
 		driver.switchTo().defaultContent();
 		Non_WebDriver_Util.switchToNewTab(driver);
